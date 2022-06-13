@@ -20,7 +20,7 @@ mysql = MySQL(app)
 #     return request.url + "15"
 #     #return os.environ['MY_SERVER_NAME']
 @app.route("/", subdomain="www")
-def home_(hospital_name):
+def home():
     return "This is the welcome page"
 
 @app.route("/", subdomain="<hospital_name>")
