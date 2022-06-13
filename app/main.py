@@ -23,7 +23,7 @@ def home_view():
 @app.route("/", subdomain="<hospital_name>")
 def static_index(hospital_name):
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    cursor.execute(f'SELECT * FROM hospital_portals WHERE hospital = {hospital_name}')
+    cursor.execute(f'SELECT * FROM hospital_portals WHERE hospital = "{hospital_name}"')
     # Fetch one record and return result
     hospital = cursor.fetchone()
     if hospital:
