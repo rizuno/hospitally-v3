@@ -1,6 +1,6 @@
 from flask import Flask
 from flask import request
-import os
+
 app = Flask(__name__,subdomain_matching=True)
 app.config['SERVER_NAME']="hospitally.online"
 
