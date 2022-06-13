@@ -4,4 +4,6 @@ from app.main import app
 if __name__ == "__main__":
         port = int(os.environ.get("PORT", 5000))
         app.run(debug=True, port=port)
+        app.config['SERVER_NAME']='hospitally.online'
+	# app.url_map.default_subdomain = "www"
         app.run()
