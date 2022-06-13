@@ -6,8 +6,8 @@ import MySQLdb.cursors
 import re
 
 app = Flask(__name__,subdomain_matching=True)
-# app.config['SERVER_NAME']="hospitally.online" #production_server
-app.config['SERVER_NAME']="local-hospitally.online:5000"
+app.config['SERVER_NAME']="hospitally.online" #production_server
+# app.config['SERVER_NAME']="local-hospitally.online:5000"
 app.config['MYSQL_HOST'] = '188.166.215.64'
 app.config['MYSQL_USER'] = 'hospitally_app'
 app.config['MYSQL_PASSWORD'] = 'wSbt?gXx+hcV8`.h'
@@ -21,7 +21,7 @@ mysql = MySQL(app)
 #     #return os.environ['MY_SERVER_NAME']
 @app.route("/", subdomain="www")
 def home():
-    return "This is the welcome page"
+    return "This is the welcome page lazygit test"
 
 @app.route("/", subdomain="<hospital_name>")
 def static_index(hospital_name):
