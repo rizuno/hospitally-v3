@@ -6,7 +6,7 @@ app.config['SERVER_NAME']="hospitally.online"
 
 @app.route("/")
 def home_view():
-        return request.url + "14s"
+        return request.url + "15"
         #return os.environ['MY_SERVER_NAME']
 
 @app.route("/", subdomain="static")
