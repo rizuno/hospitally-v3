@@ -2,7 +2,7 @@ from flask import Flask
 from flask import request
 
 app = Flask(__name__,subdomain_matching=True)
-app.config['SERVER_NAME']="hospitally-app-v1000001.herokuapp.com"
+app.config['SERVER_NAME']="hospitally.online"
 
 @app.route("/")
 def home_view():
