@@ -4,7 +4,7 @@ app = Flask(__name__)
  
 @app.route("/")
 def home_view():
-        return "<h1>HI CJ!</h1>"
+        return "<h1>HI CJ! tessting subdomains</h1>"
 
 @app.route("/", subdomain="static")
 def static_index():
