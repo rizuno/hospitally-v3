@@ -5,8 +5,8 @@ app = Flask(__name__,subdomain_matching=True)
  
 @app.route("/")
 def home_view():
-        # return request.url
-        return os.environ['MY_SERVER_NAME']
+        return request.url
+        #return os.environ['MY_SERVER_NAME']
 
 @app.route("/", subdomain="static")
 def static_index():
