@@ -1,11 +1,11 @@
 from flask import Flask
- from flask import request
+from flask import request
 app = Flask(__name__,subdomain_matching=True)
  
 @app.route("/")
 def home_view():
         
-        return request.path
+        return request.url
 
 @app.route("/", subdomain="static")
 def static_index():
