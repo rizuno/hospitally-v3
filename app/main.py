@@ -33,7 +33,7 @@ def static_index(hospital_name):
     if row:
         return f'Welcome {row["hospital"]} hospital'
     else:
-        return "It looks like you're hospital isn't registered with us yet. Sign up now!"
+        return "It looks like your hospital isn't registered with us yet. Sign up now!"
 
     # """Flask supports static subdomains
     # This is available at static.your-domain.tld"""
