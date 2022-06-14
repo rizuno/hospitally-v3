@@ -22,9 +22,9 @@ def home2():
 # def home_view():
 #     return request.url + "15"
 #     #return os.environ['MY_SERVER_NAME']
-# @app.route("/", subdomain="www")
-# def home():
-#     return render_template("index.html")
+@app.route("/", subdomain="www")
+def home():
+    return render_template("index.html")
 
 # @app.route("/", subdomain="<hospital_name>")
 # def static_index(hospital_name):
