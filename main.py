@@ -16,7 +16,7 @@ mysql = MySQL(app)
 
 @app.context_processor
 def inject_static_host():
-    return dict(static_host = "https://shambles1812.github.io/static/")
+    return dict(static_host = "https://shambles1812.github.io/static/") # empty string on development
 
 @app.route("/")
 def home2():
