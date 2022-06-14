@@ -12,11 +12,12 @@ app.config['MYSQL_HOST'] = '188.166.215.64'
 app.config['MYSQL_USER'] = 'hospitally_app'
 app.config['MYSQL_PASSWORD'] = 'wSbt?gXx+hcV8`.h'
 app.config['MYSQL_DB'] = 'hospitally'
-
-STATIC_HOST = "https://shambles1812.github.io/static/"
 mysql = MySQL(app)
-def static_url(file_loc):
-    return STATIC_HOST + file_loc
+
+@app.context_processor
+def inject_static_host():
+    return dict(static_host = "https://shambles1812.github.io/static/")
+
 @app.route("/")
 def home2():
     return render_template("index.html")
