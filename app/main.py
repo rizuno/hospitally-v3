@@ -21,7 +21,7 @@ mysql = MySQL(app)
 #     #return os.environ['MY_SERVER_NAME']
 @app.route("/", subdomain="www")
 def home():
-    return "This is the welcome page lazygit test"
+    return render_template("index.html")
 
 @app.route("/", subdomain="<hospital_name>")
 def static_index(hospital_name):
