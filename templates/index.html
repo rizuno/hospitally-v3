@@ -33,7 +33,8 @@
                 
                 <!-- Logo -->
                 <div class="pt-2 h-48 w-92">
-                    <img src={{ url_for('static', filename='img/logo-hospitally.png') }} alt="logo">
+                    {% comment %} <img src={{ url_for('static', filename='img/logo-hospitally.png') }} alt="logo"> {% endcomment %}
+                     <img src={{ static_url('img/logo-hospitally.png') }} alt="logo">
                 </div>
                 
                 <!-- Menu Items -->
