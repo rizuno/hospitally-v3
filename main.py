@@ -15,7 +15,13 @@ app.config['MYSQL_DB'] = 'hospitally'
 
 mysql = MySQL(app)
 
-
+@app.route("/")
+def home2():
+    return render_template("index.html")
+# @app.route("/")
+# def home_view():
+#     return request.url + "15"
+#     #return os.environ['MY_SERVER_NAME']
 @app.route("/", subdomain="www")
 def home():
     return render_template("index.html")
