@@ -7,6 +7,7 @@ import re
 
 app = Flask(__name__,subdomain_matching=True)
 app.config['SERVER_NAME']="hospitally.online" #production_server
+app.static_folder = 'static'
 # app.config['SERVER_NAME']="local-hospitally.online:5000"
 app.config['MYSQL_HOST'] = '188.166.215.64'
 app.config['MYSQL_USER'] = 'hospitally_app'
