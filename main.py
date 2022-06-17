@@ -33,12 +33,14 @@ def home():
     return render_template("index.html")
 
 
-@app.route("/", subdomain="<hospital_name>")
+
+@app.route("/", subdomain="<hospital_name>") # saint-peter.hospitally.online makati-med
 def static_index(hospital_name):
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    cursor.execute(f'SELECT * FROM hospital_portals WHERE hospital = "{hospital_name}"')
+    cursor.execute(f'SELECT * FROM hospital_portals WHERE hospital = "{hospital_name}"') #change to portal id table
     # Fetch one record and return result
-    row = cursor.fetchone()
+    row = cursor.fetchone() #returns dictionary of the row
+
     if row:
         return f'Welcome {row["hospital"]} hospital'
     else:

@@ -18,6 +18,9 @@ module.exports = {
     },
     container: {
         center: true
+    },
+    backgroundSize: {
+      '50%':'50%',
     }
   },
   plugins: [],
