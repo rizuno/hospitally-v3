@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href={{ static_host +'static/css/portal.css' }}>
-    <link rel="stylesheet" href={{ static_host +'static/css/output.css' }}> 
+    <link rel="stylesheet" href={{ static_host +'static/css/output.css' }}>
+    <link rel="stylesheet" href={{ url_for("static",filename="output.css") }}>
     <title>Portal Page</title>
 
     <div class="grid grid-cols-1 divide-y-2 divide-lightGray">
