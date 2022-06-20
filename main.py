@@ -91,7 +91,7 @@ def portal_creation_page():
 
 @app.route("/", subdomain="<portal_slug>")  
 @app.route("/<action>", subdomain="<portal_slug>")
-def portal_home(portal_slug):
+def portal_home(portal_slug,action=None):
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     cursor.execute(
         f'SELECT * FROM tbl_portal WHERE portal_slug = "{hospital_slug}"'
