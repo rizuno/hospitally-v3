@@ -65,10 +65,7 @@ def home():
             portal_url = portal_details["portal_slug"] + ".hospitally.online"
             hospital_name = portal_details["portal_name"]
             cursor.execute(f'SELECT * FROM tbl_user WHERE user_id = "{user_id}"')
-
-            return render_template(
-                "login_test.html", portal_url=portal_url, hospital_name=hospital_name
-            )  # check if user has already created a database/portal and redirect accordingly
+            return redirect(url_for("portal_home",portal_slug =portal_details["portal_slug"] )
     return render_template("index.html")
 
 
@@ -91,20 +88,29 @@ def portal_creation_page():
         return "Please login first"
 
 
-@app.route("/", subdomain="<portal_slug>")  # saint-peter.hospitally.online makati-med
-def static_index(portal_slug):
+@app.route("/", subdomain="<portal_slug>")  
+@app.route("/<action>", subdomain="<portal_slug>")
+def portal_home(portal_slug):
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     cursor.execute(
-        f'SELECT * FROM tbl_portal WHERE portal_slug = "{portal_slug}"'
-    )  # change to portal id table
-    # Fetch one record and return result
-    row = cursor.fetchone()  # returns dictionary of the row
-
-    if row:
-        return f'Welcome to {row["portal_name"]} hospitally portal'
+        f'SELECT * FROM tbl_portal WHERE portal_slug = "{hospital_slug}"'
+    ) 
+    row = cursor.fetchone()  
+    print(row)
+    print(action)
+    if row: #checks if the portal_slug is inside the db
+        if session.get("logged_in")==True and session.get("as_admin")==True:
+            return "Redirecting to Admin Page"
+        elif session.get("logged_in")==True and session.get("as_admin")==False:
+            return "Redirecting to User Page"
+        else:
+            if action is None or  action == "login": # if session is not logged in
+                return render_template("portal-login.html", portal_name=row["portal_name"])
+            elif action == "register":
+                return render_template("portal-register.html", portal_name=row["portal_name"])
+        
     else:
         return "It looks like your hospital isn't registered with us yet. Sign up now!"
-
 
 # post endpoints
 
@@ -148,6 +154,7 @@ def logout():
     session.pop("logged_in", False)
     session.pop("id", None)
     session.pop("username", None)
+    session.pop("as_admin",None)
     return redirect(url_for("home"))
 
 
