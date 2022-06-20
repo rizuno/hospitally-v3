@@ -151,9 +151,7 @@ def logout():
     return redirect(url_for("home"))
 
 
-app.route("/register", methods=["POST", "GET"], subdomain="www")
-
-
+@app.route("/register", methods=["POST", "GET"], subdomain="www")
 def register_post():
     cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     if request.method == "POST":
