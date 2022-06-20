@@ -25,7 +25,7 @@ bcrypt = Bcrypt()
 app.config["MYSQL_HOST"] = "188.166.215.64"
 app.config["MYSQL_USER"] = "hospitally_app"
 app.config["MYSQL_PASSWORD"] = "wSbt?gXx+hcV8`.h"
-app.config["MYSQL_DB"] = "hospitally"
+app.config["MYSQL_DB"] = "hospitally_v3"
 app.secret_key = "super secret key"
 mysql = MySQL(app)
 
