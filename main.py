@@ -144,7 +144,7 @@ def login_post():
                 session["as_admin"] = True
                 msg = "success yes testing success changes"
             else:
-                msg = "No-data"
+                msg = "No-data test ulit"
         else:
             msg = "No-data"
     return jsonify(msg)
