@@ -65,7 +65,7 @@ def home():
             portal_url = portal_details["portal_slug"] + ".hospitally.online"
             hospital_name = portal_details["portal_name"]
             cursor.execute(f'SELECT * FROM tbl_user WHERE user_id = "{user_id}"')
-            return redirect(url_for("portal_home",portal_slug =portal_details["portal_slug"] )
+            return redirect(url_for("portal_home",portal_slug =portal_details["portal_slug"] ))
     return render_template("index.html")
 
 
