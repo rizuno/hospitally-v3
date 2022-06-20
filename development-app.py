@@ -69,21 +69,59 @@ def home():
             )  # check if user has already created a database/portal and redirect accordingly
     return render_template("index.html")
 
-
-@app.route("/<hospital_name>/register")
-def register(hospital_name):
+@app.route("/<hospital_slug>")
+@app.route("/<hospital_slug>/")
+@app.route("/<hospital_slug>/<action>")
+def portal_home(hospital_slug,action=None):
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     cursor.execute(
-        f'SELECT * FROM tbl_portal WHERE portal_slug = "{hospital_name}"'
-    )  # change to portal id table
-    row = cursor.fetchone()  # returns dictionary of the row
+        f'SELECT * FROM tbl_portal WHERE portal_slug = "{hospital_slug}"'
+    ) 
+    row = cursor.fetchone()  
     print(row)
-    if row:
-        # return f'Welcome {row["portal_name"]} hospital'
-        return render_template("portal-register.html", portal_name=row["portal_name"])
+    print(action)
+    if row: #checks if the portal_slug is inside the db
+        if session.get("logged_in")==True and session.get("as_admin")==True:
+            return "Redirecting to Admin Page"
+        elif session.get("logged_in")==True and session.get("as_admin")==False:
+            return "Redirecting to User Page"
+        else:
+            if action is None or  action == "login": # if session is not logged in
+                return render_template("portal-login.html", portal_name=row["portal_name"])
+            elif action == "register":
+                return render_template("portal-register.html", portal_name=row["portal_name"])
+        
     else:
         return "It looks like your hospital isn't registered with us yet. Sign up now!"
-    # return render_template("portal-register.html")
+
+# @app.route("/<hospital_name>/register")
+# def portal_register(hospital_name):
+#     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+#     cursor.execute(
+#         f'SELECT * FROM tbl_portal WHERE portal_slug = "{hospital_name}"'
+#     )  # change to portal id table
+#     row = cursor.fetchone()  # returns dictionary of the row
+#     print(row)
+#     if row:
+#         # return f'Welcome {row["portal_name"]} hospital'
+#         return render_template("portal-register.html", portal_name=row["portal_name"])
+#     else:
+#         return "It looks like your hospital isn't registered with us yet. Sign up now!"
+
+# @app.route("/<hospital_name>/login")
+# def portal_login(hospital_name):
+#     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+#     cursor.execute(
+#         f'SELECT * FROM tbl_portal WHERE portal_slug = "{hospital_name}"'
+#     )  # change to portal id table
+#     row = cursor.fetchone()  # returns dictionary of the row
+#     print(row)
+#     if row:
+#         # return f'Welcome {row["portal_name"]} hospital'
+#         return render_template("portal-login.html", portal_name=row["portal_name"])
+#     else:
+#         return "It looks like your hospital isn't registered with us yet. Sign up now!"
+#     # return render_template("portal-register.html")
 
 
 @app.route("/user-overview")
@@ -105,7 +143,7 @@ def portal_creation_page():
         if portal_account["portal_name"] is None:
             return render_template("portal-creation-page.html")
         else:
-            return "It looks like you've created your page already"
+            return redirect(url_for("portal_home",hospital_slug = portal_account["portal_slug"])) # change in production
     else:
         return "Please login first"
 
@@ -138,10 +176,11 @@ def login_post():
         if total_row > 0:
             rs_password = account["user_password_hash"]
             print(rs_password)
-            if bcrypt.check_password_hash(rs_password, password):
+            if bcrypt.check_password_hash(rs_password, password) and account["role"] == "admin":
                 session["logged_in"] = True
                 session["username"] = username
                 session["user_id"] = account["user_id"]
+                session["as_admin"] = True
                 msg = "success yes"
             else:
                 msg = "No-data"
@@ -208,11 +247,12 @@ def register_post():
 
             cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
             cursor.execute(
-                "INSERT INTO tbl_user VALUES (% s,% s, % s, % s, % s, % s, % s)",
+                "INSERT INTO tbl_user VALUES (% s,% s, % s, % s, % s, % s, % s, % s)",
                 (
                     unique_user_id,
                     unique_portal_id,
                     username,
+                    "admin",
                     pw_hash,
                     email,
                     today,
@@ -220,6 +260,10 @@ def register_post():
                 ),
             )
             mysql.connection.commit()
+            session["logged_in"] = True
+            session["username"] = username
+            session["user_id"] = unique_user_id
+            session["as_admin"] = True
             # print(f"LENGTH OF HASH IS {len(pw_hash)} HERE")
             print("SUCCESFULLY REGISTERED")
             msg = "You have successfully registered !"

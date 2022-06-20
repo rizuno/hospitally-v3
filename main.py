@@ -200,11 +200,12 @@ def register_post():
 
             cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
             cursor.execute(
-                "INSERT INTO tbl_user VALUES (% s,% s, % s, % s, % s, % s, % s)",
+                "INSERT INTO tbl_user VALUES (% s,% s, % s, % s, % s, % s, % s, % s)",
                 (
                     unique_user_id,
                     unique_portal_id,
                     username,
+                    "admin",
                     pw_hash,
                     email,
                     today,
@@ -212,6 +213,10 @@ def register_post():
                 ),
             )
             mysql.connection.commit()
+            session["logged_in"] = True
+            session["username"] = username
+            session["user_id"] = unique_user_id
+            session["as_admin"] = True
             # print(f"LENGTH OF HASH IS {len(pw_hash)} HERE")
             print("SUCCESFULLY REGISTERED")
             msg = "You have successfully registered !"
