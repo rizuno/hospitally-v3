@@ -240,7 +240,7 @@ def register_post():
             print(unique_portal_id)
 
             cur.execute(
-                "INSERT INTO tbl_portal VALUES (% s,NULL,NULL, % s)",
+                "INSERT INTO tbl_portal VALUES (% s,NULL,NULL, % s, '{}')",
                 (unique_portal_id, unique_user_id),
             )
             mysql.connection.commit()
