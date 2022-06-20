@@ -16,6 +16,8 @@ mysqlclient = "==2.1.0"
 werkzeug = "==2.1.2"
 zipp = "==3.8.0"
 gunicorn = "*"
+flask-bcrypt = "*"
+python-slugify = "*"
 
 [dev-packages]
 
