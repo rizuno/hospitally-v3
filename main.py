@@ -83,7 +83,8 @@ def portal_creation_page():
         if portal_account["portal_name"] is None:
             return render_template("portal-creation-page.html")
         else:
-            return "It looks like you've created your page already"
+            # return "It looks like you've created your page already"
+            return redirect(url_for("portal_home",portal_slug=portal_account["portal_slug"]))
     else:
         return "Please login first"
 
