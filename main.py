@@ -34,6 +34,9 @@ def static_url(file_path):
     return "https://shambles1812.github.io/" + file_path
 
 
+app.jinja_env.globals.update(static_url=static_url)
+
+
 @app.context_processor
 def inject_static_host():
     return dict(
