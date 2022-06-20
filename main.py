@@ -142,7 +142,7 @@ def login_post():
                 session["username"] = username
                 session["user_id"] = account["user_id"]
                 session["as_admin"] = True
-                msg = "success yes"
+                msg = "success yes testing success changes"
             else:
                 msg = "No-data"
         else:
