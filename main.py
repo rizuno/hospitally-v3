@@ -101,7 +101,7 @@ def static_index(portal_slug):
     row = cursor.fetchone()  # returns dictionary of the row
 
     if row:
-        return f'Welcome {row["hospital"]} hospital'
+        return f'Welcome to {row["portal_name"]} hospitally portal'
     else:
         return "It looks like your hospital isn't registered with us yet. Sign up now!"
 
