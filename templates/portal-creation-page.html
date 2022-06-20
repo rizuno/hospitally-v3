@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href={{ static_url('static/css/portal.css') }}>
+    <link rel="stylesheet" href={{ static_url('static/css/output.css') }}>
+    <link rel="stylesheet" href={{ static_url('static/css/style.css') }}>
+    <link rel="stylesheet" href={{ static_url('static/css/main.css') }}>
+    
+  
+
+    <link rel="stylesheet" href='static/css/output.css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Portal Page</title>
+
+    <div class="grid grid-cols-1 divide-y-2 divide-lightGray">
+        <div>
+            <!-- Navbar -->
+            <nav class="relative container mx-auto px-6 p-6">
+                <!--Flex Container-->
+                <div class="flex items-center justify-between">
+                    <!-- Logo -->
+                    <div class="pt-2">
+                        <img src="{{ static_host +'static/img/logo-hospitally.png'}}" alt="">
+                    </div>
+                    <!-- Menu Items -->
+                    <div class="md:flex space-x-14">
+                        <a href="#" class="text-darkSlate hover:text-brightOrange tracking-tighter text-2xl">contact us</a>
+                     </div>
+                </div>
+            </nav>
+        </div>
+</head>
+
+
+<body class="box-border m-0 ">
+    
+             
+        
+    <!-- Background Section -->
+    <div id="bg" class="grid grid-cols-2 gap-1">
+
+        <div id="left" class="md:bg-contain bg-no-repeat" style="background-image: url('{{ static_host +'static/img/hero-nurses.png'}}')">
+           
+        </div>
+
+         <!-- Right Item -->
+            <div class="">
+                <div class="grid grid-cols-1 divide-y-2 divide-lightGray space-y-12 md:w-1/2">
+                    <div>
+                        <h1 class="max-w-md text-5xl font-bold text-darkSlate 
+                        tracking-tighter text-center md:text-left sm:pt-10">
+                            create your database now
+                        </h1>
+                    </div>
+                    <div>
+                        <h1 class="py-6 text-3xl text-darkSlate font-thin text-left">
+                            let's get your hospital database working!
+                        </h1>
+                    </div>
+                </div>
+
+                <form class="pt-2">
+                    <input type="text" id="portal_name" placeholder="/hospital name" class="border-2 rounded-lg block py-4 pl-5 font-normal" size="55">
+                
+                </form>
+
+                <p class="pt-16 font-normal text-lightGray tracking-wider pl-2 italic">
+                    this will be used for your hospital URL! <br> try to keep it simple.
+                </p>
+
+                <p class="pt-10 font-normal text-lightGray tracking-wider pl-2 italic">
+                    _ _ _ _ _ _ _ _ .hospitally.xyz
+                </p>
+
+                <p class="pt-16 font-normal text-lightGray tracking-wider pl-2 italic">
+                    don't worry! You can still edit your <br> personal details later!
+                </p>
+
+                <div class="h-56 grid grid-cols-2 gap-4 content-start">
+                    <!-- Button 1 -->
+                    <div class="pt-8">
+                       <button id="register_portal_button" class="p-4 px-10 pt-4 text-white text-center tracking-wider text-lg font-thin bg-darkSlate 
+                          rounded-lg baseline hover:bg-gray-500" href="#">
+                       Register my hospital!
+                       </button>
+                    </div>
+             
+                 </div>
+                
+            </div>
+        </div>
+
+    </div>
+    <script>
+
+        // Get the button that opens the modal
+        var btn = $("#register_portal_button");
+
+        // Get the <span> element that closes the modal
+      
+        
+        $(document).ready(function(){
+            // When the user clicks the button, open the modal 
+            // login 
+            $('#register_portal_button').click(function(){  
+               var portal_name = $('#portal_name').val();  
+     
+               if(portal_name != '')  
+               {  
+                    $.ajax({  
+                         url:"/register_portal",  
+                         method:"POST",  
+                         data: {portal_name :portal_name},  
+                         success:function(data)  
+                         {  
+                              alert(data);  
+                              if(data == 'No-data')  
+                              {  
+                                   alert("Invalid Portal Name!");  
+                              }  
+                              else
+                              {   
+                                   location.reload();  
+                              }  
+                         }  
+                    });  
+               }  
+               else
+               {  
+                    alert("Both Fields are required");  
+               }  
+          });
+        
+        });
+     
+     </script>
+</body>
+</html>

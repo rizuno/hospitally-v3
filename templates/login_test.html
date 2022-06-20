@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href={{ static_url("static/css/main.css") }}>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Regisration Page</title>
+  </head>
+
+  <body class="box-border m-0">
+    <!-- Background Section -->
+    <h1>Hi! {{session.username }}</h1>
+    <h2>
+      Your Hospital {{ hospital_name }} can be accessed at {{ portal_url }}
+    </h2>
+    <button
+      id="logout_button"
+      type="button"
+      class="close"
+      data-dismiss="modal"
+      aria-label="Close"
+    >
+      logout
+    </button>
+    <script>
+      /*
+       * Modal popup
+       */
+      // Get the modals
+
+      // Get the <span> element that closes the modal
+
+      $(document).ready(function () {
+        // When the user clicks the button, open the modal
+        $("#logout_button").on("click", function () {
+          console.log("CLICKED");
+          $.ajax({
+            url: "/logout",
+            type: "get",
+            data: { action: "logout" },
+
+            success: function (data) {
+              alert(data);
+              location.reload();
+            },
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

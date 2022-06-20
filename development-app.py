@@ -14,6 +14,9 @@ from flask_bcrypt import Bcrypt
 import MySQLdb.cursors
 import re
 import random
+import time
+from datetime import date
+from slugify import slugify
 
 app = Flask(__name__)
 
@@ -21,7 +24,7 @@ app.config["MYSQL_HOST"] = "188.166.215.64"
 app.config["MYSQL_USER"] = "hospitally_app"
 app.config["MYSQL_PASSWORD"] = "wSbt?gXx+hcV8`.h"
 app.config["MYSQL_DB"] = "hospitally_v3"
-
+app.secret_key = "super secret key"
 mysql = MySQL(app)
 
 bcrypt = Bcrypt()
@@ -39,8 +42,31 @@ def inject_static_host():
     return dict(static_host="")  # empty string on development
 
 
-@app.route("/index")
+@app.route("/")
 def home():
+    if session.get("logged_in"):
+        print("user is logged in")
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        user_id = session.get("user_id")
+        cursor.execute(
+            f'SELECT * FROM tbl_portal WHERE portal_owner_user_id = "{user_id}"'
+        )
+        portal_row = cursor.fetchone()
+        print(portal_row["portal_name"])
+        if portal_row["portal_name"] is None:
+            return redirect(url_for("portal_creation_page"))
+        else:
+            cursor.execute(
+                f'SELECT * FROM tbl_portal WHERE portal_owner_user_id = "{user_id}"'
+            )
+            portal_details = cursor.fetchone()
+            portal_url = portal_details["portal_slug"] + ".hospitally.online"
+            hospital_name = portal_details["portal_name"]
+            cursor.execute(f'SELECT * FROM tbl_user WHERE user_id = "{user_id}"')
+
+            return render_template(
+                "login_test.html", portal_url=portal_url, hospital_name=hospital_name
+            )  # check if user has already created a database/portal and redirect accordingly
     return render_template("index.html")
 
 
@@ -65,9 +91,23 @@ def user_overview():
     return render_template("hospital_portal/user-overview.html")
 
 
-@app.route("/portal-page")
-def portal_page():
-    return render_template("portal-page.html")
+@app.route("/portal-create-page")
+def portal_creation_page():
+    if session.get("username") is not None:
+        cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cur.execute(
+            "SELECT * FROM tbl_portal WHERE portal_owner_user_id = %s",
+            [
+                session.get("user_id"),
+            ],
+        )
+        portal_account = cur.fetchone()
+        if portal_account["portal_name"] is None:
+            return render_template("portal-creation-page.html")
+        else:
+            return "It looks like you've created your page already"
+    else:
+        return "Please login first"
 
 
 # @app.route("/login")
@@ -91,22 +131,32 @@ def login_post():
                 username,
             ],
         )
+        account = cur.fetchone()
         total_row = cur.rowcount
         print(total_row)
 
         if total_row > 0:
-            data = cur.fetchone()
-            rs_password = data["user_password_hash"]
+            rs_password = account["user_password_hash"]
             print(rs_password)
             if bcrypt.check_password_hash(rs_password, password):
                 session["logged_in"] = True
                 session["username"] = username
-                msg = "success"
+                session["user_id"] = account["user_id"]
+                msg = "success yes"
             else:
                 msg = "No-data"
         else:
             msg = "No-data"
     return jsonify(msg)
+
+
+@app.route("/logout")
+def logout():
+    print("logging out")
+    session.pop("logged_in", False)
+    session.pop("id", None)
+    session.pop("username", None)
+    return redirect(url_for("home"))
 
 
 @app.route("/register", methods=["POST", "GET"])
@@ -117,7 +167,7 @@ def register_post():
         email = request.form["email"]
         password = request.form["password"]
         pw_hash = bcrypt.generate_password_hash(password)  # reimplement later
-
+        today = date.today()
         cur.execute("SELECT * FROM tbl_user WHERE user_username = % s", (username,))
         account = cur.fetchone()
 
@@ -147,34 +197,69 @@ def register_post():
         elif not username or not password or not email:
             msg = "Please fill out the form !"
         else:
+            print(unique_user_id)
+            print(unique_portal_id)
+
+            cur.execute(
+                "INSERT INTO tbl_portal VALUES (% s,NULL,NULL, % s)",
+                (unique_portal_id, unique_user_id),
+            )
+            mysql.connection.commit()
+
             cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-            # cursor.execute( "INSERT INTO tbl_user VALUES (% s, % s, % s, % s)",
-            #     (
-            #         unique_portal_id,
-            #         username,
-            #         pw_hash,
-            #         email,
-            #     ),
-            # )
             cursor.execute(
-                "INSERT INTO tbl_user VALUES (NULL, % s, % s, % s)",
+                "INSERT INTO tbl_user VALUES (% s,% s, % s, % s, % s, % s, % s)",
                 (
+                    unique_user_id,
+                    unique_portal_id,
                     username,
                     pw_hash,
                     email,
+                    today,
+                    today,
                 ),
             )
             mysql.connection.commit()
             # print(f"LENGTH OF HASH IS {len(pw_hash)} HERE")
-            # cur.execute(
-            #     "INSERT INTO tbl_portal (portal_id,portal_owner_user_id) VALUES (% s, % s,)",
-            #     (unique_portal_id, unique_user_id),
-            # )
-            # mysql.connection.commit()
             print("SUCCESFULLY REGISTERED")
             msg = "You have successfully registered !"
         total_row = cur.rowcount
         print(total_row)
+    return jsonify(msg)
+
+
+@app.route("/register_portal", methods=["POST", "GET"])
+def register_portal():
+    cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    if request.method == "POST":
+        portal_name = request.form["portal_name"]
+        user_id = session.get("user_id")
+        cur.execute(
+            "SELECT * FROM tbl_portal WHERE portal_owner_user_id = %s",
+            [
+                user_id,
+            ],
+        )
+
+        total_row = cur.rowcount
+
+        if total_row > 0:
+            cur.execute(
+                "UPDATE tbl_portal SET portal_slug = %s , portal_name = %s WHERE portal_owner_user_id = %s",
+                [
+                    slugify(portal_name),
+                    portal_name,
+                    user_id,
+                ],
+            )
+            mysql.connection.commit()
+            print(slugify(portal_name))
+            print(portal_name)
+            print(user_id)
+            print("SUCCESSFUL REGISTRATION")
+            msg = "SUCCESS"
+        else:
+            msg = "No-data"
     return jsonify(msg)
 
 
