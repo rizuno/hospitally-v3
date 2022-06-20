@@ -81,6 +81,9 @@ def portal_home(hospital_slug,action=None):
     print(row)
     print(action)
     if row: #checks if the portal_slug is inside the db
+        # if request.method == "POST": # add-feature portal log out
+        #     if action == "logout":
+
         if session.get("logged_in")==True and session.get("as_admin")==True:
             return "Redirecting to Admin Page"
         elif session.get("logged_in")==True and session.get("as_admin")==False:
