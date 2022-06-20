@@ -95,7 +95,7 @@ def portal_creation_page():
 def static_index(portal_slug):
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     cursor.execute(
-        f'SELECT * FROM tbl_portal WHERE portal_name = "{portal_slug}"'
+        f'SELECT * FROM tbl_portal WHERE portal_slug = "{portal_slug}"'
     )  # change to portal id table
     # Fetch one record and return result
     row = cursor.fetchone()  # returns dictionary of the row
