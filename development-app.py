@@ -312,3 +312,7 @@ def register_portal():
 
 if __name__ == "__main__":
     app.run()
+
+@app.route("/staff")
+def user_staff():
+    return render_template("hospital_portal/staff.html")
