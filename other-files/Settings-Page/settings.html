@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://unpkg.com/phosphor-icons"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="style.css">
+<title>SETTINGS</title>
+</head>
+<body>
+	<div class="container">
+    <div class="hospitally">
+    <h1>Hospitally </h1>
+    </div>
+
+  	<div class="wrapper">
+	<ul class="indicator">
+    <br><br>
+		<li class="active" data-target="#change"> change hospital settings</li>
+		<li data-target="#account"> account</li>
+		<li data-target="#helpSupport"> help and support</li>
+		<li data-target="#termsConditions"> terms and conditions</li>
+        <li data-target="#privacy"> privacy</li>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <li data-target="#aboutHospitally"> about Hospitally</li>
+	</ul>
+
+
+	<ul class="content">
+	
+	<li class="active" id="change">
+	<div class="loginDetails">
+	<br><br><br><br><br><br><br>
+
+	<!-- Change hospital settings code -->
+	<p>change hospital name: 
+	<input type="text" id="name" name="name" required
+    minlength="4" maxlength="8" size="50"><br><br><br></p>
+
+    <!-- CHANGE LOGIN IMAGE: -->
+    <p style="text-align:left">change login image:</p>
+	<div class="field-group">
+	<input type="file" name="file[]" id="file" class="file-field">
+	<label for="file" class="file-label">
+	<figure>
+	<!-- FILE UPLOAD ICON -->
+    <i class="fa fa-upload"></i>
+	</figure>
+	</label>
+	</div>        
+	<hr>
+	<br>  
+	<button class="button">save</button>		
+	</li>
+			
+    <!-- account code -->
+	<li id="account">
+    <div class="loginDetails">
+    <h1>login details & <br> personal information</h1>
+	<!-- USERNAME: -->
+	<p>username: 
+    <input type="text" id="username" name="username" required
+    minlength="4" maxlength="8" size="50"><br></p>
+    <!-- PASSWORD: -->
+    <p>password: 
+    <input type="password" id="password" name="password" required
+    minlength="4" maxlength="8" size="50"><br></p>
+        
+	<!-- EMAIL: -->
+    <p>email: 
+    <input type="email" id="email" name="email" required
+    minlength="4" maxlength="8" size="50"><br></p>
+        
+	<!-- BIRTHDATE: -->
+    <p>birthdate: 
+    <input type="text" id="birthdate" name="birthdate" required
+    minlength="4" maxlength="8" size="50"><br><br></p>
+
+	<!-- CHANGE LOGIN IMAGE: -->
+    <p style="text-align:left">change login image:</p>
+	<div class="field-group">
+	<input type="file" name="file[]" id="file" class="file-field">
+	<label for="file" class="file-label">
+	<figure>
+	<!-- FILE UPLOAD ICON -->
+	<i class="fa fa-upload"></i>
+	</figure>
+	</label>
+	</div>        
+	<hr>
+	<br>
+	<!-- SAVE -->
+	<button class="button">save</button>		
+    </div>
+	</li>
+
+	<!-- Help and support code -->
+	<li id="helpSupport">
+	<h1>help and support</h1>
+	<p></p>			
+	</li>
+
+	<!-- Terms and conditions code -->
+	<li id="termsConditions">
+	<h1>terms and conditions</h1>
+	<p></p>
+	</li>
+
+	<!-- Privacy code -->
+    <li id="privacy">
+	<h1>privacy</h1>
+	<p></p>
+	</li>
+
+	<!-- About Hospitally code -->
+    <li id="aboutHospitally">
+	<h1>about hospitally</h1>
+	<p></p>
+	</li>
+
+	</ul>
+    </div>
+	</div>
+
+	<script>
+    const allIndicator = document.querySelectorAll('.indicator li');
+    const allContent = document.querySelectorAll('.content li');
+
+    allIndicator.forEach(item=> {
+    item.addEventListener('click', function () {
+    const content = document.querySelector(this.dataset.target);
+
+    allIndicator.forEach(i=> {
+      i.classList.remove('active');
+    })
+
+    allContent.forEach(i=> {
+      i.classList.remove('active');
+    })
+
+    content.classList.add('active');
+    this.classList.add('active');
+  })
+})
+  </script>
+</body>
+</html>

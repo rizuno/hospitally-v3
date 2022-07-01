@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={{ static_url('static/css/portal.css') }}>
+    <link rel="stylesheet" href={{ static_url('static/css/output.css') }}>
+    <link rel="stylesheet" href={{ static_url('static/css/style.css') }}>
+    <link rel="stylesheet" href={{ static_url('static/css/main.css') }}>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Regisration Page</title>
+
+</head>
+
+
+<body class="box-border m-0 ">
+    
+             
+
+    <!-- Background Section -->
+    <div id="bg" class="grid grid-cols-2 gap-1">
+
+        <div id="left" class="md:bg-cover bg-center bg-no-repeat h-screen" style="background-image: url('{{static_url("static/img/login-doctor.png")}}')">
+           
+        </div>
+
+         <!-- Right Item -->
+            <div class="pl-10">
+                <div class="space-y-0 pt-2">
+                    <img src="{{static_url("static/img/logo-hospitally.png")}}" class="pt-6 object-center scale-90" alt="">
+                
+                <h1 class="text-lightGray pl-4 text-xl tracking-tighter">
+                    sign up
+                </h1>
+                </div>
+                
+
+                <h1 class="pt-32 text-center text-brightOrange text-4xl">
+                    welcome to <span class="font-bold text-darkSlate tracking-tighter">{{portal_name}}</span> portal!
+                </h1>
+
+                <p class="pt-4 font-light text-center text-darkSlate tracking-wider pl-2 italic">
+                    we make your access to hospital data files convenient!
+                </p>
+
+                <form method="post" class="bg-white text-center pt-8 space-y-6">
+				<div class="font-sans text-darkSlate text-3xl font-light tracking-tighter"></div>
+				<div class="pt-2"> <br> </div>
+                <input class="h-16 w-54 border-b-2 text-2xl font-thin px-6 p-4" size="45" type="text" id="admin" name="admin" placeholder="/admin referral code" required><br>
+				<input class="h-16 w-54 border-b-2 text-2xl font-thin px-6 p-4" size="45" type="text" id="username" name="username" placeholder="/username" required><br>
+				<input class="h-16 w-54 border-b-2 text-2xl font-thin px-6 p-4" size="45" type="password" id="pass" name="pass" placeholder="/password" required> <br>
+                 </form>
+
+                <!-- Button -->
+				<div class="pt-48 text-center">
+						<button id="" class="px-40 py-2 text-white text-left tracking-wider 
+						font-thin bg-brightOrange rounded-full baseline hover:bg-gray-500">
+						
+						
+						<!--  -->
+						<p class="md:flex my-auto text-4xl pt-2 tracking-tighter">sign up <img src="{{static_url("static/img/enter-icon.png")}}" alt="" class="pl-6 pb-1 md:flex-row"></p>
+
+					</button>
+				<br><br>
+
+                <a href="#" class="text-gray-300 text-lg hover:text-lightGray tracking-tighter">
+                    forgot your password?
+                </a>
+				</div>
+                
+                <p class="text-center pt-60 text-gray-300 text-lg tracking-tighter">
+                    don't have an account? <br> <a href="#" class="font-bold hover:text-gray-400">contact</a>
+                    your local administrator
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

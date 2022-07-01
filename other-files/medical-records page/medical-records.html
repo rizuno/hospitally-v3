@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" type="text/css" href="medical-records.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<head>
+<title> MEDICAL RECORDS </title>
+</head>
+
+<div class="tab">
+<button class="tablinks" onclick="openTab(event, 'statistics')" id="defaultOpen">statistics</button>
+<button class="tablinks" onclick="openTab(event, 'medical-records')">medical records</button>
+</div>
+
+   <!-- WELCOME, ADMIN -->
+   <div class="welcome">
+    <legend>welcome, admin</legend>
+    </div>
+
+<div id="statistics" class="tabcontent">
+    <div class="medicalRecords1">
+        <h2> medical records </h2> 
+        </div>
+        
+        <div class="firstSquare">
+        </div>
+        
+        <div class="medicalRecords2">
+        <h2> medical records </h2> 
+        </div>
+        
+        <div class="secondSquare">
+        </div>
+        
+        <div class="medicalRecords3">
+        <h2> medical records </h2> 
+        </div>
+        
+        <div class="thirdSquare">
+        </div>
+        
+        <button class="button"> add record </button>
+  </div>
+  
+  <div id="medical-records" class="tabcontent">
+      <!-- Search Bar -->
+    <div class="searchBar">
+      <form role="search" id="form">
+
+      <!-- Search Input -->
+      <input class="input1" type="search" id="query" name="q"
+       placeholder="Search any" aria-label="Search through site content">
+      <button class="button1" type="submit">
+      <i class="fa fa-search"></i>
+      </button>
+      </div>
+
+      <div class="firstRectangle">
+        <div class="allMedical">
+          <p><b>all medical records</b></p>
+        </div>
+      </div>
+      
+      <div class="secondRectangle">
+        <div class="pendingMedical">
+          <p><b>pending medical record access</b></p>
+        </div>
+      </div>
+      
+      <div class="thirdRectangle">
+        <div class="pinned">
+          <p><b>pinned items</b></p>
+        </div>
+      </div>
+
+<script>
+    function openTab(evt, tabName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+  
+    document.getElementById("defaultOpen").click();
+    </script>
+</body>
+</html>
