@@ -90,18 +90,22 @@ def portal_creation_page():
 
 
 @app.route("/", subdomain="<portal_slug>")  
-@app.route("/<action>", subdomain="<portal_slug>")
+# @app.route("/<action>", subdomain="<portal_slug>")
 def portal_home(portal_slug,action=None):
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     cursor.execute(
-        f'SELECT * FROM tbl_portal WHERE portal_slug = "{portal_slug}"'
+        f'SELECT * FROM tbl_portal WHERE portal_slug = "{hospital_slug}"'
     ) 
     row = cursor.fetchone()  
     print(row)
     print(action)
     if row: #checks if the portal_slug is inside the db
+        # if request.method == "POST": # add-feature portal log out
+        #     if action == "logout":
+
         if session.get("logged_in")==True and session.get("as_admin")==True:
-            return "Redirecting to Admin Page"
+            # return "Redirecting to Admin Page"
+            return render_template("staff.html",hospital_slug=portal_slug)
         elif session.get("logged_in")==True and session.get("as_admin")==False:
             return "Redirecting to User Page"
         else:
@@ -112,9 +116,56 @@ def portal_home(portal_slug,action=None):
         
     else:
         return "It looks like your hospital isn't registered with us yet. Sign up now!"
-
 # post endpoints
 
+@app.route("/add-temporary-acc", subdomain="<portal_slug>")
+def add_portal_temp_acc():
+    cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    print("EXECUTED231231")
+    if request.method == "POST":
+        print("EXECUTED")
+        username = request.form["username"]
+        email = ""
+        password = request.form["password"]
+        role = request.form["role"]
+        pw_hash = bcrypt.generate_password_hash(password)  # reimplement later
+        today = date.today()
+        cur.execute("SELECT * FROM tbl_user WHERE user_username = % s", (username,))
+        account = cur.fetchone()
+
+        # assigns a random user id
+        cur.execute("SELECT user_id FROM tbl_user")
+        user_data = cur.fetchall()
+        unique_user_id = random.randint(1, 100)
+        user_ids = [x["user_id"] for x in user_data]
+        while unique_user_id in user_ids:
+            unique_user_id = random.randint(1, 100)
+
+        if account:
+            msg = "Account already exists !"
+        else:
+            cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+            cursor.execute(
+                "INSERT INTO tbl_user VALUES (% s,% s, % s, % s, % s, % s, % s, % s, %s)",
+                (
+                    unique_user_id,
+                    session.get("portal_id"),
+                    username,
+                    role,
+                    pw_hash,
+                    email,
+                    today.strftime("%y-%m-%d %H:%M:%S"),
+                    today.strftime("%y-%m-%d %H:%M:%S"),
+                    "general_user",
+                ),
+            )
+            mysql.connection.commit()
+            # print(f"LENGTH OF HASH IS {len(pw_hash)} HERE")
+            print("SUCCESFULLY REGISTERED TEMPORARY ACCOUNT")
+            msg = "You have successfully registered !"
+        total_row = cur.rowcount
+        print(total_row)
+    return jsonify(msg)
 
 @app.route("/login", methods=["POST", "GET"], subdomain="www")
 def login_post():
@@ -142,6 +193,7 @@ def login_post():
                 session["username"] = username
                 session["user_id"] = account["user_id"]
                 session["as_admin"] = True
+                session["portal_id"] = account["portal_id"]
                 msg = "success yes testing success changes"
             else:
                 msg = "No-data test ulit"
@@ -157,6 +209,7 @@ def logout():
     session.pop("id", None)
     session.pop("username", None)
     session.pop("as_admin",None)
+    session.pop("portal_id",None)
     return redirect(url_for("home"))
 
 
@@ -226,6 +279,7 @@ def register_post():
             session["username"] = username
             session["user_id"] = unique_user_id
             session["as_admin"] = True
+            session["portal_id"] = account["portal_id"]
             # print(f"LENGTH OF HASH IS {len(pw_hash)} HERE")
             print("SUCCESFULLY REGISTERED")
             msg = "You have successfully registered !"

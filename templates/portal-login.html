@@ -9,9 +9,10 @@
     <link rel="stylesheet" href={{ static_url('static/css/style.css') }}>
     <link rel="stylesheet" href={{ static_url('static/css/main.css') }}>
     
-    <link rel="stylesheet" href='static/css/output.css'>
+    
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
     <title>{{portal_name}} Login Page</title>
 
 </head>
@@ -50,18 +51,18 @@
                 <form method="post" class="bg-white text-center pt-8 space-y-6">
 				<div class="font-sans text-darkSlate text-3xl font-light tracking-tighter"></div>
 				<div class="pt-2"> <br> </div>
-                <input class="h-16 w-54 border-b-2 text-2xl font-thin px-6 p-4" size="45" type="text" id="username" name="username" placeholder="/username" required><br>
-				<input class="h-16 w-54 border-b-2 text-2xl font-thin px-6 p-4" size="45" type="password" id="pass" name="pass" placeholder="/password" required> <br>
+                <input class="h-16 w-54 border-b-2 text-2xl font-thin px-6 p-4" size="45" type="text" id="login_username" name="username" placeholder="/username" required><br>
+				<input class="h-16 w-54 border-b-2 text-2xl font-thin px-6 p-4" size="45" type="password" id="login_password" name="pass" placeholder="/password" required> <br>
                  </form>
 
                 <!-- Button -->
-				<div class="pt-48 text-center">
-						<button id="" class="px-40 py-2 text-white text-left tracking-wider 
+				<div class="pt-48 text-center" id="login_button">
+						<button  id="login_button" class="px-40 py-2 text-white text-left tracking-wider 
 						font-thin bg-brightGreen rounded-full baseline hover:bg-gray-500">
 						
 						
 						<!--  -->
-						<p class="md:flex my-auto text-4xl pt-2 tracking-tighter">sign in <img src="{{static_url("static/img/enter-icon.png")}}" alt="" class="pl-6 pb-1 md:flex-row"></p>
+						<p  class="md:flex my-auto text-4xl pt-2 tracking-tighter">sign in <img src="{{static_url("static/img/enter-icon.png")}}" alt="" class="pl-6 pb-1 md:flex-row"></p>
 
 					</button>
 				<br><br>
@@ -79,6 +80,37 @@
         </div>
 
     </div>
+    <script>
+   
+        $(document).ready(function() {
+            // When the user clicks the button, open the modal 
+            
+            $('#login_button').click(function() {
+                var username = $('#login_username').val();
+                var password = $('#login_password').val();
 
+                if (username != '' && password != '') {
+                    $.ajax({
+                        url: "/login",
+                        method: "POST",
+                        data: {
+                            username: username,
+                            password: password
+                        },
+                        success: function(data) {
+                            alert(data)
+                            if (data == 'No-data') {
+                                alert("Invalid Email Or Password!");
+                            } else {
+                                location.reload();
+                            }
+                        }
+                    });
+                } else {
+                    alert("Both Fields are required");
+                }
+            });
+        });
+    </script>
 </body>
 </html>

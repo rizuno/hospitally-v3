@@ -1,3 +1,4 @@
+from enum import unique
 from flask import request
 from flask import (
     Flask,
@@ -72,7 +73,6 @@ def home():
 
 @app.route("/<hospital_slug>")
 @app.route("/<hospital_slug>/")
-@app.route("/<hospital_slug>/<action>")
 def portal_home(hospital_slug,action=None):
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     cursor.execute(
@@ -86,7 +86,8 @@ def portal_home(hospital_slug,action=None):
         #     if action == "logout":
 
         if session.get("logged_in")==True and session.get("as_admin")==True:
-            return "Redirecting to Admin Page"
+            # return "Redirecting to Admin Page"
+            return render_template("staff.html",hospital_slug=hospital_slug)
         elif session.get("logged_in")==True and session.get("as_admin")==False:
             return "Redirecting to User Page"
         else:
@@ -102,35 +103,100 @@ def portal_home(hospital_slug,action=None):
 def portal_overview(hospital_slug):
     return render_template("portal-overview.html",portal_slug = hospital_slug)
 
-# @app.route("/<hospital_name>/register")
-# def portal_register(hospital_name):
-#     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-#     cursor.execute(
-#         f'SELECT * FROM tbl_portal WHERE portal_slug = "{hospital_name}"'
-#     )  # change to portal id table
-#     row = cursor.fetchone()  # returns dictionary of the row
-#     print(row)
-#     if row:
-#         # return f'Welcome {row["portal_name"]} hospital'
-#         return render_template("portal-register.html", portal_name=row["portal_name"])
-#     else:
-#         return "It looks like your hospital isn't registered with us yet. Sign up now!"
 
-# @app.route("/<hospital_name>/login")
-# def portal_login(hospital_name):
-#     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-#     cursor.execute(
-#         f'SELECT * FROM tbl_portal WHERE portal_slug = "{hospital_name}"'
-#     )  # change to portal id table
-#     row = cursor.fetchone()  # returns dictionary of the row
-#     print(row)
-#     if row:
-#         # return f'Welcome {row["portal_name"]} hospital'
-#         return render_template("portal-login.html", portal_name=row["portal_name"])
-#     else:
-#         return "It looks like your hospital isn't registered with us yet. Sign up now!"
-#     # return render_template("portal-register.html")
+@app.route("/<hospital_name>/login",methods=["POST"])
+def portal_login(hospital_name):
+    """
+        This is the main login page for the hospital portals
+    """
+    cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    if request.method == "POST":
+        username = request.form["username"]
+        password = request.form["password"]
+        print(username)
+        print(password)
+        cur.execute(
+            "SELECT * FROM tbl_user WHERE user_username = %s",
+            [
+                username,
+            ],
+        )
+        account = cur.fetchone()
+        total_row = cur.rowcount
+        print(total_row)
 
+        if total_row > 0:
+            rs_password = account["user_password_hash"]
+            print(rs_password)
+            if bcrypt.check_password_hash(rs_password, password) and account["authority"] == 1:
+                session["logged_in"] = True
+                session["username"] = username
+                session["user_id"] = account["user_id"]
+                session["as_admin"] = True
+                session["portal_id"] = account["portal_id"]
+                msg = "success yes"
+            elif bcrypt.check_password_hash(rs_password, password) and account["authority"] == 0:
+                session["logged_in"] = True
+                session["username"] = username
+                session["user_id"] = account["user_id"]
+                session["as_admin"] = False
+                session["portal_id"] = account["portal_id"]
+                msg = "success yes"
+            else:
+                msg = "No-data"
+        else:
+            msg = "No-data"
+    return jsonify(msg)
+    # return render_template("portal-register.html")
+
+@app.route("/add-temporary-acc",methods=["POST"])
+def add_portal_temp_acc():
+    cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    print("EXECUTED231231")
+    if request.method == "POST":
+        print("EXECUTED")
+        username = request.form["username"]
+        email = ""
+        password = request.form["password"]
+        role = request.form["role"]
+        pw_hash = bcrypt.generate_password_hash(password)  # reimplement later
+        today = date.today()
+        cur.execute("SELECT * FROM tbl_user WHERE user_username = % s", (username,))
+        account = cur.fetchone()
+
+        # assigns a random user id
+        cur.execute("SELECT user_id FROM tbl_user")
+        user_data = cur.fetchall()
+        unique_user_id = random.randint(1, 100)
+        user_ids = [x["user_id"] for x in user_data]
+        while unique_user_id in user_ids:
+            unique_user_id = random.randint(1, 100)
+
+        if account:
+            msg = "Account already exists !"
+        else:
+            cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+            cursor.execute(
+                "INSERT INTO tbl_user VALUES (% s,% s, % s, % s, % s, % s, % s, % s, %s)",
+                (
+                    unique_user_id,
+                    session.get("portal_id"),
+                    username,
+                    role,
+                    pw_hash,
+                    email,
+                    today.strftime("%y-%m-%d %H:%M:%S"),
+                    today.strftime("%y-%m-%d %H:%M:%S"),
+                    "general_user",
+                ),
+            )
+            mysql.connection.commit()
+            # print(f"LENGTH OF HASH IS {len(pw_hash)} HERE")
+            print("SUCCESFULLY REGISTERED TEMPORARY ACCOUNT")
+            msg = "You have successfully registered !"
+        total_row = cur.rowcount
+        print(total_row)
+    return jsonify(msg)
 
 @app.route("/user-overview")
 def user_overview():
@@ -189,6 +255,7 @@ def login_post():
                 session["username"] = username
                 session["user_id"] = account["user_id"]
                 session["as_admin"] = True
+                session["portal_id"] = account["portal_id"]
                 msg = "success yes"
             else:
                 msg = "No-data"
@@ -203,6 +270,7 @@ def logout():
     session.pop("logged_in", False)
     session.pop("id", None)
     session.pop("username", None)
+    session.pop("portal_id",None)
     return redirect(url_for("home"))
 
 
@@ -273,6 +341,7 @@ def register_post():
             session["username"] = username
             session["user_id"] = unique_user_id
             session["as_admin"] = True
+            session["portal_id"] = account["portal_id"]
             # print(f"LENGTH OF HASH IS {len(pw_hash)} HERE")
             print("SUCCESFULLY REGISTERED")
             msg = "You have successfully registered !"

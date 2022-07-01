@@ -1,53 +1,1492 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href={{ static_url( 'static/css/portal.css') }}>
-    <link rel="stylesheet" href={{ static_url( 'static/css/output.css') }}>
-    <link rel="stylesheet" href={{ static_url( 'static/css/style.css') }}>
-    <link rel="stylesheet" href={{ static_url( 'static/css/main.css') }}>
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <title>Regisration Page</title>
-    <title>Staff</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://unpkg.com/phosphor-icons"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href={{ static_url( 'static/css/staff.css') }}>
+  <link rel="stylesheet" href={{ static_url( 'static/css/output.css') }}>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<title>STAFF</title>
 </head>
-
-<body>
-    <form>
-        <input type="text" placeholder="Search.." name="search">
-        <button type="submit"><i class="fa fa-search"></i></button>
-
-        <input type="button" value="Add Staff">
-        <input type="button" value="Manage Staff">
-        <span><legend>Welcome, user</legend></span>
-    </form>
-
-    <h2>Create an account</h2>
-    <p>to give access to hospital users</p>
-    <form>
-        <input type="text" id="roles" name="roles" placeholder="roles" required minlength="4" maxlength="8" size="70"><br>
-
-        <input type="text" id="username" name="username" placeholder="username:" required minlength="4" maxlength="8" size="70"><br>
-
-        <input type="password" id="password" name="password" placeholder="password" required minlength="4" maxlength="8" size="70"><br>
-
-        <input type="text" id="department" name="department" placeholder="pick a department" required minlength="4" maxlength="8" size="70"><br>
-
-        <input type="button" value="add temporary account"> <br><br>
-
-        <input type="email" id="email" name="email" placeholder="email" required minlength="4" maxlength="8" size="70"><br>
-
-        <input type="button" value="send login details to email"> <br><br>
-
-    </form>
-</body>
+<body class="">
 
 
+    
+<!-- navbar start -->
+	
+        <!-- Component Start -->
+        
+        <!-- Component End  -->
+        
+
+    <!-- NAVBAR END -->
+  <!-- Search Bar -->
+
+  <header>
+    <h1 class="logo">Hospitally</h1>
+    <ul class="nav">
+        <li class="navlink"><a href="/index.html">Dashboard</a></li>
+        <li class="navlink"><a href="/staff.html">Staff</a></li>
+        <li class="navlink"><a href="#">Medical Records</a></li>
+        <li class="navlink"><a href="#">Settings</a></li>
+      <li class="navlink"><a href="#">Account</a></li>
+    </ul>
+    <div class="burger">
+        <i class="fas fa-bars"></i>
+    </div>
+</header>
+
+  <div class="searchBar">
+  <form role="search" id="form">
+  <!-- Search Input -->
+  <input class="input1" type="search" id="query" name="q"
+   placeholder="Search any"
+  aria-label="Search through site content">
+  <button class="button1" type="submit">
+  <i class="fa fa-search"></i>
+  </button>
+  </div>
+</div>
 </form>
 
-</body>
 
+  <!-- The tab will link to the pages and when selected, it changes color. -->
+  <button class="tab1" onclick="openTab('manage', this, 'orange')" id="defaultOpen">manage staff</button>
+  {% if session.get("as_admin") == True %}
+  <button class="tab2" onclick="openTab('add', this, 'orange')">add staff</button>
+  {% else %}
+  {% endif %}
+  <button class="" id="logout_button" >logout</button> <!--NEED CSS -->
+
+   <!-- WELCOME, ADMIN -->
+  <div class="welcome">
+  <legend>welcome, {{session.username}}</legend>
+  </div>
+
+  <!-- CONTAINER -->
+  <div class="container">
+  <br><br><br>
+  <!-- MANAGE STAFF PAGE CODE -->
+  <div id="manage" class="tabcontent">
+    <div class="wrapper">
+      <ul class="indicator">
+        <br><br>
+        <li class="active" data-target="#doctors"> doctors</li>
+        <div class="a">
+        <li data-target="#interns"> interns</li>
+        <li data-target="#surgeon"> surgeon</li>
+        <div class="b">
+        <li data-target="#surgeonHead"> surgeon head</li>
+      </div>
+      <li data-target="#head"> head</li>
+      <li data-target="#surgeonHead2"> surgeon head</li>
+      <li data-target="#lead"> lead</li><br><br>
+    </div>
+    <li data-target="#nurses"> nurses</li><br><br>
+    <li data-target="#staff"> staff</li>
+
+      </ul>
+
+      <ul class="content">
+        <!-- DOCTORS -->
+      	<li class="active" id="doctors">
+          <table>
+            <tr>
+            <th></th>
+            <th>name</th> 
+            <th>username</th>
+            <th>email</th>
+            <th>contact no</th>
+            <th>email</th>
+            <th>address</th>
+            <th>role</th>
+            <th>activity</th>
+            </tr>
+        
+            <tr>
+            <td>1</td>
+            <td>Dr. Jake Lackley</td>
+            <td>jakelackley123</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>   
+            </tr>
+        
+            <tr>
+            <td>2</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            </tr>
+        
+            <tr>
+            <td>3</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            </tr>
+        
+            <tr>
+            <td>4</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            </tr>
+        
+            <tr>
+            <td>5</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            </tr>
+        
+            <tr>
+            <td>6</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            </tr>
+        
+            <tr>
+            <td>7</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            </tr>
+        
+            <tr>
+            <td>8</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            </tr>
+        
+            <tr>
+            <td>9</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            </tr>
+        
+            <tr>
+            <td>10</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            </tr>
+            </table>
+        </li>
+
+        <!-- INTERNS -->
+        <li id="interns">
+          <table>
+            <tr>
+            <th></th>
+            <th>name</th> 
+            <th>username</th>
+            <th>email</th>
+            <th>contact no</th>
+            <th>email</th>
+            <th>address</th>
+            <th>role</th>
+            <th>activity</th>
+            </tr>
+        
+            <tr>
+            <td>1</td>
+            <td>Intern 1</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>   
+            </tr>
+        
+            <tr>
+            <td>2</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            </tr>
+        
+            <tr>
+            <td>3</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            </tr>
+        
+            <tr>
+            <td>4</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            </tr>
+        
+            <tr>
+            <td>5</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            </tr>
+        
+            <tr>
+            <td>6</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            </tr>
+        
+            <tr>
+            <td>7</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            </tr>
+        
+            <tr>
+            <td>8</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            </tr>
+        
+            <tr>
+            <td>9</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            </tr>
+        
+            <tr>
+            <td>10</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            </tr>     
+            </table>
+           </li>
+
+           <!-- SURGEON -->
+           <li id="surgeon">
+            <table>
+              <tr>
+              <th></th>
+              <th>name</th> 
+              <th>username</th>
+              <th>email</th>
+              <th>contact no</th>
+              <th>email</th>
+              <th>address</th>
+              <th>role</th>
+              <th>activity</th>
+              </tr>
+          
+              <tr>
+              <td>1</td>
+              <td>Surgeon 1</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>   
+              </tr>
+          
+              <tr>
+              <td>2</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              </tr>
+          
+              <tr>
+              <td>3</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              </tr>
+          
+              <tr>
+              <td>4</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              </tr>
+          
+              <tr>
+              <td>5</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              </tr>
+          
+              <tr>
+              <td>6</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              </tr>
+          
+              <tr>
+              <td>7</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              </tr>
+          
+              <tr>
+              <td>8</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              </tr>
+          
+              <tr>
+              <td>9</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              </tr>
+          
+              <tr>
+              <td>10</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              </tr>     
+              </table>
+             </li>
+
+      <!-- SURGEON HEAD -->
+    <li id="surgeonHead">
+    <table>
+    <tr>
+    <th></th>
+    <th>name</th> 
+    <th>username</th>
+    <th>email</th>
+    <th>contact no</th>
+    <th>email</th>
+    <th>address</th>
+    <th>role</th>
+    <th>activity</th>
+    </tr>
+            
+    <tr>
+    <td>1</td>
+    <td>Surgeon Head 1</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>admin</td>
+    <td></td>   
+    </tr>
+            
+    <tr>
+    <td>2</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    </tr>
+            
+    <tr>
+    <td>3</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    </tr>
+            
+    <tr>
+    <td>4</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    </tr>
+            
+    <tr>
+    <td>5</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    </tr>
+            
+     <tr>
+     <td>6</td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     </tr>
+            
+      <tr>
+      <td>7</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      </tr>
+            
+      <tr>
+      <td>8</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      </tr>
+            
+      <tr>
+      <td>9</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      </tr>
+            
+      <tr>
+      <td>10</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      </tr>     
+      </table>
+      </li>
+
+       <!-- HEAD -->
+      <li id="head">
+        <table>
+        <tr>
+        <th></th>
+        <th>name</th> 
+        <th>username</th>
+        <th>email</th>
+        <th>contact no</th>
+        <th>email</th>
+        <th>address</th>
+        <th>role</th>
+        <th>activity</th>
+        </tr>
+                
+        <tr>
+        <td>1</td>
+        <td>Head 1</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>   
+        </tr>
+                
+        <tr>
+        <td>2</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        </tr>
+                
+        <tr>
+        <td>3</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        </tr>
+                
+        <tr>
+        <td>4</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        </tr>
+                
+        <tr>
+        <td>5</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        </tr>
+                
+         <tr>
+         <td>6</td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         </tr>
+                
+          <tr>
+          <td>7</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          </tr>
+                
+          <tr>
+          <td>8</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          </tr>
+                
+          <tr>
+          <td>9</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          </tr>
+                
+          <tr>
+          <td>10</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          </tr>     
+          </table>
+          </li>
+
+      <!-- SURGEON HEAD -->
+      <li id="surgeonHead2">
+        <table>
+        <tr>
+        <th></th>
+        <th>name</th> 
+        <th>username</th>
+        <th>email</th>
+        <th>contact no</th>
+        <th>email</th>
+        <th>address</th>
+        <th>role</th>
+        <th>activity</th>
+        </tr>
+                
+        <tr>
+        <td>1</td>
+        <td>Surgeon Head 1</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>   
+        </tr>
+                
+        <tr>
+        <td>2</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        </tr>
+                
+        <tr>
+        <td>3</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        </tr>
+                
+        <tr>
+        <td>4</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        </tr>
+                
+        <tr>
+        <td>5</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        </tr>
+                
+         <tr>
+         <td>6</td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         </tr>
+                
+          <tr>
+          <td>7</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          </tr>
+                
+          <tr>
+          <td>8</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          </tr>
+                
+          <tr>
+          <td>9</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          </tr>
+                
+          <tr>
+          <td>10</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          </tr>     
+          </table>
+          </li>
+
+      <!-- LEAD -->
+      <li id="lead">
+        <table>
+        <tr>
+        <th></th>
+        <th>name</th> 
+        <th>username</th>
+        <th>email</th>
+        <th>contact no</th>
+        <th>email</th>
+        <th>address</th>
+        <th>role</th>
+        <th>activity</th>
+        </tr>
+                
+        <tr>
+        <td>1</td>
+        <td>Lead 1</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>   
+        </tr>
+                
+        <tr>
+        <td>2</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        </tr>
+                
+        <tr>
+        <td>3</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        </tr>
+                
+        <tr>
+        <td>4</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        </tr>
+                
+        <tr>
+        <td>5</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        </tr>
+                
+         <tr>
+         <td>6</td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         </tr>
+                
+          <tr>
+          <td>7</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          </tr>
+                
+          <tr>
+          <td>8</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          </tr>
+                
+          <tr>
+          <td>9</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          </tr>
+                
+          <tr>
+          <td>10</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          </tr>     
+          </table>
+          </li>
+
+      <!-- NURSES -->
+      <li id="nurses">
+        <table>
+        <tr>
+        <th></th>
+        <th>name</th> 
+        <th>username</th>
+        <th>email</th>
+        <th>contact no</th>
+        <th>email</th>
+        <th>address</th>
+        <th>role</th>
+        <th>activity</th>
+        </tr>
+                
+        <tr>
+        <td>1</td>
+        <td>Nurse 1</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>   
+        </tr>
+                
+        <tr>
+        <td>2</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        </tr>
+                
+        <tr>
+        <td>3</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        </tr>
+                
+        <tr>
+        <td>4</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        </tr>
+                
+        <tr>
+        <td>5</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        </tr>
+                
+         <tr>
+         <td>6</td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         </tr>
+                
+          <tr>
+          <td>7</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          </tr>
+                
+          <tr>
+          <td>8</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          </tr>
+                
+          <tr>
+          <td>9</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          </tr>
+                
+          <tr>
+          <td>10</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          </tr>     
+          </table>
+          </li>
+
+      <!-- STAFF -->
+      <li id="staff">
+        <table>
+        <tr>
+        <th></th>
+        <th>name</th> 
+        <th>username</th>
+        <th>email</th>
+        <th>contact no</th>
+        <th>email</th>
+        <th>address</th>
+        <th>role</th>
+        <th>activity</th>
+        </tr>
+                
+        <tr>
+        <td>1</td>
+        <td>Staff 1</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>   
+        </tr>
+                
+        <tr>
+        <td>2</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        </tr>
+                
+        <tr>
+        <td>3</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        </tr>
+                
+        <tr>
+        <td>4</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        </tr>
+                
+        <tr>
+        <td>5</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        </tr>
+                
+         <tr>
+         <td>6</td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         </tr>
+                
+          <tr>
+          <td>7</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          </tr>
+                
+          <tr>
+          <td>8</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          </tr>
+                
+          <tr>
+          <td>9</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          </tr>
+                
+          <tr>
+          <td>10</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          </tr>     
+          </table>
+          </li>
+
+      </ul>
+      </div> 
+  </div>
+
+<!-- ADD STAFF PAGE CODE -->
+    <div id="add" class="tabcontent">
+    <div class="accountDetails">
+    <h2>create an account</h2>
+
+    <div class="toGive">
+    <p>to give access to hospital users</p>
+<!-- ROLES: -->
+
+    <input class="input2" type="text" id="role" name="role" placeholder=" roles" required><br><br>
+
+<!-- USERNAME: -->      
+    <input class="input2" type="username" id="username" name="username" placeholder=" username:" required><br><br>
+           
+<!-- PASSWORD: -->
+       
+    <input class="input2" type="password" id="password" name="password" placeholder=" password" required><br><br>
+           
+<!-- PICK A DEPARTMENT: -->
+
+   <!-- <input class="input2" type="department" id="department" name="department" placeholder=" pick a department" required><br><br>-->
+    <button id="add_temporary_acc_button" class="button2">add temporary account</button>
+    </div>
+    </div>
+
+    <div class="emailDetails">
+<!-- EMAIL: -->
+   <!--
+     <input class="input2" type="email" id="department" name="email" placeholder=" email" required><br><br>
+    <a href="#"><button class="button3">send login details to email</button></a>
+   -->
+    </div>
+    </div>
+
+    <script>
+    function openTab(pageName, tabName, color) {
+     // Hide all elements with class="tabcontent" by default
+      var i, tabcontent, tab1, tab2
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+
+    // Remove the background color of tabs.
+      tab1 = document.getElementsByClassName("tab1");
+      for (i = 0; i < tab1.length; i++) {
+      tab1[i].style.backgroundColor = "";
+  }
+
+      // Remove the background color of tabs.
+     tab2 = document.getElementsByClassName("tab2");
+      for (i = 0; i < tab2.length; i++) {
+      tab2[i].style.backgroundColor = "";
+  }
+      // Show the specific tab content.
+      document.getElementById(pageName).style.display = "block";
+
+      //when tab is selected, it changes its color.
+      tabName.style.backgroundColor = color;
+    }
+    //when open the medical records page, this page (manage staff) is active
+    document.getElementById("defaultOpen").click();
+
+    //MANAGE STAFF PAGE
+    const allIndicator = document.querySelectorAll('.indicator li');
+    const allContent = document.querySelectorAll('.content li');
+
+    allIndicator.forEach(item=> {
+    item.addEventListener('click', function () {
+    const content = document.querySelector(this.dataset.target);
+
+    allIndicator.forEach(i=> {
+      i.classList.remove('active');
+    })
+
+    allContent.forEach(i=> {
+      i.classList.remove('active');
+    })
+
+    content.classList.add('active');
+    this.classList.add('active');
+  })
+})
+    </script>
+    <script>
+      /*
+       * Modal popup
+       */
+      // Get the modals
+
+      // Get the <span> element that closes the modal
+
+      $(document).ready(function () {
+        // When the user clicks the button, open the modal
+        $("#logout_button").on("click", function () {
+          console.log("CLICKED");
+          $.ajax({
+            url: "/logout",
+            type: "get",
+            data: { action: "logout" },
+
+            success: function (data) {
+              location.reload();
+            },
+          });
+        });
+         // sign up 
+         $('#add_temporary_acc_button').click(function() {
+          var path = window.location.pathname;
+          var slug = path.split("/")[1];
+          var role = $('#role').val();
+          var username = $('#username').val();
+          var password = $('#password').val();
+        
+          console.log(path)
+          console.log(slug)
+          if (username != '' && password != ''  && role != '') {
+
+              $.ajax({
+                  url: "/add-temporary-acc",
+                  method: "POST",
+                  data: {
+                      role: role,
+                      username: username,
+                      password: password,
+                  },
+                  success: function(data) {
+                      alert(data);
+                      if (data == 'No-data') {
+                          alert("Account already exists");
+                      } else {
+                          modal_sign_up.hide();
+                          location.reload();
+                      }
+                  }
+              });
+          } else {
+              alert("All Fields are required");
+          }
+      });
+  });
+     
+
+
+  // Selection of HTML objects
+const burger = document.querySelector('.burger i');
+const nav = document.querySelector('.nav');
+
+// Defining a function
+function toggleNav() {
+    burger.classList.toggle('fa-bars');
+    burger.classList.toggle('fa-times');
+    nav.classList.toggle('nav-active');
+}
+
+// Calling the function after click event occurs
+burger.addEventListener('click', function() {
+    toggleNav();
+});
+
+    </script>
+</body>
 </html>
