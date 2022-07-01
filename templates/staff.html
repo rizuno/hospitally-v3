@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={{ static_url( 'static/css/portal.css') }}>
+    <link rel="stylesheet" href={{ static_url( 'static/css/output.css') }}>
+    <link rel="stylesheet" href={{ static_url( 'static/css/style.css') }}>
+    <link rel="stylesheet" href={{ static_url( 'static/css/main.css') }}>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Regisration Page</title>
+    <title>Staff</title>
+</head>
+
+<body>
+    <form>
+        <input type="text" placeholder="Search.." name="search">
+        <button type="submit"><i class="fa fa-search"></i></button>
+
+        <input type="button" value="Add Staff">
+        <input type="button" value="Manage Staff">
+        <span><legend>Welcome, user</legend></span>
+    </form>
+
+    <h2>Create an account</h2>
+    <p>to give access to hospital users</p>
+    <form>
+        <input type="text" id="roles" name="roles" placeholder="roles" required minlength="4" maxlength="8" size="70"><br>
+
+        <input type="text" id="username" name="username" placeholder="username:" required minlength="4" maxlength="8" size="70"><br>
+
+        <input type="password" id="password" name="password" placeholder="password" required minlength="4" maxlength="8" size="70"><br>
+
+        <input type="text" id="department" name="department" placeholder="pick a department" required minlength="4" maxlength="8" size="70"><br>
+
+        <input type="button" value="add temporary account"> <br><br>
+
+        <input type="email" id="email" name="email" placeholder="email" required minlength="4" maxlength="8" size="70"><br>
+
+        <input type="button" value="send login details to email"> <br><br>
+
+    </form>
+</body>
+
+
+</form>
+
+</body>
+
+</html>

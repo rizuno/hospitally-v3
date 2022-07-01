@@ -69,6 +69,7 @@ def home():
             )  # check if user has already created a database/portal and redirect accordingly
     return render_template("index.html")
 
+
 @app.route("/<hospital_slug>")
 @app.route("/<hospital_slug>/")
 @app.route("/<hospital_slug>/<action>")
@@ -96,6 +97,10 @@ def portal_home(hospital_slug,action=None):
         
     else:
         return "It looks like your hospital isn't registered with us yet. Sign up now!"
+
+@app.route("/<hospital_slug>/overview")
+def portal_overview(hospital_slug):
+    return render_template("portal-overview.html",portal_slug = hospital_slug)
 
 # @app.route("/<hospital_name>/register")
 # def portal_register(hospital_name):
@@ -247,10 +252,10 @@ def register_post():
                 (unique_portal_id, unique_user_id),
             )
             mysql.connection.commit()
-
+            print("HEY IM UPDATEDD")
             cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
             cursor.execute(
-                "INSERT INTO tbl_user VALUES (% s,% s, % s, % s, % s, % s, % s, % s)",
+                "INSERT INTO tbl_user VALUES (% s,% s, % s, % s, % s, % s, % s, % s, %s)",
                 (
                     unique_user_id,
                     unique_portal_id,
@@ -258,8 +263,9 @@ def register_post():
                     "admin",
                     pw_hash,
                     email,
-                    today,
-                    today,
+                    today.strftime("%y-%m-%d %H:%M:%S"),
+                    today.strftime("%y-%m-%d %H:%M:%S"),
+                    1,
                 ),
             )
             mysql.connection.commit()
@@ -309,6 +315,13 @@ def register_portal():
             msg = "No-data"
     return jsonify(msg)
 
+@app.route("/departments")
+def departments():
+    return render_template("departments.html")
+
+
 
 if __name__ == "__main__":
     app.run()
+
+

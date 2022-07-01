@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+
+li {
+	list-style: none;
+}
+
+:root {
+	--white: #FFF;
+	--blue: #562BF7;
+	--light: #F5F5F5;
+	--light-blue: #F3F0FF;
+	--grey: #eee;
+	--dark-grey: #666;
+	--black: #222;
+  --orange: #FFA500;
+}
+
+body {
+	background: var(--light);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 500px;
+	padding: 1rem;
+}
+
+.container {
+  position:absolute;
+  top:5%;
+  left:1%;
+  width:1200px;
+  height:700px;
+	background: var(--white);
+	border-radius: 10px;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, .05);
+}
+.wrapper {
+	display: flex;
+  text-align: right;
+}
+.indicator {
+	padding: 1.5rem 0;
+	border-right: 5px solid var(--grey);
+}
+.indicator li {
+	display: flex;
+	align-items: center;
+	grid-gap: .5rem;
+	padding: 10px 6rem;
+	cursor: pointer;
+	font-size: .875rem;
+	color: var(--black);
+	border-right: 3px solid transparent;
+}
+.indicator li i {
+	font-size: 1rem;
+}
+.indicator li:hover {
+	background: var(--orange);
+}
+.indicator li.active {
+	border-left-color: var(--orange);
+	color: var(--orange);
+	background: var(--grey);
+}
+.content {
+	padding: 1.5rem 2rem;
+}
+.content li {
+	display: none;
+}
+.content li.active {
+	display: block;
+}
+.content li h1 {
+	font-size: 1.5rem;
+	font-weight: 600;
+	color: var(--black);
+	margin-bottom: .75rem;
+}
+.content li p {
+	margin-bottom: .5rem;
+	color: var(--dark-grey);
+	font-size: .875rem;
+}
+
+.hospitally{
+  position:absolute;
+  left:2%;
+}
+
+.loginDetails{
+  position:absolute;
+  left:50%;
+}
+.button{
+	background-color: gray;
+}
+
+.file-field{
+	width:0;
+	height:0;
+	opacity:0;
+	z-index: -1;
+}
+
+.file-label{
+	position:absolute;
+	top:233px;
+	left:-20px;
+	display:inline-block;
+	padding:0px 190px;
+	font: size 1.4em;
+	font-weight: bold;
+	color:gray;
+	cursor:pointer;
+	transition:0.3s ease;
+}
+
+.file-label figure{
+	width:35px;
+	height:35px;
+	border-radius:20%;
+	background:gray;
+	margin: 0 auto 10px;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+
+}
+
+.file-label i{
+	font-size:2em;
+	color:#ffffff;
+}
+
+.file-field:focus + .file-label,
+.file-label:hover{
+    color:orange;
+}
+
+.file-field:focus + .file-label figure, 
+.file-label:hover figure{
+	background-color: orange;
+}
+
+.button {
+	background-color: #4CAF50;
+	border-radius:15px;
+	color: white;
+	padding: 15px 45px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+  }
+
+@media screen and (max-width: 576px) {
+	.wrapper {
+		flex-direction: column;
+	}
+	.indicator {
+		border-right: none;
+	}
+}

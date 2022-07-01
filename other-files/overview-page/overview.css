@@ -1,0 +1,110 @@
+body{
+    background-color:gainsboro;
+}
+
+.staff{
+    position:absolute;
+    left:5%;
+    top:10%;
+    font-size:17px;
+    color:#2B3856
+}
+
+.staffSquare{
+    position:absolute;
+    background-color:white;
+    top:17%;
+    left:4%;
+    width:350px;
+    height:250px;
+    border-radius:10px;
+}
+
+.medicalRecords{
+    position:absolute;
+    left:37%;
+    top:10%;
+    font-size:17px;
+    color:#2B3856;
+}
+
+.medicalRecordSquare{
+    position:absolute;
+    background-color:white;
+    top:17%;
+    left:36%;
+    width:450px;
+    height:250px;
+    border-radius:10px;
+}
+
+.onlineAdmins{
+    position:absolute;
+    left:76%;
+    top:10%;
+    font-size:17px;
+    color:#2B3856;
+}
+
+.onlineAdminsSquare{
+    position:absolute;
+    background-color:white;
+    top:17%;
+    left:75%;
+    width:250px;
+    height:610px;
+    border-radius:10px;
+}
+
+.pendingRequests{
+    position:absolute;
+    left:4%;
+    top:52%;
+    font-size:17px;
+    color:#2B3856;
+}
+
+  .pendingRequestsScroll{
+    position:absolute;
+    background-color:white;
+    width:940px;
+    height:250px;
+    top:59%;
+    left:4%;
+    border-radius:3px;
+    
+  }
+
+  .rectangleContainer{
+    position:absolute;
+    top:91%;
+    left:4%;
+    background-color:#2B3856;
+    width:940px;
+    height:50px;
+    border-radius:5px;
+  }
+
+  button
+  {
+     position:relative;
+      background-color: white;
+      border-radius: 10px;
+      left:550px;
+      top:5px;
+      color: black;
+      font-size:18px;
+      padding: 3px 50px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      margin: 4px 2px;
+      cursor: pointer;
+  } 
+
+  .welcome{
+    position:absolute;
+    top:3.5%;
+    right:3%;
+    font-size:20px;
+}

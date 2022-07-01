@@ -1,0 +1,618 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="/dist/output.css" rel="stylesheet">
+
+  <title>Medical Records</title>
+</head>
+<body class="p-4 bg-gray-300">
+
+   <div class="top-6 right-32 absolute text-xl">
+    <legend>welcome, admin</legend>
+   </div>
+    <!-- The wrapper of tabs -->
+    <div class="drop-shadow-lg">
+        <!-- Tab Buttons -->
+        <div id="tab-buttons" class="flex bg-inherit">
+            <a href="javascript:void(0)" onclick="changeTab(event, 0)"
+                class="inline-block px-8 py-3 bg-inherit text-orange-600">statistics</a>
+            <a href="javascript:void(0)" onclick="changeTab(event, 1)" class="inline-block px-8 py-3 text-orange">medical records</a>
+         
+        </div>
+
+        <!-- Tab Panels -->
+        <div id="tab-panels" class="bg-inherit px-8 py-6">
+            <div>
+             <!-- Statistics Page -->
+             <div class="absolute left-8 top-16 text-base text-gray-800">
+              <h2> medical records </h2> 
+              </div> 
+
+              <div class="absolute top-24 left-6 w-96 rounded-sm bg-white h-48">
+              </div>
+
+              <div class="absolute top-16 left-1/3 text-base text-gray-800">
+                <h2> medical records </h2> 
+              </div>
+
+              <div class="absolute top-24 left-1/3 w-96 rounded-sm bg-white h-48">
+              </div>
+
+              <div class="absolute top-16 left-2/3 text-base text-gray-800">
+                <h2> medical records </h2> 
+              </div>
+
+              <div class="absolute top-24 left-2/3 w-96 rounded-sm bg-white h-48">
+              </div>
+               <!-- Cannot display the button (add record) at the bottom 
+                .button{
+                position:absolute;
+                bottom:20px;
+                right:120px;
+                background-color:#4CAF50;
+                border-radius:5px;
+                color:white;
+                text-align:center;
+                text-decoration:none;
+                display:inline-block;
+                font-size:30px;
+                margin: 5px 5px;
+                cursor: pointer;
+               }
+              --> 
+              </div>
+              
+              
+                <!-- Medical Record Page -->
+            <div class="hidden">
+            <div class="flex items-center justify-center">
+            <div class="flex border-2 rounded">
+            <input type="text" class="absolute left-80 top-2 px-4 py-2 w-6/12 h-8 rounded-xl" placeholder="Search...">
+            <button class="absolute left-2/3 top-3 px-4 border-l">
+            <svg class=" w-6 h-6 text-gray-600" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24">
+            <path
+            d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" />
+            </svg>
+            </button>
+            </div>
+            </div>
+
+            <div class="absolute top-16 left-0 w-full h-screen rounded-xl bg-white">
+
+            <div class="absolute left-10 top-2 text-xl text-yellow-600">
+              <p><b>all medical records</b></p>
+            </div>
+
+            <a href="#"><button class="absolute top-2 left-3/4 bg-orange-600 rounded text-white 
+              text-lg w-40 h-8 text-center no-underline inline-block 
+              cursor-pointer">edit sort</button></a>
+
+              <a href="#"><button class="absolute top-2 right-10 bg-green-600 rounded text-white 
+                text-lg w-40 h-8 text-center no-underline inline-block 
+                cursor-pointer">add</button></a>
+
+                <div class="relative top-16 overflow-x-auto shadow-md sm:rounded-lg">
+                  <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 border border-slate-40">
+                      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                          <tr>
+                              <th scope="col" class="border border-slate-40">
+                                  
+                              </th>
+                              <th scope="col" class="px-2 py-2 border border-slate-40">
+                                  name
+                              </th>
+                              <th scope="col" class="px-2 py-2 border border-slate-40">
+                                  md_ID
+                              </th>
+                              <th scope="col" class="px-2 py-2 border border-slate-40">
+                                  city
+                              </th> 
+                              <th scope="col" class="px-2 py-2 border border-slate-40">
+                                reason
+                            </th>
+                            <th scope="col" class="px-2 py-2 border border-slate-40">
+                              dr
+                          </th>
+                          <th scope="col" class="px-2 py-2 border border-slate-40">
+                            
+                        </th>
+                        <th scope="col" class="px-2 py-2 border border-slate-40">  
+                        </th>
+                          </tr>
+                      </thead>
+
+                      <tbody>
+                        <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                          <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                              1
+                          </th>
+                          <td class="px-2 py-2 w-28 border border-slate-40">
+                            
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                             
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                             
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 w-36 border border-slate-40">
+                          <button type="submit" class="relative right-0">open</button>
+                          <button type="submit" class="absolute right-8">send to</button>
+                          
+                          </td>
+                         </tr>
+
+                         <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                          <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                              2
+                          </th>
+                          <td class="px-2 py-2 w-28 border border-slate-40">
+                            
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                             
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                             
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 w-36 border border-slate-40">
+                          
+                          </td>
+                         </tr>
+
+                         <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                          <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                              3
+                          </th>
+                          <td class="px-2 py-2 w-28 border border-slate-40">
+                            
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                             
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                             
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 w-36 border border-slate-40">                       
+                          </td>
+                         </tr>
+
+                         <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                          <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                              4
+                          </th>
+                          <td class="px-2 py-2 w-28 border border-slate-40">
+                            
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                             
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                             
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 w-36 border border-slate-40">
+                          
+                          </td>
+                         </tr>
+
+                         <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                          <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                              5
+                          </th>
+                          <td class="px-2 py-2 w-28 border border-slate-40">
+                            
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                             
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                             
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 w-36 border border-slate-40">                         
+                          </td>
+                         </tr>
+
+                         <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                          <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                              6
+                          </th>
+                          <td class="px-2 py-2 w-28 border border-slate-40">
+                            
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                             
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                             
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 w-36 border border-slate-40">
+                          
+                          </td>
+                         </tr>
+
+                         <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                          <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                              7
+                          </th>
+                          <td class="px-2 py-2 w-28 border border-slate-40">
+                            
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                             
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                             
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 w-36 border border-slate-40">
+                          
+                          </td>
+                         </tr>
+
+                         <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                          <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                              8
+                          </th>
+                          <td class="px-2 py-2 w-28 border border-slate-40">
+                            
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                             
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                             
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 w-36 border border-slate-40">                    
+                          </td>
+                         </tr>
+
+                         <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                          <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                              9
+                          </th>
+                          <td class="px-2 py-2 w-28 border border-slate-40">
+                            
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                             
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                             
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 w-36 border border-slate-40">
+                          
+                          </td>
+                         </tr>
+
+                         <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                          <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                              10
+                          </th>
+                          <td class="px-2 py-2 w-28 border border-slate-40">
+                            
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                             
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                             
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 w-36 border border-slate-40">
+                          
+                          </td>
+                         </tr>
+
+                         <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                          <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                              11
+                          </th>
+                          <td class="px-2 py-2 w-28 border border-slate-40">
+                            
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                             
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                             
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 w-36 border border-slate-40">
+                          
+                          </td>
+                         </tr>
+
+                         <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                          <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                              12
+                          </th>
+                          <td class="px-2 py-2 w-28 border border-slate-40">
+                            
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                             
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                             
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 w-36 border border-slate-40">
+                          
+                          </td>
+                         </tr>
+
+                         <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                          <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                              13
+                          </th>
+                          <td class="px-2 py-2 w-28 border border-slate-40">
+                            
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                             
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                             
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 w-36 border border-slate-40">
+                          
+                          </td>
+                         </tr>
+
+                         <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                          <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                              14
+                          </th>
+                          <td class="px-2 py-2 w-28 border border-slate-40">
+                            
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                             
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                             
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 w-36 border border-slate-40">
+                          
+                          </td>
+                         </tr>
+
+                         <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                          <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                              15
+                          </th>
+                          <td class="px-2 py-2 w-28 border border-slate-40">
+                            
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                             
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                             
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 w-36 border border-slate-40">
+                          
+                          </td>
+                         </tr>
+
+                         <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                          <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                              16
+                          </th>
+                          <td class="px-2 py-2 w-28 border border-slate-40">
+                            
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                             
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                             
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 w-36 border border-slate-40">
+                          
+                          </td>
+                         </tr>
+
+                         <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                          <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                              17
+                          </th>
+                          <td class="px-2 py-2 w-28 border border-slate-40">
+                            
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                             
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                             
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 border border-slate-40">
+                        
+                          </td>
+                          <td class="px-2 py-2 w-36 border border-slate-40">
+                          
+                          </td>
+                         </tr>
+                      </tbody>
+                  </table>
+              </div>
+            </div>
+           </div>
+
+    <!-- Javascript code -->
+    <script>
+        function changeTab(event, index) {
+            var tabButtons = document.getElementById('tab-buttons').children;
+            var tabPanels = document.getElementById('tab-panels').children;
+
+            // Remove the active utility classes from all tabs (bg-white, text-blue-600)
+            // And hide all tab content (with the "hidden" utility)
+            for (var i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove('text-orange-600');
+                tabButtons[i].classList.remove('bg-white');
+                tabButtons[i].classList.add('text-gray-600');
+                tabPanels[i].classList.add('hidden');
+            }
+
+            // Add the active utility classes to the currently active tab (bg-white, text-blue-600)
+            // And show the current tab content (remove the "hidden" utility)
+            tabButtons[index].classList.remove('text-gray-600');
+            tabButtons[index].classList.add('text-orange-600');
+            tabButtons[index].classList.add('bg-inherit');
+            tabPanels[index].classList.remove('hidden');
+        }
+    </script>
+</body>
+
+</html>
