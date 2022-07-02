@@ -202,7 +202,7 @@ def login_post():
     return jsonify(msg)
 
 @app.route("/logout", subdomain="<portal_slug>")
-def logout(<portal_slug>):
+def portal_logout(<portal_slug>):
     print("logging out")
     session.pop("logged_in", False)
     session.pop("id", None)
