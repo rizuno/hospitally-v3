@@ -262,7 +262,7 @@ def register_post():
 
             cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
             cursor.execute(
-                "INSERT INTO tbl_user VALUES (% s,% s, % s, % s, % s, % s, % s, % s)",
+                "INSERT INTO tbl_user VALUES (% s,% s, % s, % s, % s, % s, % s, % s, %s)",
                 (
                     unique_user_id,
                     unique_portal_id,
@@ -270,8 +270,9 @@ def register_post():
                     "admin",
                     pw_hash,
                     email,
-                    today,
-                    today,
+                    today.strftime("%y-%m-%d %H:%M:%S"),
+                    today.strftime("%y-%m-%d %H:%M:%S"),
+                    'admin',
                 ),
             )
             mysql.connection.commit()
