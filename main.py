@@ -118,8 +118,8 @@ def portal_home(portal_slug,action=None):
         return "It looks like your hospital isn't registered with us yet. Sign up now!"
 # post endpoints
 
-@app.route("/add-temporary-acc", methods=["POST"])
-def add_portal_temp_acc():
+@app.route("/add-temporary-acc", methods=["POST"], subdomain="<portal_slug>")
+def add_portal_temp_acc(portal_slug):
     cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     print("EXECUTED231231")
     if request.method == "POST":
