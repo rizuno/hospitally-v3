@@ -280,7 +280,7 @@ def register_post():
             session["username"] = username
             session["user_id"] = unique_user_id
             session["as_admin"] = True
-            session["portal_id"] = account["portal_id"]
+            session["portal_id"] = unique_portal_id
             # print(f"LENGTH OF HASH IS {len(pw_hash)} HERE")
             print("SUCCESFULLY REGISTERED")
             msg = "You have successfully registered !"
