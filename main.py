@@ -166,6 +166,39 @@ def add_portal_temp_acc(portal_slug):
         total_row = cur.rowcount
         print(total_row)
     return jsonify(msg)
+@app.route("/login", methods=["POST", "GET"], subdomain="<portal_slug>")
+def portal_login(portal_slug):
+    cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    if request.method == "POST":
+        username = request.form["username"]
+        password = request.form["password"]
+        print(username)
+        print(password)
+        cur.execute(
+            "SELECT * FROM tbl_user WHERE user_username = %s",
+            [
+                username,
+            ],
+        )
+        account = cur.fetchone()
+        total_row = cur.rowcount
+        print(total_row)
+
+        if total_row > 0:
+            rs_password = account["user_password_hash"]
+            print(rs_password)
+            if bcrypt.check_password_hash(rs_password, password):
+                session["logged_in"] = True
+                session["username"] = username
+                session["user_id"] = account["user_id"]
+                session["as_admin"] = True
+                session["portal_id"] = account["portal_id"]
+                msg = "success yes testing success changes"
+            else:
+                msg = "No-data test ulit"
+        else:
+            msg = "No-data"
+    return jsonify(msg)
 
 @app.route("/login", methods=["POST", "GET"], subdomain="www")
 def login_post():
