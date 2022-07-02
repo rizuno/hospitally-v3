@@ -201,6 +201,15 @@ def login_post():
             msg = "No-data"
     return jsonify(msg)
 
+@app.route("/logout", subdomain="<portal_slug>")
+def logout(<portal_slug>):
+    print("logging out")
+    session.pop("logged_in", False)
+    session.pop("id", None)
+    session.pop("username", None)
+    session.pop("as_admin",None)
+    session.pop("portal_id",None)
+    return redirect(url_for("home"))
 
 @app.route("/logout", subdomain="www")
 def logout():
