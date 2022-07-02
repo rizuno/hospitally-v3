@@ -193,9 +193,9 @@ def portal_login(portal_slug):
                 session["user_id"] = account["user_id"]
                 session["as_admin"] = True
                 session["portal_id"] = account["portal_id"]
-                msg = "success yes testing success changes"
+                msg = "logging in"
             else:
-                msg = "No-data test ulit"
+                msg = "No-data"
         else:
             msg = "No-data"
     return jsonify(msg)
@@ -227,9 +227,9 @@ def login_post():
                 session["user_id"] = account["user_id"]
                 session["as_admin"] = True
                 session["portal_id"] = account["portal_id"]
-                msg = "success yes testing success changes"
+                msg = "logging in"
             else:
-                msg = "No-data test ulit"
+                msg = "No-data"
         else:
             msg = "No-data"
     return jsonify(msg)
