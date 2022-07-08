@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="/css/output.css" rel="stylesheet">
+
+  <title>PORTAL</title>
+</head>
+<body class="p-4 bg-gray-300">
+<!--NAVIGATION SIDE BAR-->
+<div class="flex">
+<!--CONTAINER-->
+<div class="mt-[-20px] ml-[-15px] w-[350px] h-screen bg-white pt-8 pl-2 drop-shadow-xl">
+
+<!--HOSPITALLY-->
+<div class="flex ml-[15px] mt-[15px]">
+<img src="/img/logo-hospitally.png" alt="">
+</div>
+
+<ul>
+<!--OVERVIEW-->
+<div class="">
+<li class="flex ml-[40px] mt-[25px] pt-6 gap-2 p-3 cursor-pointer text-[20px] text-gray-400 font-semibold
+hover:text-brightOrange active:text-orange" data-target="#overview"> <svg class="h-8 w-8 text-gray-500 hover:text-brightOrange"  width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="12" cy="13" r="2" />  <line x1="13.45" y1="11.55" x2="15.5" y2="9.5" />  <path d="M6.4 20a9 9 0 1 1 11.2 0Z" /></svg>
+overview</li>
+</div>
+<!--MEDICAL RECORDS-->       
+<li class="flex ml-[40px] mt-[-10px] pt-8 gap-2 p-3 cursor-pointer text-[20px] text-gray-400 font-semibold
+hover:text-brightOrange active:text-orange" data-target="#medical-records"><svg class="h-8 w-8 text-gray-500 hover:text-brightOrange"  width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <rect x="5" y="3" width="14" height="18" rx="2" />  <line x1="9" y1="7" x2="15" y2="7" />  <line x1="9" y1="11" x2="15" y2="11" />  <line x1="9" y1="15" x2="13" y2="15" /></svg>
+medical records</li>
+
+ <!--DEPARTMENTS-->                 
+<li class="flex ml-[40px] mt-[-10px] pt-8 gap-2 p-3 cursor-pointer text-[20px] text-gray-400 font-semibold
+hover:text-brightOrange active:text-orange" data-target="#departments"><svg class="h-8 w-8 text-gray-500 hover:text-brightOrange"  width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <line x1="3" y1="21" x2="21" y2="21" />  <line x1="9" y1="8" x2="10" y2="8" />  <line x1="9" y1="12" x2="10" y2="12" />  <line x1="9" y1="16" x2="10" y2="16" />  <line x1="14" y1="8" x2="15" y2="8" />  <line x1="14" y1="12" x2="15" y2="12" />  <line x1="14" y1="16" x2="15" y2="16" />  <path d="M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16" /></svg>
+departments</li> 
+
+ <!--STAFF-->                 
+ <li class="flex ml-[41px] mt-[-10px] pt-8 gap-2 p-3 cursor-pointer text-[20px] text-gray-400 font-semibold
+ hover:text-brightOrange active:text-orange" data-target="#staff"><svg class="h-8 w-8 text-gray-500 hover:text-brightOrange"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+</svg>
+ staff</li>
+ 
+  <!--SETTINGS-->                 
+  <li class="flex ml-[41px] mt-[-10px] pt-8 gap-2 p-3 cursor-pointer text-[20px] text-gray-400 font-semibold
+  hover:text-brightOrange active:text-orange" data-target="#settings"><svg class="h-8 w-8 text-gray-500 hover:text-brightOrange"  width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />  <circle cx="12" cy="12" r="3" /></svg>
+  settings</li>
+</ul>
+
+<!-- Account Avatar Icon -->
+<div class="relative w-[275px] h-12 pt-56 pl-[50px]">
+  <img class="rounded-full border border-gray-100 shadow-sm" src="https://icon-library.com/images/default-user-icon/default-user-icon-13.jpg" alt="user image" />
+ </div>
+
+
+<!-- Username -->
+<div class>
+  <h1 class="font-bold text-4xl text-darkSlate pl-14 pt-64">Default User</h1>
+  <p class="font-thin text-gray-400 tracking-tight text-center text-2xl pr-4 pt-2">admin</p>
+</div>
+
+
+<!--LOGOUT-->
+<a href="#"><p class="absolute bottom-0 left-[135px] h-12 w-24 font-bold text-xl text-gray-400 tracking-tight hover:text-darkSlate">Log Out
+</a></p>
+
+</div>
+<!--CONTENT PAGES-->
+<ul>  
+    <!-- OVERVIEW PAGE -->
+    <li class="block" id="overview">
+    <!--OVERVIEW TAILWIND PAGE CODE-->
+    </li>
+
+    <!-- MEDICAL RECORD PAGE -->
+    <li class="hidden" id="medical-records">
+     <!--MEDICAL RECORD TAILWIND PAGE CODE-->   
+    </li>
+
+    <!-- DEPARTMENTS PAGE -->
+    <li class="hidden" id="departments">
+    <!--DEPARTMENTS TAILWIND PAGE CODE-->   
+    </li>
+
+    <!-- STAFF PAGE -->
+    <li class="hidden" id="staff">
+    <!--STAFF TAILWIND PAGE CODE-->   
+    </li>
+
+    <!-- SETTINGS PAGE -->
+    <li class="hidden" id="settings">
+    <!--SETTINGS TAILWIND PAGE CODE-->   
+    
+    </li>
+</ul> <!--END OF CONTENT PAGES-->
+
+
+</div> <!--END OF FLEX CONTAINER FOR NAVIGATION SIDEBAR-->
+</body>
+</html>

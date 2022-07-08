@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="/css/output.css" rel="stylesheet">
+
+  <title>SETTINGS</title>
+</head>
+<body class="p-4 bg-gray-300">
+
+
+<!--list on the left - (change hospital settings, account, terms and conditions, help and support and privacy) -->
+<div 
+x-data="{
+openTab: 1,
+activeClasses: 'text-orange-600',
+inactiveClasses: 'text-gray-500'
+}" 
+  class="p-6">
+  <div class="flex">
+
+  <div class="mt-[-10px] ml-[-15px] w-[1220px] h-[700px] bg-white rounded-lg">
+
+<!--HOSPITALLY-->
+<div class="flex ml-[15px] mt-[5px]">
+<h1 class="text-4xl"><b>Hospitally</b></h1>
+</div>
+
+<ul>
+<!--CHANGE HOSPITAL SETTINGS-->
+<li @click = "openTab = 1" :class="{ '-mb-px': openTab === 1 }" class="flex ml-[25px] mt-[40px] gap-2 p-3 cursor-pointer text-[20px] text-black ">
+  <a :class="openTab === 1 ? activeClasses : inactiveClasses" class="bg-white inline-block py-2 px-4 font-semibold" href="#change">
+    change hospital settings
+  </a>
+</li>
+
+<!--ACCOUNT-->
+<li @click = "openTab = 2" :class="{ '-mb-px': openTab === 2 }" class="flex ml-[170px] mt-[-20px] gap-2 p-3 cursor-pointer text-[20px] text-black ">
+  <a :class="openTab === 2 ? activeClasses : inactiveClasses" class="bg-white inline-block py-2 px-4 font-semibold" href="#account">
+    account
+  </a>
+</li>
+
+<!--HELP AND SUPPORT-->
+<li @click = "openTab = 3" :class="{ '-mb-px': openTab === 3 }" class="flex ml-[89px] mt-[-20px] gap-2 p-3 cursor-pointer text-[20px] text-black ">
+  <a :class="openTab === 3 ? activeClasses : inactiveClasses" class="bg-white inline-block py-2 px-4 font-semibold" href="#helpsupport">
+    help and support
+  </a>
+</li>
+
+<!--TERMS AND CONDITIONS-->
+<li @click = "openTab = 4" :class="{ '-mb-px': openTab === 4 }" class="flex ml-[57px] mt-[-20px] gap-2 p-3 cursor-pointer text-[20px] text-black 
+">
+  <a :class="openTab === 4 ? activeClasses : inactiveClasses" class="bg-white inline-block py-2 px-4 font-semibold" href="#termsconditions">
+    terms and conditions
+  </a>
+</li>
+
+<!--PRIVACY-->
+<li @click = "openTab = 5" :class="{ '-mb-px': openTab === 5 }" class="flex ml-[180px] mt-[-20px] gap-2 p-3 cursor-pointer text-[20px] text-black 
+">
+  <a :class="openTab === 5 ? activeClasses : inactiveClasses" class="bg-white inline-block py-2 px-4 font-semibold" href="#privacy">
+    privacy
+  </a>
+</li>
+
+<!--ABOUT HOSPITALLY-->
+<li @click = "openTab = 6" :class="{ '-mb-px': openTab === 6 }" class="flex ml-[100px] mt-[270px] gap-2 p-3 cursor-pointer text-[20px] text-black 
+">
+  <a :class="openTab === 6 ? activeClasses : inactiveClasses" class="bg-white inline-block py-2 px-4 font-semibold" href="#abouthospitally">
+    about hospitally
+  </a>
+</li>
+
+</ul>
+</div>
+</div>
+
+<!-----------------------------------------------LINE SEPARATOR--------------------------------------------------------------------->
+<div class="absolute left-[320px] top-[0px]  w-[3px] h-[750px] bg-gray-300">
+  <br><br>
+  </div>
+
+<div class="w-full pt-4">
+  <div x-show="openTab === 1">
+    <!--LOGIN DETAILS-->
+<div class="absolute left-[370px] top-[140px] text-black text-[20px] ">
+
+  <p>change hospital name </p>
+  <input class="absolute top-[0px] left-[240px] bg-gray-100 rounded-md w-[500px] h-[35px] text-[20px] " type="text"
+  id="name" name="name"  required><br>
+  
+  <p>change login image</p>
+  <!--File upload button -->
+  <div class="flex w-[200px] h-[30px] ml-[200px] mt-[-27px] items-center justify-center bg-grey-lighter">
+  <label class="w-32 flex flex-col items-center px-2 py-1 bg-gray-200 text-gray-400 rounded-lg shadow-lg tracking-wide uppercase border border-gray-400 cursor-pointer hover:bg-gray-300 hover:text-white">
+  <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+  <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+  </svg>
+  <input type='file' class="hidden"/>
+  </div>
+  
+  <!--LINE-->
+  <hr class="flex mt-[40px] w-[720px] border-gray-400">
+  
+  <!--SAVE BUTTON-->
+  <a href="#"><button class="absolute top-[200px] left-[550px] bg-green-600 rounded-xl
+  text-white text-[18px] w-[150px] h-[35px] text-center no-underline
+  inline-block px-1">save</button></a>
+  </div>
+  </li> <!--END OF CHANGE HOSPITAL SETTINGS PAGE-->
+  <!---------------------------------------------------------------------------------------------------------------------------------
+  ------------------------------------------------------------->
+</div>
+
+<div x-show="openTab === 2">
+  <div class="absolute left-[860px] top-[45px]">
+    <h1 class="text-4xl">login details &</h1>
+    </div>
+    
+    <div class="absolute left-[860px] top-[95px]">
+    <h1 class="text-4xl">personal information</h1>
+    </div>
+    
+    <!-------------------------------------------------------USERNAME---------------------------------------------------------------->
+    <p class="absolute left-[500px] top-[200px] text-[25px] text-gray-400">username</p>
+    <input type="text" id="username" name="username" class="absolute bg-gray-100 text-[20px] top-[205px] left-[650px] w-[500px] h-[30px]">
+    
+    <!-------------------------------------------------------PASSWORD---------------------------------------------------------------->
+    <p class="absolute left-[500px] top-[260px] text-[25px] text-gray-400">password</p>
+    <input type="password" id="password" name="password" class="absolute bg-gray-100 text-[20px] top-[265px] left-[650px] w-[500px] h-[30px]">
+    
+     <!--------------------------------------------------------EMAIL----------------------------------------------------------------->
+     <p class="absolute left-[545px] top-[320px] text-[25px] text-gray-400">email</p>
+     <input type="email" id="email" name="email" class="absolute bg-gray-100 text-[20px] top-[325px] left-[650px] w-[500px] h-[30px]">
+    
+     <!-------------------------------------------------------BIRTHDATE-------------------------------------------------------------->
+     <p class="absolute left-[510px] top-[380px] text-[25px] text-gray-400">birthdate</p>
+    <input type="text" id="birthdate" name="birthdate" class="absolute bg-gray-100 text-[20px] top-[385px] left-[650px] w-[500px] h-[30px]">
+    
+     <!---------------------------------------------------CHANGE PROFILE IMAGE------------------------------------------------------->
+     <p class="absolute left-[380px] top-[440px] text-[25px] text-gray-400">change profile image</p>
+      <!----------------------------------------------------FILE UPLOAD ICON--------------------------------------------------------->
+     <div class="absolute w-[200px] h-[30px] left-[650px] top-[440px] items-center justify-center bg-grey-lighter">
+    <label class="w-32 flex flex-col items-center px-2 py-1 bg-gray-100 text-gray-400 rounded-lg shadow-lg tracking-wide uppercase border border-gray-400 cursor-pointer hover:bg-gray-300 hover:text-white">
+    <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+    <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+    </svg>
+    <input type='file' class="hidden"/>    
+    </div>
+    
+    <!-----------------------------------------------------------LINE---------------------------------------------------------------->
+    <hr class="absolute top-[510px] left-[370px] w-[800px] border-gray-400">
+    
+    <!--------------------------------------------------------SAVE BUTTON------------------------------------------------------------>
+    <a href="#"><button class="absolute top-[540px] left-[1025px] bg-green-600 rounded-xl
+    text-white text-[18px] w-[150px] h-[35px] text-center no-underline
+    inline-block px-1">save</button></a>
+    </li> <!--END OF ACCOUNT PAGE-->
+    <!---------------------------------------------------------------------------------------------------------------------------------
+    ------------------------------------------------------------->
+</div>
+
+<div x-show="openTab === 3">
+<h1 class="absolute top-[45px] left-[340px] text-4xl">help and support</h1>
+<!--HELP AND SUPPORT TEXT CODE
+ -------------------------------------
+--------------------------------------
+-->
+</li> <!--END OF HELP AND SUPPORT PAGE-->
+<!---------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------->
+</div>
+
+<div x-show="openTab === 4">
+  <h1 class="absolute top-[45px] left-[340px] text-4xl">terms and conditions</h1>
+  <!--HELP AND SUPPORT TEXT CODE
+   -------------------------------------
+  --------------------------------------
+  -->
+  </li> <!--END OF HELP AND SUPPORT PAGE-->
+  <!---------------------------------------------------------------------------------------------------------------------------------
+  ------------------------------------------------------------->
+  </div>
+
+  <div x-show="openTab === 5">
+    <h1 class="absolute top-[45px] left-[340px] text-4xl">privacy</h1>
+    <!--HELP AND SUPPORT TEXT CODE
+     -------------------------------------
+    --------------------------------------
+    -->
+    </li> <!--END OF HELP AND SUPPORT PAGE-->
+    <!---------------------------------------------------------------------------------------------------------------------------------
+    ------------------------------------------------------------->
+    </div>
+
+    <div x-show="openTab === 6">
+      <h1 class="absolute top-[45px] left-[340px] text-4xl">about hospitally</h1>
+      <!--HELP AND SUPPORT TEXT CODE
+       -------------------------------------
+      --------------------------------------
+      -->
+      </li> <!--END OF HELP AND SUPPORT PAGE-->
+      <!---------------------------------------------------------------------------------------------------------------------------------
+      ------------------------------------------------------------->
+      </div>
+
+</div> 
+</div>
+
+
+</body>
+</html>

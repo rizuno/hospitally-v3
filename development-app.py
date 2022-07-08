@@ -389,7 +389,6 @@ def departments():
     return render_template("departments.html")
 
 
-
 if __name__ == "__main__":
     app.run()
 

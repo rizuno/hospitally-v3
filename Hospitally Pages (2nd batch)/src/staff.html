@@ -1,0 +1,1482 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+  <link href="/css/output.css" rel="stylesheet">
+
+  <title>STAFF</title>
+</head> 
+<body class="p-4 bg-gray-100">
+     
+    <!-- SEARCH BAR -->
+    <div class="flex left-[20px] top-[10px]">
+    <form class="bg-gray-100 w-[600px] h-[42px] rounded-md flex text-center ">
+    <!-- SEARCH INPUT -->
+    <input class="bg-gray-200 text-[16px] text-black h-[40px] w-[600px] pl-3"
+    type="search" id="query" name="q" placeholder="search any">
+
+    <button class="bg-gray-200 cursor-pointer w-[30px] h-[40px] text-white" type="submit">
+        <i class="fa fa-search"></i>
+    </button>
+    </form>
+    </div>
+       
+        <!-- MANAGE STAFF BUTTON -->
+    <div id="tab-buttons">
+      <button class="absolute overflow-hidden border-white bg-orange-300 cursor-pointer
+        rounded-xl left-[625px] top-[14px] h-[40px] text-[20px] w-[200px] text-center 
+        active:bg-orange-400 focus:outline-none focus:ring focus:ring-orange-500 text-white" 
+        onclick="openTab('manage', this)" id="defaultOpen">manage staff
+      </button>
+
+        <!-- ADD STAFF BUTTON --> 
+      <button class="absolute overflow-hidden border-white bg-orange-300 cursor-pointer
+        rounded-xl left-[835px] top-[14px] h-[40px] text-[20px] w-[200px] text-center 
+        active:bg-orange-400 focus:outline-none focus:ring focus:ring-orange-500 text-white"
+        onclick="openTab('add', this)">add staff
+        </button>
+      </div>
+    </div>
+
+      <!-- WELCOME ADMIN/USER -->
+      <div class="absolute top-[20px] right-[310px] text-[20px]">
+        <legend>welcome, admin</legend>
+      </div>
+
+      <!-- CONTAINER CLASS -->
+      <div class="bg-white absolute left-[10px] top-[70px] w-[1490px] h-[650px] " >
+  
+        <!-- MANAGE STAFF PAGE -->
+        <div id="manage" class="tabcontent">
+
+          <div 
+          x-data="{
+         openTab: 1,
+         activeClasses: 'text-orange-600',
+         inactiveClasses: 'text-gray-500'
+         }" 
+         class="p-6"> 
+      <ul class="absolute top-[5px] left-[50px] text-[20px]">
+        <br><br>
+            
+        <!--DOCTORS-->
+        <li @click = "openTab = 1" :class="{ '-mb-px': openTab === 1 }" class="absolute left-[-25px] top-[35px] gap-2 p-3 cursor-pointer text-[20px] text-black ">
+          <a :class="openTab === 1 ? activeClasses : inactiveClasses" class="bg-transparent inline-block py-2 px-4 font-semibold" href="#doctors">
+            doctors
+          </a>
+        </li>
+
+          <!--INTERNS-->
+        <li @click = "openTab = 2" :class="{ '-mb-px': openTab === 2 }" class="absolute left-[-5px] top-[85px] gap-2 p-3 cursor-pointer text-[20px] text-black ">
+          <a :class="openTab === 2 ? activeClasses : inactiveClasses" class="bg-transparent inline-block py-2 px-4 font-semibold" href="#interns">
+            interns
+          </a>
+        </li>
+
+          <!--SURGEON-->
+        <li @click = "openTab = 3" :class="{ '-mb-px': openTab === 3 }" class="absolute left-[-5px] top-[135px] gap-2 p-3 cursor-pointer text-[20px] text-black ">
+          <a :class="openTab === 3 ? activeClasses : inactiveClasses" class="bg-transparent inline-block py-2 px-4 font-semibold" href="#surgeon">
+            surgeon
+          </a>
+        </li>
+
+          <!--SURGEON HEAD-->
+        <li @click = "openTab = 4" :class="{ '-mb-px': openTab === 4 }" class="relative left-[20px] top-[125px] gap-2 p-3 cursor-pointer text-[20px] text-black ">
+          <a :class="openTab === 4 ? activeClasses : inactiveClasses" class="bg-transparent inline-block py-2 px-4 font-semibold" href="#surgeonhead">
+            surgeon head
+          </a>
+        </li>
+
+          <!--HEAD-->
+        <li @click = "openTab = 5" :class="{ '-mb-px': openTab === 5 }" class="absolute left-[1px] top-[235px] gap-2 p-3 cursor-pointer text-[20px] text-black ">
+          <a :class="openTab === 5 ? activeClasses : inactiveClasses" class="bg-transparent inline-block py-2 px-4 font-semibold" href="#head">
+            head
+          </a>
+        </li>
+
+          <!--SURGEON HEAD-->
+        <li @click = "openTab = 6" :class="{ '-mb-px': openTab === 6 }" class="relative left-[1px] top-[155px] gap-2 p-3 cursor-pointer text-[20px] text-black ">
+          <a :class="openTab === 6 ? activeClasses : inactiveClasses" class="bg-transparent inline-block py-2 px-4 font-semibold" href="#surgeonhead">
+            surgeon head
+          </a>
+        </li>
+
+          <!--LEAD-->
+        <li @click = "openTab = 7" :class="{ '-mb-px': openTab === 7 }" class="absolute left-[1px] top-[335px] gap-2 p-3 cursor-pointer text-[20px] text-black ">
+          <a :class="openTab === 7 ? activeClasses : inactiveClasses" class="bg-transparent inline-block py-2 px-4 font-semibold" href="#lead">
+            lead
+          </a>
+        </li>
+
+          <!--NURSES-->
+        <li @click = "openTab = 8" :class="{ '-mb-px': openTab === 8 }" class="absolute left-[-25px] top-[435px] gap-2 p-3 cursor-pointer text-[20px] text-black ">
+          <a :class="openTab === 8 ? activeClasses : inactiveClasses" class="bg-transparent inline-block py-2 px-4 font-semibold" href="#nurse">
+            nurses
+          </a>
+        </li>
+
+          <!--STAFF-->
+        <li @click = "openTab = 9" :class="{ '-mb-px': openTab === 9 }" class="absolute left-[-25px] top-[515px] gap-2 p-3 cursor-pointer text-[20px] text-black ">
+          <a :class="openTab === 9 ? activeClasses : inactiveClasses" class="bg-transparent inline-block py-2 px-4 font-semibold" href="#staff">
+            staff
+          </a>
+        </li>
+      </ul>
+   
+
+      <ul>
+        <div x-show="openTab === 1">
+          <table class="absolute top-[60px] w-[1150px] left-[300px] text-black text-center border-b-slate-400">
+            <tr>
+            <th scope="col" class="border border-slate-40 w-1"></th>
+            <th scope="col" class="border border-slate-40">name</th>
+            <th scope="col" class="border border-slate-40">username</th>
+            <th scope="col" class="border border-slate-40">email</th>
+            <th scope="col" class="border border-slate-40">contact no</th>
+            <th scope="col" class="border border-slate-40">email</th>
+            <th scope="col" class="border border-slate-40">address</th>
+            <th scope="col" class="border border-slate-40">role</th>
+            <th scope="col" class="border border-slate-40">activity</th>
+            </tr>
+        
+            <tbody>
+                <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                  <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">1</th>
+                  <td class="px-1 py-1 w-32 border border-slate-40">Doctor 1 </td>
+                  <td class="px-1 py-1 border border-slate-40"></td>
+                  <td class="px-1 py-1 border border-slate-40"></td>
+                  <td class="px-1 py-1 border border-slate-40"></td>
+                  <td class="px-1 py-1 border border-slate-40"></td>
+                  <td class="px-1 py-1 border border-slate-40"></td>
+                  <td class="px-1 py-1 border border-slate-40"></td>
+                  <td class="px-1 py-1 w-36 border border-slate-40">
+                    <button type="submit" class="bg-gray-200 rounded-md absolute top-8 right-[100px]">open</button>
+                    <button type="submit" class="bg-gray-200 rounded-md absolute top-8 right-8">send to</button>
+                  </td>
+                 </tr>
+
+                 <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                    <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">2</th>
+                    <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 w-36 border border-slate-40">                        
+                    </td>
+                   </tr>
+
+                   <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                    <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">3</th>
+                    <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                   </tr>
+
+                   <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                    <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">4</th>
+                    <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                   </tr>
+
+                   <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                    <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">5</th>
+                    <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                   </tr>
+
+                   <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                    <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">6</th>
+                    <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                   </tr>
+
+                   <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                    <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">7</th>
+                    <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                   </tr>
+
+                   <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                    <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">8</th>
+                    <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                   </tr>
+
+                   <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                    <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">9</th>
+                    <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                   </tr>
+
+                   <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                    <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">10</th>
+                    <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                   </tr>
+                 </tbody>
+            </table>
+      </li> <!--END OF DOCTOR TABLE -->
+        </div>
+       <!-- <li class="block" id="doctors"> -->
+            
+        <div x-show="openTab === 2">
+          <!--START OF INTERNS TABLE -->
+          <table class="absolute top-[60px] w-[1150px] left-[300px] text-black text-center border-b-slate-400">
+            <tr>
+            <th scope="col" class="border border-slate-40 w-1"></th>
+            <th scope="col" class="border border-slate-40">name</th>
+            <th scope="col" class="border border-slate-40">username</th>
+            <th scope="col" class="border border-slate-40">email</th>
+            <th scope="col" class="border border-slate-40">contact no</th>
+            <th scope="col" class="border border-slate-40">email</th>
+            <th scope="col" class="border border-slate-40">address</th>
+            <th scope="col" class="border border-slate-40">role</th>
+            <th scope="col" class="border border-slate-40">activity</th>
+            </tr>
+        
+            <tbody>
+                <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                  <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">1</th>
+                  <td class="px-1 py-1 w-32 border border-slate-40">Interns 1 </td>
+                  <td class="px-1 py-1 border border-slate-40"></td>
+                  <td class="px-1 py-1 border border-slate-40"></td>
+                  <td class="px-1 py-1 border border-slate-40"></td>
+                  <td class="px-1 py-1 border border-slate-40"></td>
+                  <td class="px-1 py-1 border border-slate-40"></td>
+                  <td class="px-1 py-1 border border-slate-40"></td>
+                  <td class="px-1 py-1 w-36 border border-slate-40">
+                    <button type="submit" class="bg-gray-200 rounded-md absolute top-8 right-[100px]">open</button>
+                    <button type="submit" class="bg-gray-200 rounded-md absolute top-8 right-8">send to</button>
+                  </td>
+                 </tr>
+
+                 <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                  <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">2</th>
+                  <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                  <td class="px-1 py-1 border border-slate-40"></td>
+                  <td class="px-1 py-1 border border-slate-40"></td>
+                  <td class="px-1 py-1 border border-slate-40"></td>
+                  <td class="px-1 py-1 border border-slate-40"></td>
+                  <td class="px-1 py-1 border border-slate-40"></td>
+                  <td class="px-1 py-1 border border-slate-40"></td>
+                  <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                 </tr>
+
+                   <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                    <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">3</th>
+                    <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                   </tr>
+
+                   <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                    <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">4</th>
+                    <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                   </tr>
+
+                   <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                    <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">5</th>
+                    <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                   </tr>
+
+                   <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                    <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">6</th>
+                    <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                   </tr>
+
+                   <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                    <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">7</th>
+                    <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                   </tr>
+
+                   <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                    <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">8</th>
+                    <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                   </tr>
+
+                   <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                    <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">9</th>
+                    <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                   </tr>
+
+                   <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                    <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">10</th>
+                    <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                   </tr>
+                 </tbody>
+            </table>
+           </li>
+           </div>
+
+           <div x-show="openTab === 3">
+            <table class="absolute top-[60px] w-[1150px] left-[300px] text-black text-center border-b-slate-400">
+              <tr>
+              <th scope="col" class="border border-slate-40 w-1"></th>
+              <th scope="col" class="border border-slate-40">name</th>
+              <th scope="col" class="border border-slate-40">username</th>
+              <th scope="col" class="border border-slate-40">email</th>
+              <th scope="col" class="border border-slate-40">contact no</th>
+              <th scope="col" class="border border-slate-40">email</th>
+              <th scope="col" class="border border-slate-40">address</th>
+              <th scope="col" class="border border-slate-40">role</th>
+              <th scope="col" class="border border-slate-40">activity</th>
+              </tr>
+          
+              <tbody>
+                  <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                    <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">1</th>
+                    <td class="px-1 py-1 w-32 border border-slate-40">Surgeon 1</td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 w-36 border border-slate-40">
+                      <button type="submit" class="bg-gray-200 rounded-md absolute top-8 right-[100px]">open</button>
+                      <button type="submit" class="bg-gray-200 rounded-md absolute top-8 right-8">send to</button>
+                    </td>
+                   </tr>
+  
+                   <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                    <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">2</th>
+                    <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                   </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">3</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">4</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">5</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">6</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">7</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">8</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">9</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">10</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+                   </tbody>
+              </table>
+           </div>
+
+           <div x-show="openTab === 4">
+           <table class="absolute top-[60px] w-[1150px] left-[300px] text-black text-center border-b-slate-400">
+            <tr>
+            <th scope="col" class="border border-slate-40 w-1"></th>
+            <th scope="col" class="border border-slate-40">name</th>
+            <th scope="col" class="border border-slate-40">username</th>
+            <th scope="col" class="border border-slate-40">email</th>
+            <th scope="col" class="border border-slate-40">contact no</th>
+            <th scope="col" class="border border-slate-40">email</th>
+            <th scope="col" class="border border-slate-40">address</th>
+            <th scope="col" class="border border-slate-40">role</th>
+            <th scope="col" class="border border-slate-40">activity</th>
+            </tr>
+        
+            <tbody>
+                <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                  <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">1</th>
+                  <td class="px-1 py-1 w-32 border border-slate-40">Surgeon Head 1 </td>
+                  <td class="px-1 py-1 border border-slate-40"></td>
+                  <td class="px-1 py-1 border border-slate-40"></td>
+                  <td class="px-1 py-1 border border-slate-40"></td>
+                  <td class="px-1 py-1 border border-slate-40"></td>
+                  <td class="px-1 py-1 border border-slate-40"></td>
+                  <td class="px-1 py-1 border border-slate-40"></td>
+                  <td class="px-1 py-1 w-36 border border-slate-40">
+                    <button type="submit" class="bg-gray-200 rounded-md absolute top-8 right-[100px]">open</button>
+                    <button type="submit" class="bg-gray-200 rounded-md absolute top-8 right-8">send to</button>
+                  </td>
+                 </tr>
+
+                 <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                  <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">2</th>
+                  <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                  <td class="px-1 py-1 border border-slate-40"></td>
+                  <td class="px-1 py-1 border border-slate-40"></td>
+                  <td class="px-1 py-1 border border-slate-40"></td>
+                  <td class="px-1 py-1 border border-slate-40"></td>
+                  <td class="px-1 py-1 border border-slate-40"></td>
+                  <td class="px-1 py-1 border border-slate-40"></td>
+                  <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                 </tr>
+
+                   <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                    <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">3</th>
+                    <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                   </tr>
+
+                   <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                    <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">4</th>
+                    <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                   </tr>
+
+                   <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                    <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">5</th>
+                    <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                   </tr>
+
+                   <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                    <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">6</th>
+                    <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                   </tr>
+
+                   <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                    <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">7</th>
+                    <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                   </tr>
+
+                   <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                    <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">8</th>
+                    <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                   </tr>
+
+                   <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                    <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">9</th>
+                    <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                   </tr>
+
+                   <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                    <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">10</th>
+                    <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                   </tr>
+                 </tbody>
+            </table>
+          </div>
+          
+          <div x-show="openTab === 5">
+            <table class="absolute top-[60px] w-[1150px] left-[300px] text-black text-center border-b-slate-400">
+              <tr>
+              <th scope="col" class="border border-slate-40 w-1"></th>
+              <th scope="col" class="border border-slate-40">name</th>
+              <th scope="col" class="border border-slate-40">username</th>
+              <th scope="col" class="border border-slate-40">email</th>
+              <th scope="col" class="border border-slate-40">contact no</th>
+              <th scope="col" class="border border-slate-40">email</th>
+              <th scope="col" class="border border-slate-40">address</th>
+              <th scope="col" class="border border-slate-40">role</th>
+              <th scope="col" class="border border-slate-40">activity</th>
+              </tr>
+          
+              <tbody>
+                  <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                    <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">1</th>
+                    <td class="px-1 py-1 w-32 border border-slate-40">Head 1 </td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 w-36 border border-slate-40">
+                      <button type="submit" class="bg-gray-200 rounded-md absolute top-8 right-[100px]">open</button>
+                      <button type="submit" class="bg-gray-200 rounded-md absolute top-8 right-8">send to</button>
+                    </td>
+                   </tr>
+  
+                   <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                    <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">2</th>
+                    <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                   </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">3</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">4</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">5</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">6</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">7</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">8</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">9</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">10</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+                   </tbody>
+              </table>
+        </li> <!--END OF HEAD TABLE -->
+          </div>
+
+          <div x-show="openTab === 6">
+            <table class="absolute top-[60px] w-[1150px] left-[300px] text-black text-center border-b-slate-400">
+              <tr>
+              <th scope="col" class="border border-slate-40 w-1"></th>
+              <th scope="col" class="border border-slate-40">name</th>
+              <th scope="col" class="border border-slate-40">username</th>
+              <th scope="col" class="border border-slate-40">email</th>
+              <th scope="col" class="border border-slate-40">contact no</th>
+              <th scope="col" class="border border-slate-40">email</th>
+              <th scope="col" class="border border-slate-40">address</th>
+              <th scope="col" class="border border-slate-40">role</th>
+              <th scope="col" class="border border-slate-40">activity</th>
+              </tr>
+          
+              <tbody>
+                  <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                    <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">1</th>
+                    <td class="px-1 py-1 w-32 border border-slate-40">Surgeon Head 1 </td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 w-36 border border-slate-40">
+                      <button type="submit" class="bg-gray-200 rounded-md absolute top-8 right-[100px]">open</button>
+                      <button type="submit" class="bg-gray-200 rounded-md absolute top-8 right-8">send to</button>
+                    </td>
+                   </tr>
+  
+                   <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                    <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">2</th>
+                    <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                   </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">3</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">4</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">5</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">6</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">7</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">8</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">9</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">10</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+                   </tbody>
+              </table>
+            </li> <!--END OF SURGEON TABLE -->
+          </div>
+
+          <div x-show="openTab === 7">
+            <table class="absolute top-[60px] w-[1150px] left-[300px] text-black text-center border-b-slate-400">
+              <tr>
+              <th scope="col" class="border border-slate-40 w-1"></th>
+              <th scope="col" class="border border-slate-40">name</th>
+              <th scope="col" class="border border-slate-40">username</th>
+              <th scope="col" class="border border-slate-40">email</th>
+              <th scope="col" class="border border-slate-40">contact no</th>
+              <th scope="col" class="border border-slate-40">email</th>
+              <th scope="col" class="border border-slate-40">address</th>
+              <th scope="col" class="border border-slate-40">role</th>
+              <th scope="col" class="border border-slate-40">activity</th>
+              </tr>
+          
+              <tbody>
+                  <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                    <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">1</th>
+                    <td class="px-1 py-1 w-32 border border-slate-40">Lead 1</td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 w-36 border border-slate-40">
+                      <button type="submit" class="bg-gray-200 rounded-md absolute top-8 right-[100px]">open</button>
+                      <button type="submit" class="bg-gray-200 rounded-md absolute top-8 right-8">send to</button>
+                    </td>
+                   </tr>
+  
+                   <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                    <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">2</th>
+                    <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                   </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">3</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">4</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">5</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">6</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">7</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">8</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">9</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">10</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+                   </tbody>
+              </table>
+        </li> <!--END OF LEAD TABLE -->
+          </div>
+
+          <div x-show="openTab === 8">
+            <table class="absolute top-[60px] w-[1150px] left-[300px] text-black text-center border-b-slate-400">
+              <tr>
+              <th scope="col" class="border border-slate-40 w-1"></th>
+              <th scope="col" class="border border-slate-40">name</th>
+              <th scope="col" class="border border-slate-40">username</th>
+              <th scope="col" class="border border-slate-40">email</th>
+              <th scope="col" class="border border-slate-40">contact no</th>
+              <th scope="col" class="border border-slate-40">email</th>
+              <th scope="col" class="border border-slate-40">address</th>
+              <th scope="col" class="border border-slate-40">role</th>
+              <th scope="col" class="border border-slate-40">activity</th>
+              </tr>
+          
+              <tbody>
+                  <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                    <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">1</th>
+                    <td class="px-1 py-1 w-32 border border-slate-40">Nurse 1 </td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 w-36 border border-slate-40">
+                      <button type="submit" class="bg-gray-200 rounded-md absolute top-8 right-[100px]">open</button>
+                      <button type="submit" class="bg-gray-200 rounded-md absolute top-8 right-8">send to</button>
+                    </td>
+                   </tr>
+  
+                   <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                    <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">2</th>
+                    <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                   </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">3</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">4</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">5</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">6</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">7</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">8</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">9</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">10</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+                   </tbody>
+              </table>
+        </li> <!--END OF NURSE TABLE -->
+          </div>
+
+          <div x-show="openTab === 9">
+            <table class="absolute top-[60px] w-[1150px] left-[300px] text-black text-center border-b-slate-400">
+              <tr>
+              <th scope="col" class="border border-slate-40 w-1"></th>
+              <th scope="col" class="border border-slate-40">name</th>
+              <th scope="col" class="border border-slate-40">username</th>
+              <th scope="col" class="border border-slate-40">email</th>
+              <th scope="col" class="border border-slate-40">contact no</th>
+              <th scope="col" class="border border-slate-40">email</th>
+              <th scope="col" class="border border-slate-40">address</th>
+              <th scope="col" class="border border-slate-40">role</th>
+              <th scope="col" class="border border-slate-40">activity</th>
+              </tr>
+          
+              <tbody>
+                  <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                    <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">1</th>
+                    <td class="px-1 py-1 w-32 border border-slate-40">Staff 1</td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 w-36 border border-slate-40">
+                      <button type="submit" class="bg-gray-200 rounded-md absolute top-8 right-[100px]">open</button>
+                      <button type="submit" class="bg-gray-200 rounded-md absolute top-8 right-8">send to</button>
+                    </td>
+                   </tr>
+  
+                   <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                    <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">2</th>
+                    <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 border border-slate-40"></td>
+                    <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                   </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">3</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">4</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">5</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">6</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">7</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">8</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">9</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+  
+                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 text-left">
+                      <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">10</th>
+                      <td class="px-1 py-1 w-28 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 border border-slate-40"></td>
+                      <td class="px-1 py-1 w-36 border border-slate-40"></td>
+                     </tr>
+                   </tbody>
+              </table>
+        </li> <!--END OF STAFF TABLE -->
+          </div>
+        </ul>
+        </div>
+        </div> <!--END OF MANAGE STAFF PAGE -->
+
+        <!--START OF ADD STAFF PAGE -->
+         <!--ACCOUNT DETAILS -->
+
+         <div id="add" class="tabcontent">
+          <div class="absolute text-black top-[100px] left-[500px] ">
+           <h2 class="text-4xl ">create an account</h2>
+           <!--to give access to hospital users-->
+           <div class="absolute text-gray-600 top-[40px] left-[1px] text-[17px]">
+           <p>
+            to give access to hospital users
+           </p>
+          
+            <!-- ROLES: -->
+           <input class="absolute bg-gray-100  rounded-md w-[500px] h-[40px] top-[40px] text-[20px] " type="text"
+           id="roles" name="roles" placeholder=" roles" required> <br><br>
+
+             <!-- USERNAME: -->
+             <input class="absolute bg-gray-100  rounded-md w-[500px] h-[40px] top-[100px] text-[20px] " type="text"
+           id="username" name="username" placeholder=" username" required> <br><br>
+
+            <!-- PASSWORD: -->
+            <input class="absolute bg-gray-100  rounded-md w-[500px] h-[40px] top-[160px] text-[20px] " type="password"
+            id="password" name="password" placeholder=" password" required> <br><br>
+
+             <!-- PICK A DEPARTMENT: -->
+             <input class="absolute bg-gray-100  rounded-md w-[500px] h-[40px] top-[220px] text-[20px] " type="department"
+             id="department" name="department" placeholder=" pick a department" required> <br><br>
+             <a href="#"><button class="absolute top-[275px] left-[260px] bg-green-600 rounded-md
+                                        text-white text-[18px] w-[240px] h-[35px] text-center no-underline
+                                        inline-block px-1">add temporary account</button></a>
+           </div>
+         </div> 
+         <!--email details -->
+          <div class="absolute text-black top-[260px] left-[500px] text-[30px]">
+
+            <input class="absolute bg-gray-100  rounded-md w-[500px] h-[40px] top-[220px] text-[20px] " type="email"
+            id="email" name="email" placeholder=" email" required>
+            <a href="#"><button class="absolute top-[275px] left-[260px] bg-red-500 rounded-md
+                text-white text-[18px] w-[240px] h-[35px] text-center no-underline
+                inline-block px-1">send login details to email</button></a>
+            </div>
+          </div> <!--END OF ADD STAFF PAGE -->
+         </div> <!--END OF CONTAINER -->
+ 
+
+   <!--JAVASCRIPT CODE -->
+   <script>
+   function openTab(pageName, tabName, color) {
+     // Hide all elements with class="tabcontent" by default
+      var i, tabcontent
+
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+  
+      // Show the specific tab content.
+      document.getElementById(pageName).style.display = "block";
+      
+      //when tab is selected, it changes its color.
+      tabName.style.backgroundColor = color;
+    }
+    //when open the medical records page, this page (manage staff) is active
+    document.getElementById("defaultOpen").click();
+</script>
+
+   </body>
+   </html>

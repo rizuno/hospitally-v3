@@ -1,1417 +1,564 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="https://unpkg.com/phosphor-icons"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href={{ static_url( 'static/css/staff.css') }}>
-  <link rel="stylesheet" href={{ static_url( 'static/css/output.css') }}>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<title>STAFF</title>
-</head>
-<body class="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/phosphor-icons"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
 
-
-    
-<!-- navbar start -->
-	
-        <!-- Component Start -->
+    <link rel="stylesheet" href={{ static_url( 'static/css/output.css') }}>
+    <link rel="stylesheet" href={{ static_url( 'static/css/main.css') }}>
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- google font -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>STAFF</title>
+  </head>
+  <body class="flex flex-row ">
+   
+    <!-- navbar start -->
+    <aside class="w-64 basis-96 h-screen" aria-label="Sidebar">
+      <div
+        class="overflow-y-auto py-4 px-3 h-screen shadow-md bg-primary-white dark:bg-gray-800 h-screen">
+        <img src="{{ static_url( 'static/img/logo-hospitally.png') }}" alt="HOSPITALL test image">
         
-        <!-- Component End  -->
-        
+        <ul class="space-y-2">
+          <li>
+            <div id="orange_tab" class="w-2 h-[30px] mt-[13px] bg-orange fixed left rounded-r-lg"></div>
+            <a
+              id="overview_button"
+              href="#"
+              <li class="sidebar-button flex ml-[30px] mt-[25px] pt-6 gap-2 p-3 cursor-pointer text-[20px] text-gray-400 font-semibold
+              hover:text-brightOrange hover:text-orange text-orange" 
+              data-target="#overview"> 
+              
+              <svg class="sidebar-svg mr-[7px] h-8 w-8 text-gray-500 hover:text-orange text-orange"  width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  
+                <path stroke="none" d="M0 0h24v24H0z"/>  
+                <circle cx="12" cy="13" r="2" />  
+                <line x1="13.45" y1="11.55" x2="15.5" y2="9.5" />  
+                <path d="M6.4 20a9 9 0 1 1 11.2 0Z" /></svg>
+              overview
+            </a>
+          </li>
+          <li>
+            <a
+              id="medical_records_button"
+              href="#"
+              class="sidebar-button flex ml-[30px] mt-[-10px] pt-8 gap-2 p-3 cursor-pointer text-[20px] text-gray-400 font-semibold
+              hover:text-brightOrange hover:text-orange  sidebar-active" 
+              data-target="#medical-records">
+              <svg class="sidebar-svg mr-[7px] h-8 w-8 text-gray-500 hover:text-orange"  width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  
+              <path stroke="none" d="M0 0h24v24H0z"/>
+              <rect x="5" y="3" width="14" height="18" rx="2" />
+              <line x1="9" y1="7" x2="15" y2="7" />  
+              <line x1="9" y1="11" x2="15" y2="11" />  
+              <line x1="9" y1="15" x2="13" y2="15" />
+            </svg>
+                 medical records
+            </a>
+          </li>
+          <li>
+            <a
+              id="departments_button"
+              href="#"
+              class="sidebar-button flex ml-[30px] mt-[-10px] pt-8 gap-2 p-3 cursor-pointer text-[20px] text-gray-400 font-semibold
+              hover:text-brightOrange hover:text-orange sidebar-active" 
+              data-target="#departments">
+              <svg class="sidebar-svg mr-[7px] h-8 w-8 text-gray-500 hover:text-orange"  width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <line x1="3" y1="21" x2="21" y2="21" />  <line x1="9" y1="8" x2="10" y2="8" />  <line x1="9" y1="12" x2="10" y2="12" />  <line x1="9" y1="16" x2="10" y2="16" />  <line x1="14" y1="8" x2="15" y2="8" />  <line x1="14" y1="12" x2="15" y2="12" />  <line x1="14" y1="16" x2="15" y2="16" />  <path d="M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16" /></svg>
+              departments
+              </a>
+          </li>
+          <li >
+             <a
+              id="staff_button"
+              href="#"
+              class="sidebar-button flex ml-[31px] gap-2 p-3 cursor-pointer text-[20px] text-gray-400 font-semibold
+              hover:text-brightOrange hover:text-orange sidebar-active" 
+              data-target="#staff">
+              
+              <svg class="sidebar-svg mr-[7px] h-8 w-8 text-gray-500 hover:text-orange"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+               </svg>
+              staff
+            </a>
+          </li>
+         
+          <li>
+            <a
+              id="settings_button"
+              href="#"
+              class="sidebar-button flex ml-[31px] mt-[-10px] pt-8 gap-2 p-3 cursor-pointer text-[20px] text-gray-400 font-semibold
+              hover:text-brightOrange hover:text-orange sidebar-active" data-target="#settings">
+              <svg class="sidebar-svg mr-[7px] h-8 w-8 text-gray-500 hover:text-brightOrange"  width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  
+                <path stroke="none" d="M0 0h24v24H0z"/>
+                <path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />  
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+              settings
+            </a>
+          </li>
 
-    <!-- NAVBAR END -->
-  <!-- Search Bar -->
+        </ul>
+        <!-- Account Avatar Icon -->
+        <div class="w-[200px] m-auto pt-[60px]">
+          <img class="rounded-full" src="https://icon-library.com/images/default-user-icon/default-user-icon-13.jpg" alt="user image" />
+        </div>
 
-  <header>
-    <h1 class="logo">Hospitally</h1>
-    <ul class="nav">
-        <li class="navlink"><a href="/index.html">Dashboard</a></li>
-        <li class="navlink"><a href="/staff.html">Staff</a></li>
-        <li class="navlink"><a href="#">Medical Records</a></li>
-        <li class="navlink"><a href="#">Settings</a></li>
-      <li class="navlink"><a href="#">Account</a></li>
-    </ul>
-    <div class="burger">
-        <i class="fas fa-bars"></i>
-    </div>
-</header>
+        <p class="text-center mt-6 font-bold text-2xl"><a href="#">Steven Grant</a></p>
+        <!--name-->
+        <p class="text-center">Admin</p>
+        <!--authority-->
+        <a href="#"
+          class="flex items-center text-base font-bold mt-9 text-gray-400 rounded-lg  hover:bg-gray-100">
+          <span class="flex-1 whitespace-nowrap fill-orange text-center">log out</span>
 
-  <div class="searchBar">
-  <form role="search" id="form">
-  <!-- Search Input -->
-  <input class="input1" type="search" id="query" name="q"
-   placeholder="Search any"
-  aria-label="Search through site content">
-  <button class="button1" type="submit">
-  <i class="fa fa-search"></i>
-  </button>
-  </div>
-</div>
-</form>
-
-
-  <!-- The tab will link to the pages and when selected, it changes color. -->
-  <button class="tab1" onclick="openTab('manage', this, 'orange')" id="defaultOpen">manage staff</button>
-  {% if session.get("as_admin") == True %}
-  <button class="tab2" onclick="openTab('add', this, 'orange')">add staff</button>
-  {% else %}
-  {% endif %}
-  <button class="" id="logout_button" >logout</button> <!--NEED CSS -->
-
-   <!-- WELCOME, ADMIN -->
-  <div class="welcome">
-  <legend>welcome, {{session.username}}</legend>
-  </div>
-
-  <!-- CONTAINER -->
-  <div class="container">
-  <br><br><br>
-  <!-- MANAGE STAFF PAGE CODE -->
-  <div id="manage" class="tabcontent">
-    <div class="wrapper">
-      <ul class="indicator">
-        <br><br>
-        <li class="active" data-target="#doctors"> doctors</li>
-        <div class="a">
-        <li data-target="#interns"> interns</li>
-        <li data-target="#surgeon"> surgeon</li>
-        <div class="b">
-        <li data-target="#surgeonHead"> surgeon head</li>
+        </a>
       </div>
-      <li data-target="#head"> head</li>
-      <li data-target="#surgeonHead2"> surgeon head</li>
-      <li data-target="#lead"> lead</li><br><br>
+    </aside>
+
+    <!--Content Area-->
+    <!--Overview-->
+    <div class="bg-gray w-full main-content" id="overview_area">
+      <div id="info_display" class="grid grid-cols-4 gap-0">
+        <div class="col-span-3 text-center">Hospital Name</div>
+        <div class="m">welcome, Steven Grant</div>
+      </div>
+      <div id="grid_containter" class="m-5 h-5/6 z-0">
+        <div class="0 grid grid-cols-7 gap-4 h-5/6 fill-cyan-500 hover:fill-cyan-700">
+          <div class="col-span-2 rounded row-span-2 mt-16 mr-4 ml-4">
+            staff
+            <div class="bg-blue h-full rounded"></div>
+          </div>
+          <div class="col-span-3 rounded row-span-2 mt-16 mr-4 ml-4">
+            medical records
+            <div class="bg-blue h-full rounded"></div>
+          </div>
+          <div class="col-span-2 rounded row-span-5 mt-16 mr-4 ml-4">
+            online admins
+            <div class="bg-blue h-full rounded"></div>
+          </div>
+          <div class="col-span-5 rounded row-span-3 mt-16 mr-4 ml-4">
+            pending requests
+            <div class="bg-blue h-full rounded"></div>
+          </div>
+        </div>
+      </div>
+      
+      </div>
     </div>
-    <li data-target="#nurses"> nurses</li><br><br>
-    <li data-target="#staff"> staff</li>
+    <!--Medical Records-->
+    <div class="bg-gray w-full hidden main-content" id="medical_records_area">
+      <div id="info_display" class="grid grid-cols-4 gap-0">
+        <div class="col-span-3">
+          <ul class="flex h-10">
+          <li class="ml-10 basis-1/4"><a href="#" id="medical_statistics" class="medical-record-button">Statistics</a></li>
+          <li><a href="#" id="medical_records" class="medical-record-button">Medical Records</a></li>
+          </ul>
+        </div>
+        <div class="h-10">welcome, Steven Grant</div>
+      </div>
+      <!--Statistics-->
+      <div id="grid_containter" class="  medical-record-content medical_statistics h-5/6">
+        <div class="0 grid grid-cols-3 gap-4 h-4/5">
+          <div class="bg-blue rounded row-span-2 h-1/2 ">medical records</div>
+          <div class="bg-blue rounded row-span-2 h-1/2 ">
+            medical records
+          </div>
+          <div class="bg-blue rounded row-span-2 h-1/2">medical records</div>
+        
+        </div>
+      </div>
+      <!--Medical Records-->
+      <div class="  medical-record-content medical_records hidden h-5/6">
+        <div class="top-16 left-0  rounded-xl bg-white">
 
-      </ul>
+          <div class="left-10 top-2 text-xl text-yellow-600">
+            <p><b>all medical records</b></p>
+          </div>
 
-      <ul class="content">
-        <!-- DOCTORS -->
-      	<li class="active" id="doctors">
-          <table>
-            <tr>
-            <th></th>
-            <th>name</th> 
-            <th>username</th>
-            <th>email</th>
-            <th>contact no</th>
-            <th>email</th>
-            <th>address</th>
-            <th>role</th>
-            <th>activity</th>
-            </tr>
-        
-            <tr>
-            <td>1</td>
-            <td>Dr. Jake Lackley</td>
-            <td>jakelackley123</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>   
-            </tr>
-        
-            <tr>
-            <td>2</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            </tr>
-        
-            <tr>
-            <td>3</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            </tr>
-        
-            <tr>
-            <td>4</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            </tr>
-        
-            <tr>
-            <td>5</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            </tr>
-        
-            <tr>
-            <td>6</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            </tr>
-        
-            <tr>
-            <td>7</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            </tr>
-        
-            <tr>
-            <td>8</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            </tr>
-        
-            <tr>
-            <td>9</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            </tr>
-        
-            <tr>
-            <td>10</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            </tr>
-            </table>
-        </li>
+          <a href="#"><button class="top-2 left-3/4 bg-orange-600 rounded text-white 
+            text-lg w-40 h-8 text-center no-underline inline-block 
+            cursor-pointer">edit sort</button></a>
 
-        <!-- INTERNS -->
-        <li id="interns">
-          <table>
-            <tr>
-            <th></th>
-            <th>name</th> 
-            <th>username</th>
-            <th>email</th>
-            <th>contact no</th>
-            <th>email</th>
-            <th>address</th>
-            <th>role</th>
-            <th>activity</th>
-            </tr>
-        
-            <tr>
-            <td>1</td>
-            <td>Intern 1</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>   
-            </tr>
-        
-            <tr>
-            <td>2</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            </tr>
-        
-            <tr>
-            <td>3</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            </tr>
-        
-            <tr>
-            <td>4</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            </tr>
-        
-            <tr>
-            <td>5</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            </tr>
-        
-            <tr>
-            <td>6</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            </tr>
-        
-            <tr>
-            <td>7</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            </tr>
-        
-            <tr>
-            <td>8</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            </tr>
-        
-            <tr>
-            <td>9</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            </tr>
-        
-            <tr>
-            <td>10</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            </tr>     
-            </table>
-           </li>
+            <a href="#"><button class="top-2 right-10 bg-green-600 rounded text-white 
+              text-lg w-40 h-8 text-center no-underline inline-block 
+              cursor-pointer">add</button></a>
 
-           <!-- SURGEON -->
-           <li id="surgeon">
-            <table>
-              <tr>
-              <th></th>
-              <th>name</th> 
-              <th>username</th>
-              <th>email</th>
-              <th>contact no</th>
-              <th>email</th>
-              <th>address</th>
-              <th>role</th>
-              <th>activity</th>
-              </tr>
-          
-              <tr>
-              <td>1</td>
-              <td>Surgeon 1</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>   
-              </tr>
-          
-              <tr>
-              <td>2</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              </tr>
-          
-              <tr>
-              <td>3</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              </tr>
-          
-              <tr>
-              <td>4</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              </tr>
-          
-              <tr>
-              <td>5</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              </tr>
-          
-              <tr>
-              <td>6</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              </tr>
-          
-              <tr>
-              <td>7</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              </tr>
-          
-              <tr>
-              <td>8</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              </tr>
-          
-              <tr>
-              <td>9</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              </tr>
-          
-              <tr>
-              <td>10</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              </tr>     
-              </table>
-             </li>
+              <div class="relative top-16 overflow-x-auto shadow-md sm:rounded-lg">
+                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 border border-slate-400">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <tr>
+                          <th scope="col" class="border border-slate-40"></th>
+                          <th scope="col" class="px-2 py-2 border border-slate-40">name</th>
+                          <th scope="col" class="px-2 py-2 border border-slate-40">md_ID</th>
+                          <th scope="col" class="px-2 py-2 border border-slate-40">city</th> 
+                          <th scope="col" class="px-2 py-2 border border-slate-40">reason</th>
+                          <th scope="col" class="px-2 py-2 border border-slate-40">dr</th>
+                          <th scope="col" class="px-2 py-2 border border-slate-40"></th>
+                      <th scope="col" class="px-2 py-2 border border-slate-40">  
+                      </th>
+                        </tr>
+                    </thead>
 
-      <!-- SURGEON HEAD -->
-    <li id="surgeonHead">
-    <table>
-    <tr>
-    <th></th>
-    <th>name</th> 
-    <th>username</th>
-    <th>email</th>
-    <th>contact no</th>
-    <th>email</th>
-    <th>address</th>
-    <th>role</th>
-    <th>activity</th>
-    </tr>
-            
-    <tr>
-    <td>1</td>
-    <td>Surgeon Head 1</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td>admin</td>
-    <td></td>   
-    </tr>
-            
-    <tr>
-    <td>2</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    </tr>
-            
-    <tr>
-    <td>3</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    </tr>
-            
-    <tr>
-    <td>4</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    </tr>
-            
-    <tr>
-    <td>5</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    </tr>
-            
-     <tr>
-     <td>6</td>
-     <td></td>
-     <td></td>
-     <td></td>
-     <td></td>
-     <td></td>
-     <td></td>
-     <td></td>
-     <td></td>
-     </tr>
-            
-      <tr>
-      <td>7</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      </tr>
-            
-      <tr>
-      <td>8</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      </tr>
-            
-      <tr>
-      <td>9</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      </tr>
-            
-      <tr>
-      <td>10</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      </tr>     
-      </table>
-      </li>
+                    <tbody>
+                      <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                        <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">1</th>
+                        <td class="px-2 py-2 w-28 border border-slate-40"></td>
+                        <td class="px-2 py-2 border border-slate-40"></td>
+                        <td class="px-2 py-2 border border-slate-40"></td>
+                        <td class="px-2 py-2 border border-slate-40"></td>
+                        <td class="px-2 py-2 border border-slate-40"></td>
+                        <td class="px-2 py-2 border border-slate-40"></td>
+                        <td class="px-2 py-2 w-36 border border-slate-40">
+                          <button type="submit" class="bg-gray-200 rounded-md relative right-0">open</button>
+                          <button type="submit" class="bg-gray-200 rounded-md absolute right-8">send to</button>    
+                        </td>
+                       </tr>
 
-       <!-- HEAD -->
-      <li id="head">
-        <table>
-        <tr>
-        <th></th>
-        <th>name</th> 
-        <th>username</th>
-        <th>email</th>
-        <th>contact no</th>
-        <th>email</th>
-        <th>address</th>
-        <th>role</th>
-        <th>activity</th>
-        </tr>
-                
-        <tr>
-        <td>1</td>
-        <td>Head 1</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>   
-        </tr>
-                
-        <tr>
-        <td>2</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr>
-                
-        <tr>
-        <td>3</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr>
-                
-        <tr>
-        <td>4</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr>
-                
-        <tr>
-        <td>5</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr>
-                
-         <tr>
-         <td>6</td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         </tr>
-                
-          <tr>
-          <td>7</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          </tr>
-                
-          <tr>
-          <td>8</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          </tr>
-                
-          <tr>
-          <td>9</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          </tr>
-                
-          <tr>
-          <td>10</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          </tr>     
-          </table>
-          </li>
+                       <tr class="border-b bg-gray-200 dark:border-gray-500 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                          <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">2</th>
+                          <td class="px-2 py-2 w-28 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 w-36 border border-slate-40"></td>
+                         </tr>
 
-      <!-- SURGEON HEAD -->
-      <li id="surgeonHead2">
-        <table>
-        <tr>
-        <th></th>
-        <th>name</th> 
-        <th>username</th>
-        <th>email</th>
-        <th>contact no</th>
-        <th>email</th>
-        <th>address</th>
-        <th>role</th>
-        <th>activity</th>
-        </tr>
-                
-        <tr>
-        <td>1</td>
-        <td>Surgeon Head 1</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>   
-        </tr>
-                
-        <tr>
-        <td>2</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr>
-                
-        <tr>
-        <td>3</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr>
-                
-        <tr>
-        <td>4</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr>
-                
-        <tr>
-        <td>5</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr>
-                
-         <tr>
-         <td>6</td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         </tr>
-                
-          <tr>
-          <td>7</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          </tr>
-                
-          <tr>
-          <td>8</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          </tr>
-                
-          <tr>
-          <td>9</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          </tr>
-                
-          <tr>
-          <td>10</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          </tr>     
-          </table>
-          </li>
+                       <tr class="border-b bg-gray-200 dark:border-gray-500 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                          <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">3</th>
+                          <td class="px-2 py-2 w-28 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 w-36 border border-slate-40"></td>
+                         </tr>
 
-      <!-- LEAD -->
-      <li id="lead">
-        <table>
-        <tr>
-        <th></th>
-        <th>name</th> 
-        <th>username</th>
-        <th>email</th>
-        <th>contact no</th>
-        <th>email</th>
-        <th>address</th>
-        <th>role</th>
-        <th>activity</th>
-        </tr>
-                
-        <tr>
-        <td>1</td>
-        <td>Lead 1</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>   
-        </tr>
-                
-        <tr>
-        <td>2</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr>
-                
-        <tr>
-        <td>3</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr>
-                
-        <tr>
-        <td>4</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr>
-                
-        <tr>
-        <td>5</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr>
-                
-         <tr>
-         <td>6</td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         </tr>
-                
-          <tr>
-          <td>7</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          </tr>
-                
-          <tr>
-          <td>8</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          </tr>
-                
-          <tr>
-          <td>9</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          </tr>
-                
-          <tr>
-          <td>10</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          </tr>     
-          </table>
-          </li>
+                       <tr class="border-b bg-gray-200 dark:border-gray-500 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                          <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">4</th>
+                          <td class="px-2 py-2 w-28 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 w-36 border border-slate-40"></td>
+                         </tr>
 
-      <!-- NURSES -->
-      <li id="nurses">
-        <table>
-        <tr>
-        <th></th>
-        <th>name</th> 
-        <th>username</th>
-        <th>email</th>
-        <th>contact no</th>
-        <th>email</th>
-        <th>address</th>
-        <th>role</th>
-        <th>activity</th>
-        </tr>
-                
-        <tr>
-        <td>1</td>
-        <td>Nurse 1</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>   
-        </tr>
-                
-        <tr>
-        <td>2</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr>
-                
-        <tr>
-        <td>3</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr>
-                
-        <tr>
-        <td>4</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr>
-                
-        <tr>
-        <td>5</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr>
-                
-         <tr>
-         <td>6</td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         </tr>
-                
-          <tr>
-          <td>7</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          </tr>
-                
-          <tr>
-          <td>8</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          </tr>
-                
-          <tr>
-          <td>9</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          </tr>
-                
-          <tr>
-          <td>10</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          </tr>     
-          </table>
-          </li>
+                       <tr class="border-b bg-gray-200 dark:border-gray-500 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                          <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">5</th>
+                          <td class="px-2 py-2 w-28 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 w-36 border border-slate-40"></td>
+                         </tr>
 
-      <!-- STAFF -->
-      <li id="staff">
-        <table>
-        <tr>
-        <th></th>
-        <th>name</th> 
-        <th>username</th>
-        <th>email</th>
-        <th>contact no</th>
-        <th>email</th>
-        <th>address</th>
-        <th>role</th>
-        <th>activity</th>
-        </tr>
-                
-        <tr>
-        <td>1</td>
-        <td>Staff 1</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>   
-        </tr>
-                
-        <tr>
-        <td>2</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr>
-                
-        <tr>
-        <td>3</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr>
-                
-        <tr>
-        <td>4</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr>
-                
-        <tr>
-        <td>5</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr>
-                
-         <tr>
-         <td>6</td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         </tr>
-                
-          <tr>
-          <td>7</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          </tr>
-                
-          <tr>
-          <td>8</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          </tr>
-                
-          <tr>
-          <td>9</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          </tr>
-                
-          <tr>
-          <td>10</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          </tr>     
-          </table>
-          </li>
+                       <tr class="border-b bg-gray-200 dark:border-gray-500 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                          <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">6</th>
+                          <td class="px-2 py-2 w-28 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 w-36 border border-slate-40"></td>
+                         </tr>
 
-      </ul>
-      </div> 
-  </div>
+                       <tr class="border-b bg-gray-200 dark:border-gray-500 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                          <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">7</th>
+                          <td class="px-2 py-2 w-28 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 w-36 border border-slate-40"></td>
+                         </tr>
 
-<!-- ADD STAFF PAGE CODE -->
-    <div id="add" class="tabcontent">
-    <div class="accountDetails">
-    <h2>create an account</h2>
+                       <tr class="border-b bg-gray-200 dark:border-gray-500 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                          <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">8</th>
+                          <td class="px-2 py-2 w-28 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 w-36 border border-slate-40"></td>
+                         </tr>
 
-    <div class="toGive">
-    <p>to give access to hospital users</p>
-<!-- ROLES: -->
+                       <tr class="border-b bg-gray-200 dark:border-gray-500 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                          <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">9</th>
+                          <td class="px-2 py-2 w-28 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 w-36 border border-slate-40"></td>
+                         </tr>
 
-    <input class="input2" type="text" id="role" name="role" placeholder=" roles" required><br><br>
+                       <tr class="border-b bg-gray-200 dark:border-gray-500 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                          <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">10</th>
+                          <td class="px-2 py-2 w-28 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 w-36 border border-slate-40"></td>
+                         </tr>
 
-<!-- USERNAME: -->      
-    <input class="input2" type="username" id="username" name="username" placeholder=" username:" required><br><br>
-           
-<!-- PASSWORD: -->
-       
-    <input class="input2" type="password" id="password" name="password" placeholder=" password" required><br><br>
-           
-<!-- PICK A DEPARTMENT: -->
+                       <tr class="border-b bg-gray-200 dark:border-gray-500 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                          <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">11</th>
+                          <td class="px-2 py-2 w-28 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 w-36 border border-slate-40"></td>
+                         </tr>
 
-   <!-- <input class="input2" type="department" id="department" name="department" placeholder=" pick a department" required><br><br>-->
-    <button id="add_temporary_acc_button" class="button2">add temporary account</button>
+                       <tr class="border-b bg-gray-200 dark:border-gray-500 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                          <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">12</th>
+                          <td class="px-2 py-2 w-28 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 w-36 border border-slate-40"></td>
+                         </tr>
+
+                       <tr class="border-b bg-gray-200 dark:border-gray-500 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                          <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">13</th>
+                          <td class="px-2 py-2 w-28 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 w-36 border border-slate-40"></td>
+                         </tr>
+
+                       <tr class="border-b bg-gray-200 dark:border-gray-500 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                          <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">14</th>
+                          <td class="px-2 py-2 w-28 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 w-36 border border-slate-40"></td>
+                         </tr>
+
+                       <tr class="border-b bg-gray-200 dark:border-gray-500 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                          <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">15</th>
+                          <td class="px-2 py-2 w-28 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 w-36 border border-slate-40"></td>
+                         </tr>
+
+                       <tr class="border-b bg-gray-200 dark:border-gray-500 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                          <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">16</th>
+                          <td class="px-2 py-2 w-28 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 border border-slate-40"></td>
+                          <td class="px-2 py-2 w-36 border border-slate-40"></td>
+                         </tr>
+
+                       <tr class="border-b bg-gray-200 dark:border-gray-500 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                        <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">17</th>
+                        <td class="px-2 py-2 w-28 border border-slate-40"></td>
+                        <td class="px-2 py-2 border border-slate-40"></td>
+                        <td class="px-2 py-2 border border-slate-40"></td>
+                        <td class="px-2 py-2 border border-slate-40"></td>
+                        <td class="px-2 py-2 border border-slate-40"></td>
+                        <td class="px-2 py-2 border border-slate-40"></td>
+                        <td class="px-2 py-2 w-36 border border-slate-40"></td>
+                       </tr>
+                    </tbody>
+                </table>
+            </div>
+          </div>
+      </div>
+
+      
+      </div>
     </div>
-    </div>
+    <!--Departments-->
+    <div class="bg-gray w-full hidden main-content" id="departments_area">
+      <div id="info_display" class="grid grid-cols-4 gap-0">
+        <div class="col-span-3">
+        </div>
+        <div class="m">welcome, Steven Grant</div>
+      </div>
 
-    <div class="emailDetails">
-<!-- EMAIL: -->
-   <!--
-     <input class="input2" type="email" id="department" name="email" placeholder=" email" required><br><br>
-    <a href="#"><button class="button3">send login details to email</button></a>
-   -->
+      <div id="grid_containter" class="mb-8 mt-8 mr-16 ml-16 h-5/6">
+        <div class="grid grid-cols-3 gap-6 h-5/6">
+          <div class="bg-blue rounded mr-1 ml-1">doctors</div>
+          <div class="bg-blue rounded mr-1 ml-1">nurses</div>
+          <div class="bg-blue rounded mr-1 ml-1">staff1</div>
+          <div class="bg-blue rounded mr-1 ml-1">staff2</div>
+          <div class="bg-blue rounded mr-1 ml-1">staff3</div>
+          <div class="bg-blue rounded mr-1 ml-1">staff4</div>
+        </div>
+      </div>
+      
+      </div>
     </div>
+    <!--Staff-->
+    <div class="bg-gray w-full hidden main-content " id="staff_area">
+      <div id="info_display" class="grid grid-cols-4 gap-0">
+        <div class="col-span-3 grid grid-cols-5 gap-2">
+          <!-- SEARCH BAR -->
+          <div class="flex left-[20px] top-[10px] col-span-3 ml-2">
+            <form class="bg-gray-100 w-[600px] h-[42px] rounded-md flex text-center ">
+            <!-- SEARCH INPUT -->
+            <input class="bg-gray-200 text-[16px] w-full text-black  pl-3"
+            type="search" id="query" name="q" placeholder="search any">
+        
+            <button class="bg-gray-200 cursor-pointer w-[30px] h-[40px] text-white" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+            </form>
+          </div>
+          <p class="col-span-1 bg-blue rounded"><a href="#" id="manage-staff" class="staff-button">manage staff</a></p>
+          <p class="col-span-1 bg-blue rounded mr-2"><a href="#"id="add-staff"  class="staff-button">add staff</a></p>
+        </div>
+        <div class="m">welcome, Steven Grant</div>
+      </div>
+
+      <div class="  staff-management manage-staff h-5/6">
+        Doctors table here
+        </div>
+
+      <div class="  staff-management add-staff hidden h-5/6">
+        Add Staff here
+      </div>
+      </div>
+      
+      </div>
+    </div>
+    <!--History-->
+    <div class="bg-gray w-full hidden main-content" id="history_area">
+      <div id="info_display" class="grid grid-cols-4 gap-0">
+        <div class="col-span-3">
+        </div>
+        <div class="m">welcome, Steven Grant</div>
+      </div>
+
+      <div id="grid_containter" class=" h-5/6 ">
+        <div>
+          requests account creation
+        </div>
+      </div>
+      
+      </div>
+    </div>
+     <!--Setting-->
+    <div class="bg-gray w-full hidden main-content" id="settings_area">
+      <div id="info_display" class="grid grid-cols-4 gap-0">
+        <div class="col-span-3">
+        </div>
+        <div class="m">welcome, Steven Grant</div>
+      </div>
+
+      <div id="grid_containter" class="m-5 h-5/6 z-0">
+        <div class="grid grid-cols-7 gap-1 h-5/6">
+          <div class="bg-blue col-span-2 rounded-l-lg mt-16">Menu 1</div>
+          <div class="bg-blue col-span-5 rounded-r-lg mt-16">Menu 2</div>
+        </div>
+      </div>
+      
+      </div>
+    </div>
+     <!--Profile-->
+     <div class="bg-gray w-full hidden main-content" id="profile_area">
+      <div id="info_display" class="grid grid-cols-4 gap-0">
+         personal profile
+      </div>
+
+      <div id="grid_containter" class=" h-5/6">
+        <div>
+          Profile Page
+        </div>
+      </div>
+      
+      </div>
     </div>
 
     <script>
-    function openTab(pageName, tabName, color) {
-     // Hide all elements with class="tabcontent" by default
-      var i, tabcontent, tab1, tab2
-      tabcontent = document.getElementsByClassName("tabcontent");
-      for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
+
+      function openTab(pageName, tabName, color) {
+        // Hide all elements with class="tabcontent" by default
+        var i, tabcontent, tab1, tab2;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+
+        // Remove the background color of tabs.
+        tab1 = document.getElementsByClassName("tab1");
+        for (i = 0; i < tab1.length; i++) {
+          tab1[i].style.backgroundColor = "";
+        }
+
+        // Remove the background color of tabs.
+        tab2 = document.getElementsByClassName("tab2");
+        for (i = 0; i < tab2.length; i++) {
+          tab2[i].style.backgroundColor = "";
+        }
+        // Show the specific tab content.
+        document.getElementById(pageName).style.display = "block";
+
+        //when tab is selected, it changes its color.
+        tabName.style.backgroundColor = color;
       }
+      //when open the medical records page, this page (manage staff) is active
+      document.getElementById("defaultOpen").click();
 
-    // Remove the background color of tabs.
-      tab1 = document.getElementsByClassName("tab1");
-      for (i = 0; i < tab1.length; i++) {
-      tab1[i].style.backgroundColor = "";
-  }
+      //MANAGE STAFF PAGE
+      const allIndicator = document.querySelectorAll(".indicator li");
+      const allContent = document.querySelectorAll(".content li");
 
-      // Remove the background color of tabs.
-     tab2 = document.getElementsByClassName("tab2");
-      for (i = 0; i < tab2.length; i++) {
-      tab2[i].style.backgroundColor = "";
-  }
-      // Show the specific tab content.
-      document.getElementById(pageName).style.display = "block";
+      allIndicator.forEach((item) => {
+        item.addEventListener("click", function () {
+          const content = document.querySelector(this.dataset.target);
 
-      //when tab is selected, it changes its color.
-      tabName.style.backgroundColor = color;
-    }
-    //when open the medical records page, this page (manage staff) is active
-    document.getElementById("defaultOpen").click();
+          allIndicator.forEach((i) => {
+            i.classList.remove("active");
+          });
 
-    //MANAGE STAFF PAGE
-    const allIndicator = document.querySelectorAll('.indicator li');
-    const allContent = document.querySelectorAll('.content li');
+          allContent.forEach((i) => {
+            i.classList.remove("active");
+          });
 
-    allIndicator.forEach(item=> {
-    item.addEventListener('click', function () {
-    const content = document.querySelector(this.dataset.target);
-
-    allIndicator.forEach(i=> {
-      i.classList.remove('active');
-    })
-
-    allContent.forEach(i=> {
-      i.classList.remove('active');
-    })
-
-    content.classList.add('active');
-    this.classList.add('active');
-  })
-})
+          content.classList.add("active");
+          this.classList.add("active");
+        });
+      });
     </script>
     <script>
+
       /*
        * Modal popup
        */
@@ -1426,67 +573,97 @@
           $.ajax({
             url: "/logout",
             type: "get",
-           
 
             success: function (data) {
               location.reload();
             },
           });
         });
-         // sign up 
-         $('#add_temporary_acc_button').click(function() {
+        // sign up
+        $("#add_temporary_acc_button").click(function () {
           var path = window.location.pathname;
           var slug = path.split("/")[1];
-          var role = $('#role').val();
-          var username = $('#username').val();
-          var password = $('#password').val();
-        
-          console.log(path)
-          console.log(slug)
-          if (username != '' && password != ''  && role != '') {
+          var role = $("#role").val();
+          var username = $("#username").val();
+          var password = $("#password").val();
 
-              $.ajax({
-                  url: "/add-temporary-acc",
-                  method: "POST",
-                  data: {
-                      role: role,
-                      username: username,
-                      password: password,
-                  },
-                  success: function(data) {
-                      alert(data);
-                      if (data == 'No-data') {
-                          alert("Account already exists");
-                      } else {
-                          modal_sign_up.hide();
-                          location.reload();
-                      }
-                  }
-              });
+          console.log(path);
+          console.log(slug);
+          if (username != "" && password != "" && role != "") {
+            $.ajax({
+              url: "/add-temporary-acc",
+              method: "POST",
+              data: {
+                role: role,
+                username: username,
+                password: password,
+              },
+              success: function (data) {
+                alert(data);
+                if (data == "No-data") {
+                  alert("Account already exists");
+                } else {
+                  modal_sign_up.hide();
+                  location.reload();
+                }
+              },
+            });
           } else {
-              alert("All Fields are required");
+            alert("All Fields are required");
           }
+        });
       });
-  });
-     
 
+      // Selection of HTML objects
+      const burger = document.querySelector(".burger i");
+      const nav = document.querySelector(".nav");
 
-  // Selection of HTML objects
-const burger = document.querySelector('.burger i');
-const nav = document.querySelector('.nav');
+      // Defining a function
+      function toggleNav() {
+        burger.classList.toggle("fa-bars");
+        burger.classList.toggle("fa-times");
+        nav.classList.toggle("nav-active");
+      }
 
-// Defining a function
-function toggleNav() {
-    burger.classList.toggle('fa-bars');
-    burger.classList.toggle('fa-times');
-    nav.classList.toggle('nav-active');
-}
-
-// Calling the function after click event occurs
-burger.addEventListener('click', function() {
-    toggleNav();
-});
+      // Calling the function after click event occurs
+      burger.addEventListener("click", function () {
+        toggleNav();
+      });
 
     </script>
-</body>
+    <script>
+
+      $(".sidebar-button").on("click",function (){
+        var content_area = this.id.replace("_button","_area");
+        $(".sidebar-svg").removeClass("text-orange");
+        $(".sidebar-svg").addClass("text-gray-400");
+        $(".sidebar-button").removeClass("text-orange");
+        $(".sidebar-button").addClass("text-gray-400");
+        $(this).removeClass("text-gray-400");
+        $(this).addClass("text-orange");
+        $(this).children('svg').removeClass("text-gray-400");
+        $(this).children('svg').addClass("text-orange");
+        $(".main-content").removeClass("hidden");
+        $(".main-content").addClass("hidden");
+        $("#"+content_area).removeClass("hidden");
+        $("#orange_tab").remove();
+        $(this).parent().prepend('<div id="orange_tab" class="w-2 h-[30px] mt-[10px] bg-orange fixed left rounded-r-lg"></div>');
+      });
+      $(".medical-record-button").on("click",function (){
+        var content_area = this.id;
+        console.log(content_area);
+        $(".medical-record-content").removeClass("hidden");
+        $(".medical-record-content").addClass("hidden");
+        $("."+content_area).removeClass("hidden");
+      });
+      $(".staff-button").on("click",function (){
+        var content_area = this.id;
+        console.log(content_area);
+        $(".staff-management").removeClass("hidden");
+        $(".staff-management").addClass("hidden");
+        $("."+content_area).removeClass("hidden");
+      });
+      
+    </script>
+  </body>
 </html>
