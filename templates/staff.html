@@ -50,12 +50,12 @@
             </svg> medical records
                     </a>
                 </li>
-                <li>
+                <!-- <li>
                     <a id="departments_button" href="#" class="sidebar-button flex ml-[30px] mt-[-10px] pt-8 gap-2 p-3 cursor-pointer text-[20px] text-gray-400 font-semibold
               hover:text-brightOrange hover:text-orange sidebar-active" data-target="#departments">
                         <svg class="sidebar-svg mr-[7px] h-6 w-6 text-gray-500 hover:text-orange" width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <line x1="3" y1="21" x2="21" y2="21" />  <line x1="9" y1="8" x2="10" y2="8" />  <line x1="9" y1="12" x2="10" y2="12" />  <line x1="9" y1="16" x2="10" y2="16" />  <line x1="14" y1="8" x2="15" y2="8" />  <line x1="14" y1="12" x2="15" y2="12" />  <line x1="14" y1="16" x2="15" y2="16" />  <path d="M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16" /></svg>                        departments
                     </a>
-                </li>
+                </li> -->
                 <li>
                     <a id="staff_button" href="#" class="sidebar-button flex ml-[31px] gap-2 p-3 cursor-pointer text-[20px] text-gray-400 font-semibold
               hover:text-brightOrange hover:text-orange sidebar-active" data-target="#staff">
@@ -83,7 +83,7 @@
                 <img class="rounded-full" src="https://icon-library.com/images/default-user-icon/default-user-icon-13.jpg" alt="user image" />
             </div>
 
-            <p class="text-center mt-6 font-bold text-2xl"><a href="{{ static_url( 'static/profile.html') }}">Steven Grant</a></p>
+            <p class="text-center mt-6 font-bold text-2xl"><a id="profile_button" class="sidebar-button"href="#">Steven Grant</a></p>
             <!--name-->
             <p class="text-center">Admin</p>
             <!--authority-->
@@ -96,11 +96,17 @@
 
     <!--Content Area-->
     <!--Overview-->
-    <div class="bg-gray w-full main-content" id="overview_area">
+    <div class="bg-gray w-full main-content hidden" id="overview_area">
         <div id="info_display" class="grid grid-cols-4 gap-0">
             <div class="col-span-3 text-center">Hospital Name</div>
             <div class="m">welcome, Steven Grant</div>
+            
         </div>
+
+        <div class="top-7 right-32 absolute text-xl">
+            <legend>welcome, admin</legend>
+           </div>
+
         <div id="grid_containter" class="m-5 h-5/6 z-0">
             <div class="0 grid grid-cols-7 gap-4 h-5/6 fill-cyan-500 hover:fill-cyan-700">
                 <div class="col-span-2 rounded row-span-2 mt-16 mr-4 ml-4">
@@ -123,7 +129,7 @@
         </div>
 
     </div>
-    </div>
+    
     <!--Medical Records-->
     <div class="bg-gray w-full hidden main-content" id="medical_records_area">
         <div id="info_display" class="grid grid-cols-4 gap-0">
@@ -376,8 +382,8 @@
 
 
     </div>
-    </div>
-    <!--Departments-->
+    
+    Departments
     <div class="bg-gray w-full hidden main-content" id="departments_area">
         <div id="info_display" class="grid grid-cols-4 gap-0">
             <div class="col-span-3">
@@ -397,7 +403,7 @@
         </div>
 
     </div>
-    </div>
+    
     <!--Staff-->
     <div class="bg-gray w-full hidden main-content " id="staff_area">
         <div id="info_display" class="grid grid-cols-4 gap-0">
@@ -414,7 +420,9 @@
                     </form>
                 </div>
                 <p class="col-span-1 bg-blue rounded"><a href="#" id="manage-staff" class="staff-button">manage staff</a></p>
+                {% if session.as_admin == True %}
                 <p class="col-span-1 bg-blue rounded mr-2"><a href="#" id="add-staff" class="staff-button">add staff</a></p>
+                {% endif %}
             </div>
             <div class="m">welcome, Steven Grant</div>
         </div>
@@ -424,10 +432,34 @@
         </div>
 
         <div class="  staff-management add-staff hidden h-5/6">
-            Add Staff here
+            <div id="add" class="tabcontent">
+                <div class="absolute text-black top-[100px] left-[500px] ">
+                 <h2 class="text-4xl ">create an account</h2>
+                 <!--to give access to hospital users-->
+                 <div class="absolute text-gray-600 top-[40px] left-[1px] text-[17px]">
+                 <p>
+                  to give access to hospital users
+                 </p>
+                
+                  <!-- ROLES: -->
+                 <input class="absolute bg-gray-100  rounded-md w-[500px] h-[40px] top-[40px] text-[20px] " type="text"
+                 id="register_roles" name="roles" placeholder=" roles" required> <br><br>
+      
+                   <!-- USERNAME: -->
+                   <input class="absolute bg-gray-100  rounded-md w-[500px] h-[40px] top-[100px] text-[20px] " type="text"
+                 id="register_username" name="username" placeholder=" username" required> <br><br>
+      
+                  <!-- PASSWORD: -->
+                  <input class="absolute bg-gray-100  rounded-md w-[500px] h-[40px] top-[160px] text-[20px] " type="password"
+                  id="register_password" name="password" placeholder=" password" required> <br><br>
+      
+                   <a href="#"><button id="add_temp_acc" class="absolute top-[275px] left-[260px] bg-green-600 rounded-md
+                                              text-white text-[18px] w-[240px] h-[35px] text-center no-underline
+                                              inline-block px-1">add temporary account</button></a>
+                 </div>
+               </div> 
         </div>
     </div>
-
     </div>
     </div>
     <!--History-->
@@ -445,7 +477,7 @@
         </div>
 
     </div>
-    </div>
+    
     <!--Setting-->
     <div class="bg-gray w-full hidden main-content" id="settings_area">
         <div id="info_display" class="grid grid-cols-4 gap-0">
@@ -462,21 +494,45 @@
         </div>
 
     </div>
-    </div>
+    
     <!--Profile-->
-    <div class="bg-gray w-full hidden main-content" id="profile_area">
-        <div id="info_display" class="grid grid-cols-4 gap-0">
-            personal profile
+    <!-- <div class="bg-gray-200 h-screen w-full mx-50 main-content rounded-2xl" id="profile_area">
+        <div class="card w-400 mx-auto bg-white  shadow-xl hover:shadow">
+           <img class="w-25 mx-auto rounded-full -mt-20 border-8 border-white" src="https://avatars.githubusercontent.com/u/67946056?v=4" alt="">
+           <div class="text-center mt-2 text-4xl font-medium"> name  </div>
+           <div class="text-center mt-2 font-light text-sm">  user id </div>
+           <div class="text-center font-normal text-lg"> bio or something </div>
+           <div class="px-6 text-center mt-2 font-light text-sm">
+             <p>
+               Front end Developer, avid reader. Love to take a long walk, swim
+             </p>
+           </div>
+           <hr class="mt-8">
+           <div class="flex p-4">
+             <div class="w-1/2 text-center">
+               <span class="font-bold">emai</span> 
+             </div>
+             <div class="w-0 border border-gray-300">
+               
+             </div>
+             <div class="w-1/2 text-center">
+               <span class="font-bold"></span> Role
+             </div>
+           </div>
         </div>
-
-        <div id="grid_containter" class=" h-5/6">
-            <div>
-                Profile Page
-            </div>
+    </div> -->
+    <div class="h-screen w-full mx-50 main-content rounded-2xl" id="profile_area">
+        <div class="card w-400 mx-auto bg-white shadow-xl hover:shadow test-style">
+           <img class="w-25 mx-auto rounded-full -mt-20 border-8 border-white" src="https://avatars.githubusercontent.com/u/67946056?v=4" alt="">
+           
+           </div>
         </div>
+    </div>
+    
 
-    </div>
-    </div>
+
+
+    
 
     <script>
         function openTab(pageName, tabName, color) {
@@ -503,7 +559,7 @@
 
             //when tab is selected, it changes its color.
             tabName.style.backgroundColor = color;
-        }
+        };
         //when open the medical records page, this page (manage staff) is active
         document.getElementById("defaultOpen").click();
 
@@ -642,8 +698,35 @@
               location.reload();
             },
           });
+        });
+        $("#add_temp_acc").on("click",function(){
+            var username = $('#register_username').val();
+                    var roles = $('#register_roles').val();
+                    var password = $('#register_password').val();
+                    if (username != '' && password != '' && roles != '') {
+                        $.ajax({
+                            url: "/add-temporary-acc",
+                            method: "POST",
+                            data: {
+                                username: username,
+                                roles: roles,
+                                password: password
+                            },
+                            success: function(data) {
+                                alert(data);
+                                if (data == 'No-data') {
+                                    alert("Account already exists");
+                                } else {
+                                    modal_sign_up.hide();
+                                    location.reload();
+                                }
+                            }
+                        });
+                    } else {
+                        alert("All Fields are required");
+                }
+        });
         
-      });
     </script>
 </body>
 

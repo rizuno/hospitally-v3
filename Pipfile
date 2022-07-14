@@ -18,6 +18,8 @@ zipp = "==3.8.0"
 gunicorn = "*"
 flask-bcrypt = "*"
 python-slugify = "*"
+tabulate = "*"
+flask-uploads = "*"
 
 [dev-packages]
 

@@ -18,6 +18,7 @@ import random
 import time
 from datetime import date
 from slugify import slugify
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 
@@ -29,7 +30,6 @@ app.secret_key = "super secret key"
 mysql = MySQL(app)
 
 bcrypt = Bcrypt()
-
 
 def static_url(file_path):
     return "http://127.0.0.1:5000/" + file_path
@@ -49,14 +49,18 @@ def home():
         print("user is logged in")
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         user_id = session.get("user_id")
+        
         cursor.execute(
             f'SELECT * FROM tbl_portal WHERE portal_owner_user_id = "{user_id}"'
         )
+        print(user_id)
         portal_row = cursor.fetchone()
         print(portal_row["portal_name"])
         if portal_row["portal_name"] is None:
+            print("redirecting to portal creation")
             return redirect(url_for("portal_creation_page"))
         else:
+            print("redirecting to portal page")
             cursor.execute(
                 f'SELECT * FROM tbl_portal WHERE portal_owner_user_id = "{user_id}"'
             )
@@ -71,7 +75,6 @@ def home():
             return redirect(url_for("portal_home",hospital_slug=portal_row["portal_slug"]))
     return render_template("index.html")
 
-
 @app.route("/<hospital_slug>")
 @app.route("/<hospital_slug>/")
 def portal_home(hospital_slug,action=None):
@@ -80,6 +83,7 @@ def portal_home(hospital_slug,action=None):
         f'SELECT * FROM tbl_portal WHERE portal_slug = "{hospital_slug}"'
     ) 
     row = cursor.fetchone()  
+    session["portal_id"] = row["portal_id"]
     print(row)
     print(action)
     if row: #checks if the portal_slug is inside the db
@@ -90,7 +94,7 @@ def portal_home(hospital_slug,action=None):
             # return "Redirecting to Admin Page"
             return render_template("staff.html",hospital_slug=hospital_slug)
         elif session.get("logged_in")==True and session.get("as_admin")==False:
-            return "Redirecting to User Page"
+            return render_template("staff.html",hospital_slug=hospital_slug)
         else:
             if action is None or  action == "login": # if session is not logged in
                 return render_template("portal-login.html", portal_name=row["portal_name"])
@@ -103,7 +107,6 @@ def portal_home(hospital_slug,action=None):
 @app.route("/<hospital_slug>/overview")
 def portal_overview(hospital_slug):
     return render_template("portal-overview.html",portal_slug = hospital_slug)
-
 
 @app.route("/<hospital_name>/login",methods=["POST"])
 def portal_login(hospital_name):
@@ -136,7 +139,7 @@ def portal_login(hospital_name):
                 session["as_admin"] = True
                 session["portal_id"] = account["portal_id"]
                 msg = "success yes"
-            elif bcrypt.check_password_hash(rs_password, password) and account["authority"] == 0:
+            elif bcrypt.check_password_hash(rs_password, password) and account["authority"] == 0 and account["portal_id"] == session["portal_id"]:
                 session["logged_in"] = True
                 session["username"] = username
                 session["user_id"] = account["user_id"]
@@ -159,7 +162,7 @@ def add_portal_temp_acc():
         username = request.form["username"]
         email = ""
         password = request.form["password"]
-        role = request.form["role"]
+        role = request.form["roles"]
         pw_hash = bcrypt.generate_password_hash(password)  # reimplement later
         today = date.today()
         cur.execute("SELECT * FROM tbl_user WHERE user_username = % s", (username,))
@@ -168,17 +171,17 @@ def add_portal_temp_acc():
         # assigns a random user id
         cur.execute("SELECT user_id FROM tbl_user")
         user_data = cur.fetchall()
-        unique_user_id = random.randint(1, 100)
+        unique_user_id = random.randint(1, 100000)
         user_ids = [x["user_id"] for x in user_data]
         while unique_user_id in user_ids:
-            unique_user_id = random.randint(1, 100)
+            unique_user_id = random.randint(1, 100000)
 
         if account:
             msg = "Account already exists !"
         else:
             cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
             cursor.execute(
-                "INSERT INTO tbl_user VALUES (% s,% s, % s, % s, % s, % s, % s, % s, %s)",
+                "INSERT INTO tbl_user VALUES (% s,% s, % s, % s, % s, % s, % s, % s, %s, %s)",
                 (
                     unique_user_id,
                     session.get("portal_id"),
@@ -189,6 +192,7 @@ def add_portal_temp_acc():
                     today.strftime("%y-%m-%d %H:%M:%S"),
                     today.strftime("%y-%m-%d %H:%M:%S"),
                     "general_user",
+                    '<img class="rounded-full" src="https://icon-library.com/images/default-user-icon/default-user-icon-13.jpg" alt="user image" />'
                 ),
             )
             mysql.connection.commit()
@@ -203,7 +207,6 @@ def add_portal_temp_acc():
 def user_overview():
     return render_template("hospital_portal/user-overview.html")
 
-
 @app.route("/portal-create-page")
 def portal_creation_page():
     if session.get("username") is not None:
@@ -215,9 +218,16 @@ def portal_creation_page():
             ],
         )
         portal_account = cur.fetchone()
-        if portal_account["portal_name"] is None:
+        if portal_account["portal_name"] is None and session.get("as_admin") == True:
             return render_template("portal-creation-page.html")
         else:
+            cur.execute(
+            "SELECT * FROM tbl_portal WHERE portal_id = %s",
+            [
+                session.get("portal_id"),
+            ],
+            )
+            portal_account = cur.fetchone()
             return redirect(url_for("portal_home",hospital_slug = portal_account["portal_slug"])) # change in production
     else:
         return "Please login first"
@@ -229,10 +239,10 @@ def portal_creation_page():
 
 # POST METHOD LOGIN
 
-
 @app.route("/login", methods=["POST", "GET"])
 def login_post():
     cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    print("I GOT EXECUTED")
     if request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]
@@ -257,9 +267,15 @@ def login_post():
                 session["user_id"] = account["user_id"]
                 session["as_admin"] = True
                 session["portal_id"] = account["portal_id"]
-                msg = "success yes"
+                msg = "success yes" 
             else:
-                msg = "No-data"
+                session["logged_in"] = True
+                session["username"] = username
+                session["user_id"] = account["user_id"]
+                session["as_admin"] = False
+                session["portal_id"] = account["portal_id"]
+                
+                msg = "Account is not an admin"
         else:
             msg = "No-data"
     return jsonify(msg)
@@ -272,8 +288,8 @@ def logout():
     session.pop("id", None)
     session.pop("username", None)
     session.pop("portal_id",None)
+    session.pop("as_admin",None)
     return redirect(url_for("home"))
-
 
 @app.route("/register", methods=["POST", "GET"])
 def register_post():
@@ -290,19 +306,19 @@ def register_post():
         # assigns a random portal id
         cur.execute("SELECT portal_id FROM tbl_portal")
         portal_data = cur.fetchall()
-        unique_portal_id = random.randint(1, 100)
+        unique_portal_id = random.randint(1, 100000)
         portal_ids = [x["portal_id"] for x in portal_data]
         while unique_portal_id in portal_ids:
-            unique_portal_id = random.randint(1, 100)
+            unique_portal_id = random.randint(1, 100000)
 
         # assigns a random user id
         print(portal_ids)
         cur.execute("SELECT user_id FROM tbl_user")
         user_data = cur.fetchall()
-        unique_user_id = random.randint(1, 100)
+        unique_user_id = random.randint(1, 100000)
         user_ids = [x["user_id"] for x in user_data]
         while unique_user_id in user_ids:
-            unique_user_id = random.randint(1, 100)
+            unique_user_id = random.randint(1, 100000)
 
         if account:
             msg = "Account already exists !"
@@ -350,7 +366,6 @@ def register_post():
         print(total_row)
     return jsonify(msg)
 
-
 @app.route("/register_portal", methods=["POST", "GET"])
 def register_portal():
     cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
@@ -393,7 +408,13 @@ def departments():
 def profile():
     return render_template("profile.html")
 
-
+@app.route("/upload",methods = ['GET', 'POST'])
+def upload_file():
+    if request.method == 'POST':
+      f = request.files['file']
+      f.save(secure_filename(f.filename))
+      return 'file uploaded successfully'
+      
 if __name__ == "__main__":
     app.run()
 
