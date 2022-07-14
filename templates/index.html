@@ -119,14 +119,14 @@
             <h2 class="text-xl font-bold text-center text-brightOrange pt-20 pb-20">
                 why choose us?
             </h2>
-            <p>
-
-
-                Hospitally's main focus is to improve the hospitals digital data Storage that includes the hospitals guaranteed security protection and the ease of access to your important data.We can guarantee that your data would be safe in our hands and that hospitality
-                will not violate your privacy in your data.Your workflow will have improved by adopting our paperless system no longer will you suffer from having to go through mountains of files just to find the document you need you will now be able
-                to get the document you want with a simple click now available to you 24/7 and it will come to you without delay has our servers are very responsive and available in any web browser.Finally if your worried about security no need to worry
-                our servers are very secure so you dont have to worry about somebody looking in places they shouldn't have access too. Hospitaly making your job to save lives much easier
-            </p>
+            <div class="text-xl font-bold text-center text-brightOrange pt-20 pb-20">
+                <p class="bottom-text">
+                    Hospitally's main focus is to improve the hospitals digital data Storage that includes the hospitals guaranteed security protection and the ease of access to your important data.We can guarantee that your data would be safe in our hands and that hospitality
+                    will not violate your privacy in your data.Your workflow will have improved by adopting our paperless system no longer will you suffer from having to go through mountains of files just to find the document you need you will now be
+                    able to get the document you want with a simple click now available to you 24/7 and it will come to you without delay has our servers are very responsive and available in any web browser.Finally if your worried about security no need
+                    to worry our servers are very secure so you dont have to worry about somebody looking in places they shouldn't have access too. Hospitaly making your job to save lives much easier
+                </p>
+            </div>
         </div>
     </section>
     <!-- About Section -->
@@ -137,7 +137,7 @@
             <h2 class="text-xl font-bold text-center text-darkSlate pt-20 pb-20">
                 about our product
             </h2>
-            <p>
+            <p class="text-xl font-bold text-center text-brightOrange pt-20 pb-20">
                 Being overwhelmed by the volume of physical papers that Hospitals must organize, the team behind  Hospitally aims to assist hospitals in making the transition from physical record keeping to digital storage system. That is why the Hospitally's team's
                 mission is to help hospitals transfer from Physical data storage system to a Digital data storage system allowing us to give back and help ease the burden that the hospital staff have to experience on their day to day job by offering them
                 an easier way to sort their documents properly. They will have an easy way to access and keep track of their data allowing the hospital to have a smoother and faster workflow.
@@ -146,54 +146,53 @@
     </section>
     <!-- about us -->
 
-    <section id="about" class="bg-primary-white">
-        <!-- Flex Container-->
-        <div class="h-screen max-w-6xl px-10 mx-auto text-center">
-            <!-- Heading -->
-            <h2 class="text-xl font-bold text-center text-darkSlate pt-20 pb-20">
+    <!-- <section id="about " class="bg-primary-white ">
+      
+        <div class="h-screen max-w-6xl px-10 mx-auto text-center ">
+           
+            <h2 class="text-xl font-bold text-center text-darkSlate pt-20 pb-20 ">
                 about us
             </h2>
         </div>
-    </section>
+    </section> -->
 
     <!-- Modal Sign Up -->
-    <div id="modalDialogSignUp" class="modal">
-        <div class="modal-content animate-top">
-            <div class="modal-header">
-                <h5 class="font-serif tracking-tighter text-brightOrange text-bold text-3xl">Hospitally</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-               <img src="{{ static_host +'static/img/icon-close.png' }}" alt="">
+    <div id="modalDialogSignUp " class="modal ">
+        <div class="modal-content animate-top ">
+            <div class="modal-header ">
+                <h5 class="font-serif tracking-tighter text-brightOrange text-bold text-3xl ">Hospitally</h5>
+                <button type="button " class="close " data-dismiss="modal " aria-label="Close ">
+               <img src="{{ static_host + 'static/img/icon-close.png' }} " alt=" ">
                </button>
             </div>
             <br>
-            <div id="box" class="max-w-6xl px-10 mx-auto text-center">
-                <div class="bg-white">
-                    <div class="font-sans text-darkSlate text-3xl font-light tracking-tighter"><span class="italic font-bold">Sign up</span> to make your hospital portal today</div>
-                    <div class="pt-2">
+            <div id="box " class="max-w-6xl px-10 mx-auto text-center ">
+                <div class="bg-white ">
+                    <div class="font-sans text-darkSlate text-3xl font-light tracking-tighter "><span class="italic font-bold ">Sign up</span> to make your hospital portal today</div>
+                    <div class="pt-2 ">
                         <br>
-                        <p class="text-lightGray">already have an account? click here to <a id="pSignIn" href="#" class="font-bold underline underline-offset-2 text-darkSlate hover:text-brightOrange"> sign in</a></p>
+                        <p class="text-lightGray ">already have an account? click here to <a id="pSignIn " href="# " class="font-bold underline underline-offset-2 text-darkSlate hover:text-brightOrange "> sign in</a></p>
                     </div>
                     <br>
-                    <input class="h-16 w-full items-center border-b-2 text-xl font-thin px-6 p-4 pt-4" size="35" type="text" id="register_username" name="username" placeholder="/username" required><br>
-                    <input class="h-16 w-54 border-b-2 text-xl font-thin px-6 p-4" size="35" type="email" id="register_email" name="email" placeholder="/email" required><br>
-                    <!-- <input class="h-16 w-80 border-b-2 text-xl font-thin px-6 p-4" size="35" type="email" id="email" name="retype_email" placeholder="re-type your email" required><br> -->
-                    <input class="h-16 w-80 border-b-2 text-xl font-thin px-6 p-4" size="35" type="password" id="register_password" name="password" placeholder="/password" required> <br>
+                    <input class="h-16 w-full items-center border-b-2 text-xl font-thin px-6 p-4 pt-4 " size="35 " type="text " id="register_username " name="username " placeholder="/username " required><br>
+                    <input class="h-16 w-full border-b-2 text-xl font-thin px-6 p-4 " size="35 " type="email " id="register_email " name="email " placeholder="/email " required><br>
+                    <!-- <input class="h-16 w-80 border-b-2 text-xl font-thin px-6 p-4 " size="35 " type="email " id="email " name="retype_email " placeholder="re-type your email " required><br> -->
+                    <input class="h-16 w-full border-b-2 text-xl font-thin px-6 p-4 " size="35 " type="password " id="register_password " name="password " placeholder="/password " required> <br>
                     <!-- reCaptcha -->
-                    <div class="g-recaptcha p-4 px-10 pt-4" data-sitekey="6LcRiV4gAAAAAEgpu_rw5F27tZq4Mq7o-jaTlM7c">
+                    <div class="g-recaptcha p-4 px-10 pt-4 " data-sitekey="6LcRiV4gAAAAAEgpu_rw5F27tZq4Mq7o-jaTlM7c ">
                     </div>
                     <br>
                     <!-- Button -->
-                    <div class="pt-6">
-                        <button id="register_button" class="px-10 py-2 text-white text-left tracking-wider 
-                        text-lg font-thin bg-brightOrange rounded-lg baseline hover:bg-gray-500">
+                    <div class="pt-6 ">
+                        <button id="register_button " class="px-10 py-2 text-white text-left tracking-wider text-lg font-thin bg-brightOrange rounded-lg baseline hover:bg-gray-500 ">
                         <!--  -->
-                        <p class="md:flex my-auto text-xl font-medium">create account <img src={{ static_host +'static/img/enter-icon.png' }} alt="" class="pl-6 md:flex-row"></p>
+                        <p class="md:flex my-auto text-xl font-medium ">create account <img src={{ static_host +'static/img/enter-icon.png' }} alt=" " class="pl-6 md:flex-row "></p>
                      </button>
                         <br><br>
                     </div>
                     <!-- Footer -->
                     <br>
-                    <div class="text-sm font-normal tracking-tight text-darkSlate">This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
+                    <div class="text-sm font-normal tracking-tight text-darkSlate ">This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
                     </div>
                     <br>
                 </div>
@@ -202,18 +201,18 @@
 
     </div>
     <!-- Modal Sign In -->
-    <div id="modalDialogSignIn" class="modal">
-        <div class="modal-content animate-top">
-            <div class="modal-header">
-                <h5 class="font-serif tracking-tighter text-brightOrange text-bold text-3xl">Hospitally</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <img src="{{ static_host +'static/img/icon-close.png' }}" alt="">
+    <div id="modalDialogSignIn " class="modal ">
+        <div class="modal-content animate-top ">
+            <div class="modal-header ">
+                <h5 class="font-serif tracking-tighter text-brightOrange text-bold text-3xl ">Hospitally</h5>
+                <button type="button " class="close " data-dismiss="modal " aria-label="Close ">
+              <img src="{{ static_host + 'static/img/icon-close.png' }} " alt=" ">
               </button>
             </div>
             <br>
-            <div id="box" class="max-w-6xl px-10 mx-auto text-center">
-                <div class="bg-white">
-                    <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+            <div id="box " class="max-w-6xl px-10 mx-auto text-center ">
+                <div class="bg-white ">
+                    <input type="hidden " name="_token " value="<?php echo csrf_token(); ?>">
                     <div class="font-sans text-darkSlate text-3xl font-light tracking-tighter"><span class="italic font-bold">Sign In</span> to make your hospital portal today</div>
                     <div class="pt-2">
                         <br>
