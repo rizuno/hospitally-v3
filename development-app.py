@@ -64,10 +64,11 @@ def home():
             portal_url = portal_details["portal_slug"] + ".hospitally.online"
             hospital_name = portal_details["portal_name"]
             cursor.execute(f'SELECT * FROM tbl_user WHERE user_id = "{user_id}"')
-
-            return render_template(
-                "login_test.html", portal_url=portal_url, hospital_name=hospital_name
-            )  # check if user has already created a database/portal and redirect accordingly
+            
+            # return render_template(
+            #     "login_test.html", portal_url=portal_url, hospital_name=hospital_name
+            # )  # check if user has already created a database/portal and redirect accordingly
+            return redirect(url_for("portal_home",hospital_slug=portal_row["portal_slug"]))
     return render_template("index.html")
 
 
