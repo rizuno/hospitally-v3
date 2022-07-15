@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "29ed48dc9a76b011c1c8c3e0d49714eb6c2f61883a653995cef45f293dc9e10c"
+            "sha256": "7a40bfa5833f15b6f526d96563c1b068a8e254aa8a253d6cfdde34c1a414ef5a"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -30,7 +30,6 @@
                 "sha256:a2c46100e315c3a5b90fdc53e429c006c5f962529bc27e1dfd656292c20ccc40",
                 "sha256:cd43303d6b8a165c29ec6756afd169faba9396a9472cdff753fe9f19b96ce2fa"
             ],
-            "markers": "python_version >= '3.6'",
             "version": "==3.2.2"
         },
         "cffi": {
@@ -141,6 +140,13 @@
             "index": "pypi",
             "version": "==1.0.1"
         },
+        "flask-uploads": {
+            "hashes": [
+                "sha256:53ecbd6033667d50ae02b63adebbaa33c7fc56c09e5293025810cf9d841ecb02"
+            ],
+            "index": "pypi",
+            "version": "==0.2.1"
+        },
         "gunicorn": {
             "hashes": [
                 "sha256:9dcc4547dbb1cb284accfb15ab5667a0e5d1881cc443e0677b4882a4067a807e",
@@ -155,7 +161,16 @@
                 "sha256:c58c8eb8a762858f49e18436ff552e83914778e50e9d2f1660535ffb364552ec"
             ],
             "index": "pypi",
+            "markers": "python_version < '3.10'",
             "version": "==4.11.4"
+        },
+        "install": {
+            "hashes": [
+                "sha256:0d3fadf4aa62c95efe8d34757c8507eb46177f86c016c21c6551eafc6a53d5a9",
+                "sha256:e67c8a0be5ccf8cb4ffa17d090f3a61b6e820e6a7e21cd1d2c0f7bc59b18e647"
+            ],
+            "index": "pypi",
+            "version": "==1.3.5"
         },
         "itsdangerous": {
             "hashes": [
@@ -244,14 +259,6 @@
             ],
             "index": "pypi",
             "version": "==6.1.2"
-        },
-        "setuptools": {
-            "hashes": [
-                "sha256:0d33c374d41c7863419fc8f6c10bfe25b7b498aa34164d135c622e52580c6b16",
-                "sha256:c04b44a57a6265fe34a4a444e965884716d34bae963119a76353434d6f18e450"
-            ],
-            "markers": "python_version >= '3.7'",
-            "version": "==63.2.0"
         },
         "tabulate": {
             "hashes": [

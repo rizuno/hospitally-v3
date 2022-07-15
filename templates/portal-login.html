@@ -67,9 +67,9 @@
 					</button>
 				<br><br>
 
-                <a href="#" class="text-gray-300 text-lg hover:text-lightGray tracking-tighter">
+                <!-- <a href="#" class="text-gray-300 text-lg hover:text-lightGray tracking-tighter">
                     forgot your password?
-                </a>
+                </a> -->
 				</div>
                 
                 <p class="text-center pt-60 text-gray-300 text-lg tracking-tighter">
@@ -98,17 +98,16 @@
                             password: password
                         },
                         success: function(data) {
-                            alert(data)
+                            
                             if (data == 'No-data') {
-                                alert("Invalid Email Or Password!");
+                                
+                                console.log("Invalid Email Or Password!");
                             } else {
                                 location.reload();
                             }
                         }
                     });
-                } else {
-                    alert("Both Fields are required");
-                }
+                } 
             });
         });
     </script>

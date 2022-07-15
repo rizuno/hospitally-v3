@@ -174,19 +174,21 @@
                         <p class="text-lightGray ">already have an account? click here to <a id="pSignIn " href="# " class="font-bold underline underline-offset-2 text-darkSlate hover:text-brightOrange ">sign in</a></p>
                     </div>
                     <br>
-                    <input class="h-16 w-full items-center border-b-2 text-xl font-thin px-6 p-4 pt-4 " size="35 " type="text " id="register_username " name="username " placeholder="/username " required><br>
-                    <input class="h-16 w-full border-b-2 text-xl font-thin px-6 p-4 " size="35 " type="email " id="register_email " name="email " placeholder="/email " required><br>
+                    <input class="h-16 w-full items-center border-b-2 text-xl font-thin px-6 p-4 pt-4 " size="35 " type="text" id="register_first_name" name="first name " placeholder="/first name " required><br>
+                    <input class="h-16 w-full items-center border-b-2 text-xl font-thin px-6 p-4 pt-4 " size="35 " type="text" id="register_last_name" name="last name " placeholder="/last name " required><br>
+                    <input class="h-16 w-full items-center border-b-2 text-xl font-thin px-6 p-4 pt-4 " size="35 " type="text" id="register_username" name="username " placeholder="/username" required><br>
+                    <input class="h-16 w-full border-b-2 text-xl font-thin px-6 p-4 " size="35 " type="email" id="register_email" name="email" placeholder="/email " required><br>
                     <!-- <input class="h-16 w-80 border-b-2 text-xl font-thin px-6 p-4 " size="35 " type="email " id="email " name="retype_email " placeholder="re-type your email " required><br> -->
-                    <input class="h-16 w-full border-b-2 text-xl font-thin px-6 p-4 " size="35 " type="password " id="register_password " name="password " placeholder="/password " required> <br>
+                    <input class="h-16 w-full border-b-2 text-xl font-thin px-6 p-4 " size="35 " type="password" id="register_password" name="password" placeholder="/password" required> <br>
                     <!-- reCaptcha -->
                     <div class="g-recaptcha p-4 px-10 pt-4 " data-sitekey="6LcRiV4gAAAAAEgpu_rw5F27tZq4Mq7o-jaTlM7c ">
                     </div>
                     <br>
                     <!-- Button -->
                     <div class="pt-6 ">
-                        <button id="register_button " class="px-10 py-2 text-white text-left tracking-wider text-lg font-thin bg-brightOrange rounded-lg baseline hover:bg-gray-500 ">
+                        <button id="register_button" class="px-10 py-2 text-white text-left tracking-wider text-lg font-thin bg-brightOrange rounded-lg baseline hover:bg-gray-500 ">
                         <!--  -->
-                        <p class="md:flex my-auto text-xl font-medium ">create account <img src={{ static_host +'static/img/enter-icon.png' }} alt=" " class="pl-6 md:flex-row "></p>
+                        <p class="md:flex my-auto text-2xl font-medium ">create account <img src={{ static_host +'static/img/enter-icon.png' }} alt=" " class="pl-6 md:flex-row "></p>
                      </button>
                         <br><br>
                     </div>
@@ -296,25 +298,22 @@
                                 password: password
                             },
                             success: function(data) {
-                                alert(data);
-                                if (data == 'No-data') {
-                                    alert("Invalid Email Or Password!");
-                                } else {
+                                
                                     modal_sign_in.hide();
                                     location.reload();
-                                }
+                                
                             }
                         });
-                    } else {
-                        alert("Both Fields are required");
-                    }
+                    } 
                 });
                 // sign up 
                 $('#register_button').click(function() {
                     var username = $('#register_username').val();
                     var email = $('#register_email').val();
                     var password = $('#register_password').val();
-                    if (username != '' && password != '' && email != '') {
+                    var first_name = $('#register_first_name').val();
+                    var last_name = $('#register_last_name').val();
+                    if (username != '' && password != '' && email != '' && first_name != '' && first_name != '') {
 
                         $.ajax({
                             url: "/register",
@@ -322,21 +321,18 @@
                             data: {
                                 username: username,
                                 email: email,
-                                password: password
+                                password: password,
+                                first_name: first_name,
+                                last_name: last_name
                             },
                             success: function(data) {
-                                alert(data);
-                                if (data == 'No-data') {
-                                    alert("Account already exists");
-                                } else {
+                               
                                     modal_sign_up.hide();
                                     location.reload();
-                                }
+                                
                             }
                         });
-                    } else {
-                        alert("All Fields are required");
-                    }
+                    } 
                 });
             });
 

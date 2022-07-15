@@ -21,17 +21,17 @@
 <body class="flex flex-row ">
 
     <!-- navbar start -->
-    <aside class="w-64 basis-96 h-screen" aria-label="Sidebar">
-        <div class="overflow-y-auto py-4 px-3 h-screen shadow-md bg-primary-white dark:bg-gray-800 h-screen">
+    <aside class="w-[288px] h-screen sticky top-0" aria-label="Sidebar">
+        <div class="w-[288px] overflow-y-auto py-4 px-3 h-full bg-primary-white dark:bg-gray-800 h-screen">
             <img src="{{ static_url( 'static/img/logo-hospitally.png') }}" alt="HOSPITALL test image">
 
             <ul class="space-y-2">
                 <li>
-                    <div id="orange_tab" class="w-2 h-[30px] mt-[13px] bg-orange fixed left rounded-r-lg"></div>
-                    <a id="overview_button" href="#" class="sidebar-button flex ml-[30px] mt-[25px] pt-6 gap-2 p-3 cursor-pointer text-[20px] text-gray-400 font-semibold
+                    
+                    <a id="overview_button" href="#" class="sidebar-button flex ml-[28px] mt-[25px] pt-6 gap-2 p-3 cursor-pointer text-[20px] text-gray-400 font-semibold
               hover:text-brightOrange hover:text-orange text-orange" data-target="#overview">
 
-                        <svg class="sidebar-svg mr-[7px] h-6 w-6 text-gray-500 hover:text-orange text-orange" width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  
+                        <svg class="sidebar-svg mr-[7px] h-6 w-6 text-navy hover:text-orange text-orange" width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  
                 <path stroke="none" d="M0 0h24v24H0z"/>  
                 <circle cx="12" cy="13" r="2" />  
                 <line x1="13.45" y1="11.55" x2="15.5" y2="9.5" />  
@@ -39,9 +39,9 @@
                     </a>
                 </li>
                 <li>
-                    <a id="medical_records_button" href="#" class="sidebar-button flex ml-[30px] mt-[-10px] pt-8 gap-2 p-3 cursor-pointer text-[20px] text-gray-400 font-semibold
+                    <a id="medical_records_button" href="#" class="sidebar-button flex ml-[25px] mt-[-10px] pt-8 gap-2 p-3 cursor-pointer text-[20px] text-gray-400 font-semibold
               hover:text-brightOrange hover:text-orange  sidebar-active" data-target="#medical-records">
-                        <svg class="sidebar-svg mr-[7px] h-8 w-8 text-gray-500 hover:text-orange" width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  
+                        <svg class="sidebar-svg mr-[2px] h-8 w-8 text-navy hover:text-orange" width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  
               <path stroke="none" d="M0 0h24v24H0z"/>
               <rect x="5" y="3" width="14" height="18" rx="2" />
               <line x1="9" y1="7" x2="15" y2="7" />  
@@ -60,7 +60,7 @@
                     <a id="staff_button" href="#" class="sidebar-button flex ml-[31px] gap-2 p-3 cursor-pointer text-[20px] text-gray-400 font-semibold
               hover:text-brightOrange hover:text-orange sidebar-active" data-target="#staff">
 
-                        <svg class="sidebar-svg mr-[7px] h-6 w-6 text-gray-500 hover:text-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg class="sidebar-svg mr-[7px] h-6 w-6 text-navy hover:text-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
                </svg> staff
                     </a>
@@ -69,7 +69,7 @@
                 <li>
                     <a id="settings_button" href="#" class="sidebar-button flex ml-[31px] mt-[-10px] pt-8 gap-2 p-3 cursor-pointer text-[20px] text-gray-400 font-semibold
               hover:text-brightOrange hover:text-orange sidebar-active" data-target="#settings">
-                        <svg class="sidebar-svg mr-[7px] h-6 w-6 text-gray-500 hover:text-brightOrange" width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  
+                        <svg class="sidebar-svg mr-[7px] h-6 w-6 text-navy hover:text-brightOrange" width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  
                 <path stroke="none" d="M0 0h24v24H0z"/>
                 <path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />  
                 <circle cx="12" cy="12" r="3" />
@@ -82,12 +82,15 @@
             <div class="w-[200px] m-auto pt-[60px]">
                 <img class="rounded-full" src="https://icon-library.com/images/default-user-icon/default-user-icon-13.jpg" alt="user image" />
             </div>
-
-            <p class="text-center mt-6 font-bold text-2xl"><a id="profile_button" class="sidebar-button"href="#">Steven Grant</a></p>
             <!--name-->
-            <p class="text-center">Admin</p>
+            <p class="text-center mt-6 font-bold text-2xl"><a id="profile_button" class="sidebar-button"href="#">{{session.username}}</a></p>
             <!--authority-->
-            <a id="logout_button" href="#" class="flex items-center text-base font-bold mt-9 text-gray-400 rounded-lg  hover:bg-gray-100">
+            {% if session.as_admin%}
+            <p class="text-center">Admin</p>
+            {% else %}
+            <p class="text-center">User</p>
+            {% endif %}
+            <a id="logout_button" href="#" class="flex items-center text-base font-bold mt-9 text-gray-200 rounded-lg  hover:bg-gray-100">
                 <span class="flex-1 whitespace-nowrap fill-orange text-center">log out</span>
 
             </a>
@@ -96,35 +99,36 @@
 
     <!--Content Area-->
     <!--Overview-->
-    <div class="bg-gray w-full main-content hidden" id="overview_area">
+    <div class="bg-gray w-full main-content" id="overview_area">
         <div id="info_display" class="grid grid-cols-4 gap-0">
-            <div class="col-span-3 text-center">Hospital Name</div>
-            <div class="m">welcome, Steven Grant</div>
+            <div class="col-span-3 mt-10 text-center font-black text-3xl text-navy">{{session.hospital_name + " Hospital"}} </div>
+            <div class="mt-10">welcome, <span class="font-bold text-orange"> {{session.first_name + " " + session.last_name}} </span> </div>
             
         </div>
 
-        <div class="top-7 right-32 absolute text-xl">
-            <legend>welcome, admin</legend>
-           </div>
+     
 
         <div id="grid_containter" class="m-5 h-5/6 z-0">
-            <div class="0 grid grid-cols-7 gap-4 h-5/6 fill-cyan-500 hover:fill-cyan-700">
-                <div class="col-span-2 rounded row-span-2 mt-16 mr-4 ml-4">
+            <div class="justify-center items-center 0 grid grid-cols-7 gap-4 h-5/6 fill-cyan-500 hover:fill-cyan-700">
+                <div class=" col-span-2 font-bold text-navy rounded row-span-2 h-[300px] w-[300px] mt-16 mr-4 ml-4">
                     staff
-                    <div class="bg-blue h-full rounded"></div>
+                    <div class="bg-white p-10 h-full rounded">
+                        <span class="font-bold text-orange text-5xl">{{staff_count}}</span><br>
+                        staffs
+                    </div>
                 </div>
-                <div class="col-span-3 rounded row-span-2 mt-16 mr-4 ml-4">
+                <div class="ml-10 col-span-2 font-bold text-navy rounded row-span-2 h-[300px] w-[300px] mt-16 mr-4 ml-4">
                     medical records
-                    <div class="bg-blue h-full rounded"></div>
+                    <div class="bg-white p-10 h-full rounded">
+                        <span class="font-bold text-orange text-5xl">{{medical_record_count}}</span><br>
+                        files
+                    </div>
                 </div>
-                <div class="col-span-2 rounded row-span-5 mt-16 mr-4 ml-4">
+                <!-- <div class="col-span-2 rounded row-span-5 mt-16 mr-4 ml-4">
                     online admins
-                    <div class="bg-blue h-full rounded"></div>
-                </div>
-                <div class="col-span-5 rounded row-span-3 mt-16 mr-4 ml-4">
-                    pending requests
-                    <div class="bg-blue h-full rounded"></div>
-                </div>
+                    <div class="bg-white h-full rounded"></div>
+                </div> -->
+    
             </div>
         </div>
 
@@ -132,17 +136,18 @@
     
     <!--Medical Records-->
     <div class="bg-gray w-full hidden main-content" id="medical_records_area">
-        <div id="info_display" class="grid grid-cols-4 gap-0">
+        <div id="info_display" class="grid grid-cols-4 gap-3">
             <div class="col-span-3">
-                <ul class="flex h-10">
-                    <li class="ml-10 basis-1/4"><a href="#" id="medical_statistics" class="medical-record-button">Statistics</a></li>
-                    <li><a href="#" id="medical_records" class="medical-record-button">Medical Records</a></li>
+                <ul class="flex h-10 ml-10 mt-10">
+                    <!-- <li class="bg-orange rounded-lg p-4 shadow medical-record-button"><a href="#" id="medical_statistics ">Statistics</a></li> -->
+                    <li><a href="#" id="medical_records" class="medical-record-button bg-orange rounded-lg p-4 shadow">Medical Records</a></li>
+                    <!--<li><a href="#" id="medical_statistics" class="ml-2 medical-record-button bg-orange rounded-lg p-4 shadow">Statistics</a></li>-->
                 </ul>
             </div>
-            <div class="h-10">welcome, Steven Grant</div>
+            <div class="h-10 mt-10">welcome, <span class="font-bold text-orange">{{session.first_name + " " + session.last_name}}</span></div>
         </div>
         <!--Statistics-->
-        <div id="grid_containter" class="  medical-record-content medical_statistics h-5/6">
+        <div id="grid_containter" class="pt-20 m-10  medical-record-content hidden medical_statistics h-5/6">
             <div class="0 grid grid-cols-3 gap-4 h-4/5">
                 <div class="bg-blue rounded row-span-2 h-1/2 ">medical records</div>
                 <div class="bg-blue rounded row-span-2 h-1/2 ">
@@ -153,242 +158,72 @@
             </div>
         </div>
         <!--Medical Records-->
-        <div class="  medical-record-content medical_records hidden h-5/6">
-            <div class="top-16 left-0  rounded-xl bg-white">
-
-                <div class="left-10 top-2 text-xl text-yellow-600">
-                    <p><b>all medical records</b></p>
+        <div class=" p-10 medical-record-content medical_records h-100">
+            <div class="top-16 p-10 rounded-xl bg-white">
+                <div class="w-max top-2 text-xl text-yellow-600 "> <!--Add toggle button-->
+                    <p class="w-max"><b>medical records</b></p>
                 </div>
+                <button id = "add_record_toggle_button"class="bg-green border border-green-600 shadow rounded-lg p-4 shadow" >Add a new medical </button>
+                <div class="w-[500px] mx-auto flex mt-6 gap-8">
+                    <div id="add_record_div" class="block hidden">
+                    <!-- PATIENT FIRST NAME: -->
+                    <input class="block border  border-slate-500 bg-gray-100  px-3 rounded-md w-full h-[40px] text-[20px] " type="text"
+                    id="patient_first_name" name="username" placeholder="Patient's first name" > <br><br>
+                    <!-- PATIENT MIDDLE NAME: -->
+                    <input class="block border  border-slate-500 bg-gray-100  px-3 rounded-md w-full h-[40px] text-[20px] " type="text"
+                    id="patient_middle_name" name="username" placeholder=" Patient's middle name" > <br><br>
+                    <!-- PATIENT LAST NAME: -->
+                    <input class="block border  border-slate-500 bg-gray-100  px-3 rounded-md w-full h-[40px] text-[20px] " type="text"
+                    id="patient_last_name" name="username" placeholder=" Patient's last name" > <br><br>
+                    <div class="flex flex-row">
+                        <input class="block mb-5 w-full text-xs p-2 h-10 text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer focus:outline-none" id="file" type="file">
+                        <a href="#"id="upload_file_button" ><button  class="top-2 right-10 bg-green-col border-green-600 rounded-lg h-10 p-2 w-20 shadow">add</button></a>
+                        </div>
+                    </div>
+                    
+                    </div>
+                    <div class="relative bg-white mt-10 top-16 max-h-[500px] overflow-auto shadow-md sm:rounded-lg">
+                        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 border border-slate-400 ">
+                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                <tr>
+                                    <th scope="col" class="border border-slate-40"></th>
+                                    <th scope="col" class="px-2 py-2 border border-slate-40">First Name</th>
+                                    <th scope="col" class="px-2 py-2 border border-slate-40">Middle Name</th>
+                                    <th scope="col" class="px-2 py-2 border border-slate-40">Last Name</th>
+                                    <th scope="col" class="px-2 py-2 border border-slate-40">File </th>
+            
+                                </tr>
+                            </thead>
+    
+                            <tbody>
+                                {%for medical_record in medical_records %}
+                                <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                                    <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">{{loop.index}}</th>
+                                    <td class="px-2 py-2 w-28 border border-slate-40">{{medical_record["mrn_first_name"]}}</td>
+                                    <td class="px-2 py-2 border border-slate-40">{{medical_record["mrn_middle_name"]}}</</td>
+                                    <td class="px-2 py-2 border border-slate-40">{{medical_record["mrn_last_name"]}}</</td>
+                                    <td class="px-2 py-2 border border-slate-40"><a href="#" class="file-link">{{medical_record["mrn_file_name"]}}</a>/</td>
+                                </tr>
+                                {% endfor %}
+                        
+                            </tbody>
+                        </table>
+                    </div>
+                
 
-                <a href="#"><button class="top-2 left-3/4 bg-orange-600 rounded text-white 
-            text-lg w-40 h-8 text-center no-underline inline-block 
-            cursor-pointer">edit sort</button></a>
-
-                <a href="#"><button class="top-2 right-10 bg-green-600 rounded text-white 
-              text-lg w-40 h-8 text-center no-underline inline-block 
-              cursor-pointer">add</button></a>
-
-                <div class="relative top-16 overflow-x-auto shadow-md sm:rounded-lg">
-                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 border border-slate-400">
-                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                            <tr>
-                                <th scope="col" class="border border-slate-40"></th>
-                                <th scope="col" class="px-2 py-2 border border-slate-40">name</th>
-                                <th scope="col" class="px-2 py-2 border border-slate-40">md_ID</th>
-                                <th scope="col" class="px-2 py-2 border border-slate-40">city</th>
-                                <th scope="col" class="px-2 py-2 border border-slate-40">reason</th>
-                                <th scope="col" class="px-2 py-2 border border-slate-40">dr</th>
-                                <th scope="col" class="px-2 py-2 border border-slate-40"></th>
-                                <th scope="col" class="px-2 py-2 border border-slate-40">
-                                </th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
-                                <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">1</th>
-                                <td class="px-2 py-2 w-28 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 w-36 border border-slate-40">
-                                    <button type="submit" class="bg-gray-200 rounded-md relative right-0">open</button>
-                                    <button type="submit" class="bg-gray-200 rounded-md absolute right-8">send to</button>
-                                </td>
-                            </tr>
-
-                            <tr class="border-b bg-gray-200 dark:border-gray-500 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
-                                <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">2</th>
-                                <td class="px-2 py-2 w-28 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 w-36 border border-slate-40"></td>
-                            </tr>
-
-                            <tr class="border-b bg-gray-200 dark:border-gray-500 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
-                                <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">3</th>
-                                <td class="px-2 py-2 w-28 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 w-36 border border-slate-40"></td>
-                            </tr>
-
-                            <tr class="border-b bg-gray-200 dark:border-gray-500 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
-                                <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">4</th>
-                                <td class="px-2 py-2 w-28 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 w-36 border border-slate-40"></td>
-                            </tr>
-
-                            <tr class="border-b bg-gray-200 dark:border-gray-500 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
-                                <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">5</th>
-                                <td class="px-2 py-2 w-28 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 w-36 border border-slate-40"></td>
-                            </tr>
-
-                            <tr class="border-b bg-gray-200 dark:border-gray-500 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
-                                <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">6</th>
-                                <td class="px-2 py-2 w-28 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 w-36 border border-slate-40"></td>
-                            </tr>
-
-                            <tr class="border-b bg-gray-200 dark:border-gray-500 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
-                                <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">7</th>
-                                <td class="px-2 py-2 w-28 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 w-36 border border-slate-40"></td>
-                            </tr>
-
-                            <tr class="border-b bg-gray-200 dark:border-gray-500 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
-                                <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">8</th>
-                                <td class="px-2 py-2 w-28 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 w-36 border border-slate-40"></td>
-                            </tr>
-
-                            <tr class="border-b bg-gray-200 dark:border-gray-500 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
-                                <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">9</th>
-                                <td class="px-2 py-2 w-28 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 w-36 border border-slate-40"></td>
-                            </tr>
-
-                            <tr class="border-b bg-gray-200 dark:border-gray-500 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
-                                <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">10</th>
-                                <td class="px-2 py-2 w-28 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 w-36 border border-slate-40"></td>
-                            </tr>
-
-                            <tr class="border-b bg-gray-200 dark:border-gray-500 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
-                                <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">11</th>
-                                <td class="px-2 py-2 w-28 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 w-36 border border-slate-40"></td>
-                            </tr>
-
-                            <tr class="border-b bg-gray-200 dark:border-gray-500 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
-                                <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">12</th>
-                                <td class="px-2 py-2 w-28 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 w-36 border border-slate-40"></td>
-                            </tr>
-
-                            <tr class="border-b bg-gray-200 dark:border-gray-500 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
-                                <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">13</th>
-                                <td class="px-2 py-2 w-28 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 w-36 border border-slate-40"></td>
-                            </tr>
-
-                            <tr class="border-b bg-gray-200 dark:border-gray-500 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
-                                <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">14</th>
-                                <td class="px-2 py-2 w-28 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 w-36 border border-slate-40"></td>
-                            </tr>
-
-                            <tr class="border-b bg-gray-200 dark:border-gray-500 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
-                                <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">15</th>
-                                <td class="px-2 py-2 w-28 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 w-36 border border-slate-40"></td>
-                            </tr>
-
-                            <tr class="border-b bg-gray-200 dark:border-gray-500 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
-                                <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">16</th>
-                                <td class="px-2 py-2 w-28 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 w-36 border border-slate-40"></td>
-                            </tr>
-
-                            <tr class="border-b bg-gray-200 dark:border-gray-500 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
-                                <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">17</th>
-                                <td class="px-2 py-2 w-28 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 border border-slate-40"></td>
-                                <td class="px-2 py-2 w-36 border border-slate-40"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+              
             </div>
         </div>
 
 
     </div>
     
-    Departments
+
     <div class="bg-gray w-full hidden main-content" id="departments_area">
         <div id="info_display" class="grid grid-cols-4 gap-0">
             <div class="col-span-3">
             </div>
-            <div class="m">welcome, Steven Grant</div>
+            <div class="m">welcome,<span class="font-bold text-orange">{{session.first_name + " " + session.last_name}}</span></div>
         </div>
 
         <div id="grid_containter" class="mb-8 mt-8 mr-16 ml-16 h-5/6">
@@ -405,69 +240,105 @@
     </div>
     
     <!--Staff-->
-    <div class="bg-gray w-full hidden main-content " id="staff_area">
-        <div id="info_display" class="grid grid-cols-4 gap-0">
-            <div class="col-span-3 grid grid-cols-5 gap-2">
-                <!-- SEARCH BAR -->
-                <div class="flex left-[20px] top-[10px] col-span-3 ml-2">
-                    <form class="bg-gray-100 w-[600px] h-[42px] rounded-md flex text-center ">
-                        <!-- SEARCH INPUT -->
-                        <input class="bg-gray-200 text-[16px] w-full text-black  pl-3" type="search" id="query" name="q" placeholder="search any">
+    <div class="bg-gray pt-10 w-full hidden main-content px-10 mx-auto" id="staff_area">
+        <div id="info_display" class="grid grid-cols-3 gap-0">
+            <p class="rounded-lg p-4 shadow bg-orange border-bg-bg-orange-600 
+            text-white text-[18px] w-[200px]  text-center no-underline
+            inline-block"><a href="#" id="manage-staff" class="staff-button">view staff</a></p>
+            {% if session.as_admin == True %}
+            <p class="rounded-lg p-4 shadow bg-orange border-bg-bg-orange-600
+            text-white text-[18px] w-[200px]  text-center no-underline
+            inline-block"><a href="#" id="add-staff" class="staff-button">add staff</a></p>
+            {% endif %}
+            <div class="m">welcome, <span class="font-bold text-orange">{{session.first_name + " " + session.last_name}}</span></div>
+        </div>
+            <div class=" mx-auto place-items-center staff-management manage-staff h-5/6">
+                <div class="relative top-16 max-h-[500px] overflow-auto shadow-md sm:rounded-lg">
+                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 border border-slate-400 ">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" class="border border-slate-40"></th>
+                                <th scope="col" class="px-2 py-2 border border-slate-40">First Name</th>
+                                <th scope="col" class="px-2 py-2 border border-slate-40">Last Name</th>
+                                <th scope="col" class="px-2 py-2 border border-slate-40">Username</th>
+                                <th scope="col" class="px-2 py-2 border border-slate-40">Role</th>
+                                <th scope="col" class="px-2 py-2 border border-slate-40">Email</th>
+        
+                            </tr>
+                        </thead>
 
-                        <button class="bg-gray-200 cursor-pointer w-[30px] h-[40px] text-white" type="submit">
-                <i class="fa fa-search"></i>
-            </button>
-                    </form>
+                        <tbody>
+                            {%for staff in staff_list %}
+                            <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                                <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">{{loop.index}}</th>
+                                <td class="px-2 py-2 w-28 border border-slate-40">{{staff["user_first_name"]}}</td>
+                                <td class="px-2 py-2 border border-slate-40">{{staff["user_last_name"]}}</</td>
+                                <td class="px-2 py-2 border border-slate-40">{{staff["user_username"]}}</</td>
+                                <td class="px-2 py-2 border border-slate-40">{{staff["role"]}}</td>
+                                <td class="px-2 py-2 border border-slate-40">{{staff["user_email"]}}</td>
+                            </tr>
+                            {% endfor %}
+                    
+                        </tbody>
+                    </table>
                 </div>
-                <p class="col-span-1 bg-blue rounded"><a href="#" id="manage-staff" class="staff-button">manage staff</a></p>
-                {% if session.as_admin == True %}
-                <p class="col-span-1 bg-blue rounded mr-2"><a href="#" id="add-staff" class="staff-button">add staff</a></p>
-                {% endif %}
             </div>
-            <div class="m">welcome, Steven Grant</div>
+            <div class=" mx-auto justify place-items-center staff-management add-staff hidden h-5/6">
+                <div id="add" class="tabcontent">
+                    <!-- start content of create acc -->
+                    <div class="fa-align-center place-items-center mt-20 mx-auto ">
+                     <h2 class="text-4xl font-bold text-orange ">create an account</h2>
+                     <!--to give access to hospital users-->
+    
+                     <div class="flex flex-col justify-center">
+    
+                         <div class="flex flex-col justify-center">
+                             <p>
+                                 give access to hospital users under this hospital
+                                </p>
+                                
+                                <!-- ROLES: -->
+                                <input class="block mt-3  border border-slate-500 bg-gray-100 mt-10 rounded-md px-3 w-[500px] h-[40px] text-[20px] " type="text"
+                                id="register_roles" name="roles" placeholder="roles" > 
+                                
+                                <!-- USERNAME: -->
+                                <input class="block mt-3 border  border-slate-500 bg-gray-100  px-3 rounded-md w-[500px] h-[40px] text-[20px] " type="text"
+                                id="register_username" name="username" placeholder=" username" > 
+
+                                <!-- FIRST NAME: -->
+                                <input class="block mt-3  border border-slate-500 bg-gray-100 px-3  rounded-md w-[500px] h-[40px] text-[20px] " type="text"
+                                id="register_first_name" name="first_name" placeholder=" first name" > 
+
+                                <!-- LAST NAME: -->
+                                <input class="block mt-3  border border-slate-500 bg-gray-100 px-3  rounded-md w-[500px] h-[40px] text-[20px] " type="text"
+                                id="register_last_name" name="last_name" placeholder=" last name" > 
+                                <!-- PASSWORD: -->
+                                <input class="block mt-3  border border-slate-500 bg-gray-100 px-3  rounded-md w-[500px] h-[40px] text-[20px] " type="password"
+                                id="register_password" name="password" placeholder=" password" > <br><br>
+                                
+                                <a href="#"><button id="add_temp_acc" class="block  bg-green-col border-bg-green-600 rounded-md
+                                    text-white text-[18px] w-[240px] h-[35px] text-center no-underline
+                                    inline-block px-1">add temporary account</button></a>
+                                </div>
+                            </div>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="  staff-management manage-staff h-5/6">
-            Doctors table here
-        </div>
+        
+    
+        
 
-        <div class="  staff-management add-staff hidden h-5/6">
-            <div id="add" class="tabcontent">
-                <div class="absolute text-black top-[100px] left-[500px] ">
-                 <h2 class="text-4xl ">create an account</h2>
-                 <!--to give access to hospital users-->
-                 <div class="absolute text-gray-600 top-[40px] left-[1px] text-[17px]">
-                 <p>
-                  to give access to hospital users
-                 </p>
-                
-                  <!-- ROLES: -->
-                 <input class="absolute bg-gray-100  rounded-md w-[500px] h-[40px] top-[40px] text-[20px] " type="text"
-                 id="register_roles" name="roles" placeholder=" roles" required> <br><br>
-      
-                   <!-- USERNAME: -->
-                   <input class="absolute bg-gray-100  rounded-md w-[500px] h-[40px] top-[100px] text-[20px] " type="text"
-                 id="register_username" name="username" placeholder=" username" required> <br><br>
-      
-                  <!-- PASSWORD: -->
-                  <input class="absolute bg-gray-100  rounded-md w-[500px] h-[40px] top-[160px] text-[20px] " type="password"
-                  id="register_password" name="password" placeholder=" password" required> <br><br>
-      
-                   <a href="#"><button id="add_temp_acc" class="absolute top-[275px] left-[260px] bg-green-600 rounded-md
-                                              text-white text-[18px] w-[240px] h-[35px] text-center no-underline
-                                              inline-block px-1">add temporary account</button></a>
-                 </div>
-               </div> 
-        </div>
-    </div>
-    </div>
-    </div>
-    <!--History-->
-    <div class="bg-gray w-full hidden main-content" id="history_area">
-        <div id="info_display" class="grid grid-cols-4 gap-0">
+        
+        <!--History-->
+        <div class="bg-gray w-full hidden main-content" id="history_area">
+            <div id="info_display" class="grid grid-cols-4 gap-0">
             <div class="col-span-3">
             </div>
-            <div class="m">welcome, Steven Grant</div>
+            <div class="m">welcome, <span class="font-bold text-orange">{{session.first_name + " " + session.last_name}}</span></div>
         </div>
 
         <div id="grid_containter" class=" h-5/6 ">
@@ -480,30 +351,373 @@
     
     <!--Setting-->
     <div class="bg-gray w-full hidden main-content" id="settings_area">
-        <div id="info_display" class="grid grid-cols-4 gap-0">
-            <div class="col-span-3">
+        <!-- component -->
+    <div class="bg-gray-200 min-h-screen pt-2 font-mono my-16">
+        <div class="container">
+            <div class="inputs max-w-2xl p-6 mx-auto">
+                <h2 class="text-2xl text-gray-900">Account Setting</h2>
+                <form class="mt-6 border-t border-gray-400 pt-4">
+                    <div class='flex flex-wrap -mx-3 mb-6'>
+                        <div class='w-full md:w-full px-3 mb-6'>
+                            <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' for='grid-text-1'>email address</label>
+                            <input class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' id='modify_email' type='text' placeholder='{{ session.email }}' value="{{ session.email }}"  >
+                        </div>
+                        <!--
+                            <div class='w-full md:w-full px-3 mb-6 '>
+                            <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>old password</label>
+                            <input class='appearance-none mb-4 block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' id='old_password' type='password' placeholder='Old password'  >
+                            <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>new password</label>
+                            <input class='appearance-none mb-4 block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' id='new_password' type='password' placeholder='New password'  >
+                            <button id="change_pass_button" class="appearance-none bg-gray-200 text-gray-900 px-2 py-1 shadow-sm border border-gray-400 rounded-md ">change your password</button>
+                            </div>
+                        -->
+                        <div class='w-full md:w-full px-3 mb-6'>
+                            <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>pick your country</label>
+                            <div class="flex-shrink w-full inline-block relative">
+                                <select id="modify_country" class="block appearance-none text-gray-600 w-full bg-white border border-gray-400 shadow-inner px-4 py-2 pr-8 rounded">
+                                    <option>{{ session.country }}</option>
+                                    <option>choose ...</option>
+                                    <option value="Afghanistan">Afghanistan</option>
+                <option value="Åland Islands">Åland Islands</option>
+                <option value="Albania">Albania</option>
+                <option value="Algeria">Algeria</option>
+                <option value="American Samoa">American Samoa</option>
+                <option value="Andorra">Andorra</option>
+                <option value="Angola">Angola</option>
+                <option value="Anguilla">Anguilla</option>
+                <option value="Antarctica">Antarctica</option>
+                <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                <option value="Argentina">Argentina</option>
+                <option value="Armenia">Armenia</option>
+                <option value="Aruba">Aruba</option>
+                <option value="Australia">Australia</option>
+                <option value="Austria">Austria</option>
+                <option value="Azerbaijan">Azerbaijan</option>
+                <option value="Bahamas">Bahamas</option>
+                <option value="Bahrain">Bahrain</option>
+                <option value="Bangladesh">Bangladesh</option>
+                <option value="Barbados">Barbados</option>
+                <option value="Belarus">Belarus</option>
+                <option value="Belgium">Belgium</option>
+                <option value="Belize">Belize</option>
+                <option value="Benin">Benin</option>
+                <option value="Bermuda">Bermuda</option>
+                <option value="Bhutan">Bhutan</option>
+                <option value="Bolivia">Bolivia</option>
+                <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                <option value="Botswana">Botswana</option>
+                <option value="Bouvet Island">Bouvet Island</option>
+                <option value="Brazil">Brazil</option>
+                <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
+                <option value="Brunei Darussalam">Brunei Darussalam</option>
+                <option value="Bulgaria">Bulgaria</option>
+                <option value="Burkina Faso">Burkina Faso</option>
+                <option value="Burundi">Burundi</option>
+                <option value="Cambodia">Cambodia</option>
+                <option value="Cameroon">Cameroon</option>
+                <option value="Canada">Canada</option>
+                <option value="Cape Verde">Cape Verde</option>
+                <option value="Cayman Islands">Cayman Islands</option>
+                <option value="Central African Republic">Central African Republic</option>
+                <option value="Chad">Chad</option>
+                <option value="Chile">Chile</option>
+                <option value="China">China</option>
+                <option value="Christmas Island">Christmas Island</option>
+                <option value="Cocos (Keeling) Islands">Cocos (Keeling) Islands</option>
+                <option value="Colombia">Colombia</option>
+                <option value="Comoros">Comoros</option>
+                <option value="Congo">Congo</option>
+                <option value="Congo, The Democratic Republic of The">Congo, The Democratic Republic of The</option>
+                <option value="Cook Islands">Cook Islands</option>
+                <option value="Costa Rica">Costa Rica</option>
+                <option value="Cote D'ivoire">Cote D'ivoire</option>
+                <option value="Croatia">Croatia</option>
+                <option value="Cuba">Cuba</option>
+                <option value="Cyprus">Cyprus</option>
+                <option value="Czech Republic">Czech Republic</option>
+                <option value="Denmark">Denmark</option>
+                <option value="Djibouti">Djibouti</option>
+                <option value="Dominica">Dominica</option>
+                <option value="Dominican Republic">Dominican Republic</option>
+                <option value="Ecuador">Ecuador</option>
+                <option value="Egypt">Egypt</option>
+                <option value="El Salvador">El Salvador</option>
+                <option value="Equatorial Guinea">Equatorial Guinea</option>
+                <option value="Eritrea">Eritrea</option>
+                <option value="Estonia">Estonia</option>
+                <option value="Ethiopia">Ethiopia</option>
+                <option value="Falkland Islands (Malvinas)">Falkland Islands (Malvinas)</option>
+                <option value="Faroe Islands">Faroe Islands</option>
+                <option value="Fiji">Fiji</option>
+                <option value="Finland">Finland</option>
+                <option value="France">France</option>
+                <option value="French Guiana">French Guiana</option>
+                <option value="French Polynesia">French Polynesia</option>
+                <option value="French Southern Territories">French Southern Territories</option>
+                <option value="Gabon">Gabon</option>
+                <option value="Gambia">Gambia</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Germany">Germany</option>
+                <option value="Ghana">Ghana</option>
+                <option value="Gibraltar">Gibraltar</option>
+                <option value="Greece">Greece</option>
+                <option value="Greenland">Greenland</option>
+                <option value="Grenada">Grenada</option>
+                <option value="Guadeloupe">Guadeloupe</option>
+                <option value="Guam">Guam</option>
+                <option value="Guatemala">Guatemala</option>
+                <option value="Guernsey">Guernsey</option>
+                <option value="Guinea">Guinea</option>
+                <option value="Guinea-bissau">Guinea-bissau</option>
+                <option value="Guyana">Guyana</option>
+                <option value="Haiti">Haiti</option>
+                <option value="Heard Island and Mcdonald Islands">Heard Island and Mcdonald Islands</option>
+                <option value="Holy See (Vatican City State)">Holy See (Vatican City State)</option>
+                <option value="Honduras">Honduras</option>
+                <option value="Hong Kong">Hong Kong</option>
+                <option value="Hungary">Hungary</option>
+                <option value="Iceland">Iceland</option>
+                <option value="India">India</option>
+                <option value="Indonesia">Indonesia</option>
+                <option value="Iran, Islamic Republic of">Iran, Islamic Republic of</option>
+                <option value="Iraq">Iraq</option>
+                <option value="Ireland">Ireland</option>
+                <option value="Isle of Man">Isle of Man</option>
+                <option value="Israel">Israel</option>
+                <option value="Italy">Italy</option>
+                <option value="Jamaica">Jamaica</option>
+                <option value="Japan">Japan</option>
+                <option value="Jersey">Jersey</option>
+                <option value="Jordan">Jordan</option>
+                <option value="Kazakhstan">Kazakhstan</option>
+                <option value="Kenya">Kenya</option>
+                <option value="Kiribati">Kiribati</option>
+                <option value="Korea, Democratic People's Republic of">Korea, Democratic People's Republic of</option>
+                <option value="Korea, Republic of">Korea, Republic of</option>
+                <option value="Kuwait">Kuwait</option>
+                <option value="Kyrgyzstan">Kyrgyzstan</option>
+                <option value="Lao People's Democratic Republic">Lao People's Democratic Republic</option>
+                <option value="Latvia">Latvia</option>
+                <option value="Lebanon">Lebanon</option>
+                <option value="Lesotho">Lesotho</option>
+                <option value="Liberia">Liberia</option>
+                <option value="Libyan Arab Jamahiriya">Libyan Arab Jamahiriya</option>
+                <option value="Liechtenstein">Liechtenstein</option>
+                <option value="Lithuania">Lithuania</option>
+                <option value="Luxembourg">Luxembourg</option>
+                <option value="Macao">Macao</option>
+                <option value="Macedonia, The Former Yugoslav Republic of">Macedonia, The Former Yugoslav Republic of</option>
+                <option value="Madagascar">Madagascar</option>
+                <option value="Malawi">Malawi</option>
+                <option value="Malaysia">Malaysia</option>
+                <option value="Maldives">Maldives</option>
+                <option value="Mali">Mali</option>
+                <option value="Malta">Malta</option>
+                <option value="Marshall Islands">Marshall Islands</option>
+                <option value="Martinique">Martinique</option>
+                <option value="Mauritania">Mauritania</option>
+                <option value="Mauritius">Mauritius</option>
+                <option value="Mayotte">Mayotte</option>
+                <option value="Mexico">Mexico</option>
+                <option value="Micronesia, Federated States of">Micronesia, Federated States of</option>
+                <option value="Moldova, Republic of">Moldova, Republic of</option>
+                <option value="Monaco">Monaco</option>
+                <option value="Mongolia">Mongolia</option>
+                <option value="Montenegro">Montenegro</option>
+                <option value="Montserrat">Montserrat</option>
+                <option value="Morocco">Morocco</option>
+                <option value="Mozambique">Mozambique</option>
+                <option value="Myanmar">Myanmar</option>
+                <option value="Namibia">Namibia</option>
+                <option value="Nauru">Nauru</option>
+                <option value="Nepal">Nepal</option>
+                <option value="Netherlands">Netherlands</option>
+                <option value="Netherlands Antilles">Netherlands Antilles</option>
+                <option value="New Caledonia">New Caledonia</option>
+                <option value="New Zealand">New Zealand</option>
+                <option value="Nicaragua">Nicaragua</option>
+                <option value="Niger">Niger</option>
+                <option value="Nigeria">Nigeria</option>
+                <option value="Niue">Niue</option>
+                <option value="Norfolk Island">Norfolk Island</option>
+                <option value="Northern Mariana Islands">Northern Mariana Islands</option>
+                <option value="Norway">Norway</option>
+                <option value="Oman">Oman</option>
+                <option value="Pakistan">Pakistan</option>
+                <option value="Palau">Palau</option>
+                <option value="Palestinian Territory, Occupied">Palestinian Territory, Occupied</option>
+                <option value="Panama">Panama</option>
+                <option value="Papua New Guinea">Papua New Guinea</option>
+                <option value="Paraguay">Paraguay</option>
+                <option value="Peru">Peru</option>
+                <option value="Philippines">Philippines</option>
+                <option value="Pitcairn">Pitcairn</option>
+                <option value="Poland">Poland</option>
+                <option value="Portugal">Portugal</option>
+                <option value="Puerto Rico">Puerto Rico</option>
+                <option value="Qatar">Qatar</option>
+                <option value="Reunion">Reunion</option>
+                <option value="Romania">Romania</option>
+                <option value="Russian Federation">Russian Federation</option>
+                <option value="Rwanda">Rwanda</option>
+                <option value="Saint Helena">Saint Helena</option>
+                <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+                <option value="Saint Lucia">Saint Lucia</option>
+                <option value="Saint Pierre and Miquelon">Saint Pierre and Miquelon</option>
+                <option value="Saint Vincent and The Grenadines">Saint Vincent and The Grenadines</option>
+                <option value="Samoa">Samoa</option>
+                <option value="San Marino">San Marino</option>
+                <option value="Sao Tome and Principe">Sao Tome and Principe</option>
+                <option value="Saudi Arabia">Saudi Arabia</option>
+                <option value="Senegal">Senegal</option>
+                <option value="Serbia">Serbia</option>
+                <option value="Seychelles">Seychelles</option>
+                <option value="Sierra Leone">Sierra Leone</option>
+                <option value="Singapore">Singapore</option>
+                <option value="Slovakia">Slovakia</option>
+                <option value="Slovenia">Slovenia</option>
+                <option value="Solomon Islands">Solomon Islands</option>
+                <option value="Somalia">Somalia</option>
+                <option value="South Africa">South Africa</option>
+                <option value="South Georgia and The South Sandwich Islands">South Georgia and The South Sandwich Islands</option>
+                <option value="Spain">Spain</option>
+                <option value="Sri Lanka">Sri Lanka</option>
+                <option value="Sudan">Sudan</option>
+                <option value="Suriname">Suriname</option>
+                <option value="Svalbard and Jan Mayen">Svalbard and Jan Mayen</option>
+                <option value="Swaziland">Swaziland</option>
+                <option value="Sweden">Sweden</option>
+                <option value="Switzerland">Switzerland</option>
+                <option value="Syrian Arab Republic">Syrian Arab Republic</option>
+                <option value="Taiwan">Taiwan</option>
+                <option value="Tajikistan">Tajikistan</option>
+                <option value="Tanzania, United Republic of">Tanzania, United Republic of</option>
+                <option value="Thailand">Thailand</option>
+                <option value="Timor-leste">Timor-leste</option>
+                <option value="Togo">Togo</option>
+                <option value="Tokelau">Tokelau</option>
+                <option value="Tonga">Tonga</option>
+                <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+                <option value="Tunisia">Tunisia</option>
+                <option value="Turkey">Turkey</option>
+                <option value="Turkmenistan">Turkmenistan</option>
+                <option value="Turks and Caicos Islands">Turks and Caicos Islands</option>
+                <option value="Tuvalu">Tuvalu</option>
+                <option value="Uganda">Uganda</option>
+                <option value="Ukraine">Ukraine</option>
+                <option value="United Arab Emirates">United Arab Emirates</option>
+                <option value="United Kingdom">United Kingdom</option>
+                <option value="United States">United States</option>
+                <option value="United States Minor Outlying Islands">United States Minor Outlying Islands</option>
+                <option value="Uruguay">Uruguay</option>
+                <option value="Uzbekistan">Uzbekistan</option>
+                <option value="Vanuatu">Vanuatu</option>
+                <option value="Venezuela">Venezuela</option>
+                <option value="Viet Nam">Viet Nam</option>
+                <option value="Virgin Islands, British">Virgin Islands, British</option>
+                <option value="Virgin Islands, U.S.">Virgin Islands, U.S.</option>
+                <option value="Wallis and Futuna">Wallis and Futuna</option>
+                <option value="Western Sahara">Western Sahara</option>
+                <option value="Yemen">Yemen</option>
+                <option value="Zambia">Zambia</option>
+                <option value="Zimbabwe">Zimbabwe</option>
+                                </select>
+                                <div class="pointer-events-none absolute top-0 mt-3  right-0 flex items-center px-2 text-gray-600">
+                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <div class="personal w-full border-t border-gray-400 pt-4">
+                            <h2 class="text-2xl text-gray-900">Personal info:</h2>
+                            <div class="flex items-center justify-between mt-4">
+                                <div class='w-full md:w-1/2 px-3 mb-6'>
+                                    <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' >First name</label>
+                                    <input id="modify_first_name" class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' type='text'  placeholder="{{session.first_name}}" value="{{ session.first_name }}" >
+                                </div>
+                                <div class='w-full md:w-1/2 px-3 mb-6'>
+                                    <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' >Last name</label>
+                                    <input id="modify_last_name" class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' type='text' placeholder="{{session.last_name}}" value="{{ session.last_name }}" >
+                                </div>
+                            </div>
+                            <div class='w-full md:w-full px-3 mb-6'>
+                                <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>username</label>
+                                <input id="modify_username"class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' type='text' placeholder="{{session.username}}" value="{{ session.username }}"  >
+                            </div>
+                            <div class='w-full md:w-full px-3 mb-6'>
+                                <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' >BIO</label>
+                                <textarea id="modify_bio" class='bg-gray-100 rounded-md border leading-normal resize-none w-full h-20 py-2 px-3 shadow-inner border border-gray-400 font-medium placeholder-gray-700 focus:outline-none focus:bg-white' placeholder="{{session.bio}}" value="{{ session.bio }}"  ></textarea>
+                            </div>
+                            <div class="flex justify-end">
+                                <button id="modify_button" class="appearance-none bg-gray-200 text-gray-900 px-2 py-1 shadow-sm border border-gray-400 rounded-md mr-3" type="submit">save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
-            <div class="m">welcome, Steven Grant</div>
         </div>
-
-        <div id="grid_containter" class="m-5 h-5/6 z-0">
-            <div class="grid grid-cols-7 gap-1 h-5/6">
-                <div class="bg-blue col-span-2 rounded-l-lg mt-16">Menu 1</div>
-                <div class="bg-blue col-span-5 rounded-r-lg mt-16">Menu 2</div>
-            </div>
-        </div>
+    </div>
 
     </div>
     
     <!--Profile-->
+
+    <div class="p-20 bg-gray w-full hidden main-content" id="profile_area">
+
+        <div class="w-full relative max-w-md mx-auto md:max-w-full mt-20 min-w-0 break-words bg-white  mb-6 shadow-lg rounded-xl mt-16">
+            <div class="px-6">
+                <div class="flex flex-wrap justify-center">
+                    <div class="w-full flex justify-center">
+                        <div class="relative mb-4">
+                          <!-- profile ppictu -->  <img src="https://icon-library.com/images/default-user-icon/default-user-icon-13.jpg" class="shadow-xl rounded-full align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-[150px]"/>
+                        </div>
+                    </div>
+                    <!-- <div class="w-full text-center mt-20">
+                        <div class="flex justify-center lg:pt-4 pt-8 pb-0">
+                            <div class="p-3 text-center">
+                                <span class="text-xl font-bold block uppercase tracking-wide text-slate-700">3,360</span>
+                                <span class="text-sm text-red">Photos</span>
+                            </div>
+                            <div class="p-3 text-center">
+                                <span class="text-xl font-bold block uppercase tracking-wide text-slate-700">2,454</span>
+                                <span class="text-sm text-slate-400">Followers</span>
+                            </div>
+                            
+                            <div class="p-3 text-center">
+                                <span class="text-xl font-bold block uppercase tracking-wide text-slate-700">564</span>
+                                <span class="text-sm text-slate-400">Following</span>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="text-center mb-2 mt-[100px]">
+                    <h3 class="text-2xl mt-50 text-slate-700 font-bold leading-normal mb-1">{{session.first_name + " " + session.last_name}}</h3>
+                    <div class="text-xs mt-0 mb-2 text-slate-400 font-bold uppercase">
+                        <i class="fas fa-map-marker-alt mr-2 text-slate-400 opacity-75">{{session.country}}
+                    </div>
+                </div>
+                <div class="mt-6 py-6 border-t border-slate-200 text-center">
+                    <div class="flex flex-wrap justify-center">
+                        <div class="w-full px-4">
+                            <p class="font-bold leading-relaxed text-orange mb-4">{{"@" + session.username}}</p>
+                            <p class="font-light leading-relaxed text-slate-600 mb-4">{{session.bio}}</p>
+                            <a href="javascript:;" class="font-normal text-slate-700 hover:text-slate-400">{{session.email}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+    
+    
     <!-- <div class="bg-gray-200 h-screen w-full mx-50 main-content rounded-2xl" id="profile_area">
         <div class="card w-400 mx-auto bg-white  shadow-xl hover:shadow">
-           <img class="w-25 mx-auto rounded-full -mt-20 border-8 border-white" src="https://avatars.githubusercontent.com/u/67946056?v=4" alt="">
-           <div class="text-center mt-2 text-4xl font-medium"> name  </div>
-           <div class="text-center mt-2 font-light text-sm">  user id </div>
-           <div class="text-center font-normal text-lg"> bio or something </div>
-           <div class="px-6 text-center mt-2 font-light text-sm">
-             <p>
+            <img class="w-25 mx-auto rounded-full -mt-20 border-8 border-white" src="https://avatars.githubusercontent.com/u/67946056?v=4" alt="">
+            <div class="text-center mt-2 text-4xl font-medium"> name  </div>
+            <div class="text-center mt-2 font-light text-sm">  user id </div>
+            <div class="text-center font-normal text-lg"> bio or something </div>
+            <div class="px-6 text-center mt-2 font-light text-sm">
+                <p>
                Front end Developer, avid reader. Love to take a long walk, swim
              </p>
            </div>
@@ -521,13 +735,13 @@
            </div>
         </div>
     </div> -->
-    <div class="h-screen w-full mx-50 main-content rounded-2xl" id="profile_area">
+    <!-- <div class="h-screen w-full mx-50 main-content rounded-2xl" id="profile_area">
         <div class="card w-400 mx-auto bg-white shadow-xl hover:shadow test-style">
            <img class="w-25 mx-auto rounded-full -mt-20 border-8 border-white" src="https://avatars.githubusercontent.com/u/67946056?v=4" alt="">
            
            </div>
         </div>
-    </div>
+    </div> -->
     
 
 
@@ -612,7 +826,8 @@
                 var role = $("#role").val();
                 var username = $("#username").val();
                 var password = $("#password").val();
-
+                var first_name = $("#temp_acc_first_name").val();
+                var last_name = $("#temp_acc_last_name").val();
                 console.log(path);
                 console.log(slug);
                 if (username != "" && password != "" && role != "") {
@@ -623,20 +838,20 @@
                             role: role,
                             username: username,
                             password: password,
+                            first_name:first_name,
+                            last_name:last_name,
                         },
                         success: function(data) {
-                            alert(data);
+                            
                             if (data == "No-data") {
-                                alert("Account already exists");
+                                
                             } else {
                                 modal_sign_up.hide();
                                 location.reload();
                             }
                         },
                     });
-                } else {
-                    alert("All Fields are required");
-                }
+                
             });
         });
 
@@ -649,7 +864,7 @@
             burger.classList.toggle("fa-bars");
             burger.classList.toggle("fa-times");
             nav.classList.toggle("nav-active");
-        }
+        };
 
         // Calling the function after click event occurs
         burger.addEventListener("click", function() {
@@ -670,9 +885,7 @@
             $(".main-content").removeClass("hidden");
             $(".main-content").addClass("hidden");
             $("#" + content_area).removeClass("hidden");
-            $("#orange_tab").remove();
-            $(this).parent().prepend('<div id="orange_tab" class="w-2 h-[30px] mt-[10px] bg-orange fixed left rounded-r-lg"></div>');
-        });
+            });
         $(".medical-record-button").on("click", function() {
             var content_area = this.id;
             console.log(content_area);
@@ -699,32 +912,129 @@
             },
           });
         });
+        $("#upload_file_button").on("click",function(){
+            console.log("Clicked File upload button");
+            var fd= new FormData();
+            var files = $('#file')[0].files;
+            var first_name = $('#patient_first_name').val();
+            var middle_name = $('#patient_middle_name').val();
+            var last_name = $('#patient_last_name').val();
+            console.log(files[0])
+            // Check file selected or not
+            if(files.length > 0 ){
+                fd.append('file',files[0]);
+                fd.append('first_name',first_name);
+                fd.append('middle_name',middle_name);
+                fd.append('last_name',last_name);
+                $.ajax({
+                    url: "/upload",
+                    method: "POST",
+                    data:fd,
+                    processData: false,
+                    contentType: false,
+                    success: function (response) {
+                        if(response == "file upload successful"){
+                           
+                            location.reload();
+                        }
+                    },
+                });
+            };
+        });
         $("#add_temp_acc").on("click",function(){
-            var username = $('#register_username').val();
+                    var username = $('#register_username').val();
+                    var first_name = $('#register_first_name').val();
+                    var last_name = $('#register_last_name').val();
                     var roles = $('#register_roles').val();
                     var password = $('#register_password').val();
-                    if (username != '' && password != '' && roles != '') {
+                    if (username != '' && password != '' && roles != '' && first_name != '' && last_name != '') {
                         $.ajax({
                             url: "/add-temporary-acc",
                             method: "POST",
                             data: {
                                 username: username,
                                 roles: roles,
-                                password: password
+                                password: password,
+                                first_name: first_name,
+                                last_name: last_name,
                             },
                             success: function(data) {
-                                alert(data);
-                                if (data == 'No-data') {
-                                    alert("Account already exists");
-                                } else {
+                            
                                     modal_sign_up.hide();
                                     location.reload();
-                                }
+                                
                             }
                         });
+                    }
+        });
+
+        $("#modify_button").on("click",function(){
+                    console.log("modify button clicked")
+                    var email = $('#modify_email').val();
+                    var username = $('#modify_username').val();
+                    var first_name = $('#modify_first_name').val();
+                    var last_name = $('#modify_last_name').val();
+                    var country = $('#modify_country').val();
+                    var bio = $("#modify_bio").val();
+                    if (username != '' && username != '' && first_name != '' && last_name != '' && country != '') {
+                        $.ajax({
+                            url: "/update-profile",
+                            method: "POST",
+                            data: {
+                                email:email,
+                                username: username,
+                                first_name: first_name,
+                                last_name: last_name,
+                                country:country,
+                                bio:bio
+                            },
+                            success: function(data) {
+                                
+                               
+                                    modal_sign_up.hide();
+                                    location.reload();
+                            
+                            }
+                        });
+                    } 
+        });
+        $(".file-link").on("click",function(){
+            var filename = $(this).text().replace("/","");
+            
+            $.ajax({
+                url: "/download",
+                method: "POST",
+                data: {
+                    filename:filename,
+                },
+                success: function(data) {
+                    //Convert the Byte Data to BLOB object.
+                    var blob = new Blob([data], { type: "application/octetstream" });
+ 
+                    //Check the Browser type and download the File.
+                    var isIE = false || !!document.documentMode;
+                    if (isIE) {
+                        window.navigator.msSaveBlob(blob, filename);
                     } else {
-                        alert("All Fields are required");
+                        var url = window.URL || window.webkitURL;
+                        link = url.createObjectURL(blob);
+                        var a = $("<a />");
+                        a.attr("download", filename);
+                        a.attr("href", link);
+                        $("body").append(a);
+                        a[0].click();
+                        $("body").remove(a);
+                    }
                 }
+            });
+        });
+        $("#add_record_toggle_button").on("click",function(){
+            console.log("toggle button clicked");
+            if($("#add_record_div").hasClass("hidden")){
+                $("#add_record_div").removeClass("hidden");
+            }else{
+                $("#add_record_div").addClass("hidden");
+            };
         });
         
     </script>
