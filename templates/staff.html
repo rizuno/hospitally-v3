@@ -27,11 +27,11 @@
 
             <ul class="space-y-2">
                 <li>
-                    
+
                     <a id="overview_button" href="#" class="sidebar-button flex ml-[28px] mt-[25px] pt-6 gap-2 p-3 cursor-pointer text-[20px] text-gray-400 font-semibold
               hover:text-brightOrange hover:text-orange text-orange" data-target="#overview">
 
-                        <svg class="sidebar-svg mr-[7px] h-6 w-6 text-navy hover:text-orange text-orange" width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  
+                        <svg class="sidebar-svg mr-[7px] h-6 w-6  hover:text-orange text-orange" width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  
                 <path stroke="none" d="M0 0h24v24H0z"/>  
                 <circle cx="12" cy="13" r="2" />  
                 <line x1="13.45" y1="11.55" x2="15.5" y2="9.5" />  
@@ -83,7 +83,7 @@
                 <img class="rounded-full" src="https://icon-library.com/images/default-user-icon/default-user-icon-13.jpg" alt="user image" />
             </div>
             <!--name-->
-            <p class="text-center mt-6 font-bold text-2xl"><a id="profile_button" class="sidebar-button"href="#">{{session.username}}</a></p>
+            <p class="text-center mt-6 font-bold text-2xl"><a id="profile_button" class="sidebar-button hover:text-orange" href="#">{{session.username}}</a></p>
             <!--authority-->
             {% if session.as_admin%}
             <p class="text-center">Admin</p>
@@ -91,7 +91,7 @@
             <p class="text-center">User</p>
             {% endif %}
             <a id="logout_button" href="#" class="flex items-center text-base font-bold mt-9 text-gray-200 rounded-lg  hover:bg-gray-100">
-                <span class="flex-1 whitespace-nowrap fill-orange text-center">log out</span>
+                <span class="flex m-auto text-center justify-center pt-[7px] whitespace-nowrap bg-gray border-solid border-2 border-slate-600 shadow h-10 w-[150px] rounded-lg text-center hover:text-orange">log out</span>
 
             </a>
         </div>
@@ -102,45 +102,43 @@
     <div class="bg-gray w-full main-content" id="overview_area">
         <div id="info_display" class="grid grid-cols-4 gap-0">
             <div class="col-span-3 mt-10 text-center font-black text-3xl text-navy">{{session.hospital_name + " Hospital"}} </div>
-            <div class="mt-10">welcome, <span class="font-bold text-orange"> {{session.first_name + " " + session.last_name}} </span> </div>
-            
+            <div class="mt-10 ">welcome, <span class="font-bold text-orange"> {{session.first_name + " " + session.last_name}} </span> </div>
+
         </div>
 
-     
+
 
         <div id="grid_containter" class="m-5 h-5/6 z-0">
-            <div class="justify-center items-center 0 grid grid-cols-7 gap-4 h-5/6 fill-cyan-500 hover:fill-cyan-700">
-                <div class=" col-span-2 font-bold text-navy rounded row-span-2 h-[300px] w-[300px] mt-16 mr-4 ml-4">
-                    staff
-                    <div class="bg-white p-10 h-full rounded">
-                        <span class="font-bold text-orange text-5xl">{{staff_count}}</span><br>
-                        staffs
+            <div class="flex flex-row mx-auto justify-evenly items-center gap-4 h-5/6 fill-cyan-500 hover:fill-cyan-700">
+                <div class=" font-bold text-navy rounded  h-[300px] w-[300px] mt-16 mr-4 ml-4">
+                    staffs
+                    <div class="flex flex-center  justify-evenly m-auto bg-white p-10 h-full rounded">
+                        <span class="font-bold text-orange text-[150px]">{{staff_count}}</span><br> <span class="pt-[135px]">staff(s)</span>
                     </div>
                 </div>
-                <div class="ml-10 col-span-2 font-bold text-navy rounded row-span-2 h-[300px] w-[300px] mt-16 mr-4 ml-4">
+                <div class="ml-10 font-bold text-navy rounded  h-[300px] w-[300px] mt-16 mr-4 ml-4">
                     medical records
-                    <div class="bg-white p-10 h-full rounded">
-                        <span class="font-bold text-orange text-5xl">{{medical_record_count}}</span><br>
-                        files
+                    <div class="flex flex-center justify-evenly  m-auto bg-white p-10 h-full rounded">
+                        <span class="font-bold text-orange text-[150px]">{{medical_record_count}}</span><br> <span class="pt-[135px]">file(s)</span>
                     </div>
                 </div>
                 <!-- <div class="col-span-2 rounded row-span-5 mt-16 mr-4 ml-4">
                     online admins
                     <div class="bg-white h-full rounded"></div>
                 </div> -->
-    
+
             </div>
         </div>
 
     </div>
-    
+
     <!--Medical Records-->
     <div class="bg-gray w-full hidden main-content" id="medical_records_area">
         <div id="info_display" class="grid grid-cols-4 gap-3">
             <div class="col-span-3">
                 <ul class="flex h-10 ml-10 mt-10">
                     <!-- <li class="bg-orange rounded-lg p-4 shadow medical-record-button"><a href="#" id="medical_statistics ">Statistics</a></li> -->
-                    <li><a href="#" id="medical_records" class="medical-record-button bg-orange rounded-lg p-4 shadow">Medical Records</a></li>
+                    <li><a href="#" id="medical_records" class="medical-record-button text-white bg-orange rounded-lg p-4 shadow">Medical Records</a></li>
                     <!--<li><a href="#" id="medical_statistics" class="ml-2 medical-record-button bg-orange rounded-lg p-4 shadow">Statistics</a></li>-->
                 </ul>
             </div>
@@ -158,66 +156,67 @@
             </div>
         </div>
         <!--Medical Records-->
-        <div class=" p-10 medical-record-content medical_records h-100">
-            <div class="top-16 p-10 rounded-xl bg-white">
-                <div class="w-max top-2 text-xl text-yellow-600 "> <!--Add toggle button-->
+        <div class=" p-10 bg-white m-10 rounded-xl overflow-hidden shadow medical-record-content medical_records h-auto">
+            <div class=" p-10 rounded-xl ">
+                <div class="w-max top-2 text-xl text-yellow-600 ">
+                    <!--Add toggle button-->
                     <p class="w-max"><b>medical records</b></p>
                 </div>
-                <button id = "add_record_toggle_button"class="bg-green border border-green-600 shadow rounded-lg p-4 shadow" >Add a new medical </button>
-                <div class="w-[500px] mx-auto flex mt-6 gap-8">
-                    <div id="add_record_div" class="block hidden">
-                    <!-- PATIENT FIRST NAME: -->
-                    <input class="block border  border-slate-500 bg-gray-100  px-3 rounded-md w-full h-[40px] text-[20px] " type="text"
-                    id="patient_first_name" name="username" placeholder="Patient's first name" > <br><br>
-                    <!-- PATIENT MIDDLE NAME: -->
-                    <input class="block border  border-slate-500 bg-gray-100  px-3 rounded-md w-full h-[40px] text-[20px] " type="text"
-                    id="patient_middle_name" name="username" placeholder=" Patient's middle name" > <br><br>
-                    <!-- PATIENT LAST NAME: -->
-                    <input class="block border  border-slate-500 bg-gray-100  px-3 rounded-md w-full h-[40px] text-[20px] " type="text"
-                    id="patient_last_name" name="username" placeholder=" Patient's last name" > <br><br>
-                    <div class="flex flex-row">
-                        <input class="block mb-5 w-full text-xs p-2 h-10 text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer focus:outline-none" id="file" type="file">
-                        <a href="#"id="upload_file_button" ><button  class="top-2 right-10 bg-green-col border-green-600 rounded-lg h-10 p-2 w-20 shadow">add</button></a>
-                        </div>
-                    </div>
-                    
-                    </div>
-                    <div class="relative bg-white mt-10 top-16 max-h-[500px] overflow-auto shadow-md sm:rounded-lg">
-                        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 border border-slate-400 ">
-                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                                <tr>
-                                    <th scope="col" class="border border-slate-40"></th>
-                                    <th scope="col" class="px-2 py-2 border border-slate-40">First Name</th>
-                                    <th scope="col" class="px-2 py-2 border border-slate-40">Middle Name</th>
-                                    <th scope="col" class="px-2 py-2 border border-slate-40">Last Name</th>
-                                    <th scope="col" class="px-2 py-2 border border-slate-40">File </th>
-            
-                                </tr>
-                            </thead>
-    
-                            <tbody>
-                                {%for medical_record in medical_records %}
-                                <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
-                                    <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">{{loop.index}}</th>
-                                    <td class="px-2 py-2 w-28 border border-slate-40">{{medical_record["mrn_first_name"]}}</td>
-                                    <td class="px-2 py-2 border border-slate-40">{{medical_record["mrn_middle_name"]}}</</td>
-                                    <td class="px-2 py-2 border border-slate-40">{{medical_record["mrn_last_name"]}}</</td>
-                                    <td class="px-2 py-2 border border-slate-40"><a href="#" class="file-link">{{medical_record["mrn_file_name"]}}</a>/</td>
-                                </tr>
-                                {% endfor %}
-                        
-                            </tbody>
-                        </table>
-                    </div>
-                
+                <div class="border border-gray-700 shadow mb-5 rounded p-10">
 
-              
+                    <button id="add_record_toggle_button" class="flex mx-auto text-white bg-green-col border border-green-col-500 rounded-lg p-4 shadow">Add a new medical record </button>
+                    <div class="w-[550px] mx-auto flex mt-6 mb-2 ">
+                        <div id="add_record_div" class="block hidden mx-auto h-auto">
+                            <!-- PATIENT FIRST NAME: -->
+                            <input class="border  border-slate-500 bg-gray-100  px-3 rounded-md w-full h-[40px] text-[20px] " type="text" id="patient_first_name" name="username" placeholder="Patient's first name"> <br><br>
+                            <!-- PATIENT MIDDLE NAME: -->
+                            <input class=" border  border-slate-500 bg-gray-100  px-3 rounded-md w-full h-[40px] text-[20px] " type="text" id="patient_middle_name" name="username" placeholder=" Patient's middle name"> <br><br>
+                            <!-- PATIENT LAST NAME: -->
+                            <input class="border  border-slate-500 bg-gray-100  px-3 rounded-md w-full h-[40px] text-[20px] " type="text" id="patient_last_name" name="username" placeholder=" Patient's last name"> <br><br>
+                            <div class="flex flex-row">
+                                <input class="block w-full text-xs p-2 h-10 text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer focus:outline-none" id="file" type="file">
+                                <a href="#" id="upload_file_button"><button  class="top-2 right-10 mb-10 ml-5 text-white bg-green-col border-green-600 rounded-lg h-10 p-2 w-20 shadow">add</button></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="relative bg-white max-h-[500px] overflow-auto shadow-md sm:rounded-lg">
+                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 border border-slate-400 ">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" class="border border-slate-40"></th>
+                                <th scope="col" class="px-2 py-2 border border-slate-40">First Name</th>
+                                <th scope="col" class="px-2 py-2 border border-slate-40">Middle Name</th>
+                                <th scope="col" class="px-2 py-2 border border-slate-40">Last Name</th>
+                                <th scope="col" class="px-2 py-2 border border-slate-40">File </th>
+
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {%for medical_record in medical_records %}
+                            <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                                <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">{{loop.index}}</th>
+                                <td class="px-2 py-2 w-28 border border-slate-40">{{medical_record["mrn_first_name"]}}</td>
+                                <td class="px-2 py-2 border border-slate-40">{{medical_record["mrn_middle_name"]}}</</td>
+                                    <td class="px-2 py-2 border border-slate-40">{{medical_record["mrn_last_name"]}}</</td>
+                                        <td class="px-2 py-2 border border-slate-40"><a href="#" class="file-link">{{medical_record["mrn_file_name"]}}</a>/</td>
+                            </tr>
+                            {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+
+
+
             </div>
         </div>
 
 
     </div>
-    
+
 
     <div class="bg-gray w-full hidden main-content" id="departments_area">
         <div id="info_display" class="grid grid-cols-4 gap-0">
@@ -238,7 +237,7 @@
         </div>
 
     </div>
-    
+
     <!--Staff-->
     <div class="bg-gray pt-10 w-full hidden main-content px-10 mx-auto" id="staff_area">
         <div id="info_display" class="grid grid-cols-3 gap-0">
@@ -252,90 +251,85 @@
             {% endif %}
             <div class="m">welcome, <span class="font-bold text-orange">{{session.first_name + " " + session.last_name}}</span></div>
         </div>
-            <div class=" mx-auto place-items-center staff-management manage-staff h-5/6">
-                <div class="relative top-16 max-h-[500px] overflow-auto shadow-md sm:rounded-lg">
-                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 border border-slate-400 ">
-                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                            <tr>
-                                <th scope="col" class="border border-slate-40"></th>
-                                <th scope="col" class="px-2 py-2 border border-slate-40">First Name</th>
-                                <th scope="col" class="px-2 py-2 border border-slate-40">Last Name</th>
-                                <th scope="col" class="px-2 py-2 border border-slate-40">Username</th>
-                                <th scope="col" class="px-2 py-2 border border-slate-40">Role</th>
-                                <th scope="col" class="px-2 py-2 border border-slate-40">Email</th>
-        
-                            </tr>
-                        </thead>
+        <div class=" mx-auto mt-16 place-items-center staff-management manage-staff h-5/6">
+            <div class="relative max-h-[500px] overflow-auto shadow-md sm:rounded-lg">
+                <table class="w-full  text-sm text-left text-gray-500 dark:text-gray-400 border border-slate-400 ">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <tr>
+                            <th scope="col" class="border border-slate-40"></th>
+                            <th scope="col" class="px-2 py-2 border border-slate-40">First Name</th>
+                            <th scope="col" class="px-2 py-2 border border-slate-40">Last Name</th>
+                            <th scope="col" class="px-2 py-2 border border-slate-40">Username</th>
+                            <th scope="col" class="px-2 py-2 border border-slate-40">Role</th>
+                            <th scope="col" class="px-2 py-2 border border-slate-40">Email</th>
 
-                        <tbody>
-                            {%for staff in staff_list %}
-                            <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
-                                <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">{{loop.index}}</th>
-                                <td class="px-2 py-2 w-28 border border-slate-40">{{staff["user_first_name"]}}</td>
-                                <td class="px-2 py-2 border border-slate-40">{{staff["user_last_name"]}}</</td>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {%for staff in staff_list %}
+                        <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                            <th scope="row" class="px-2 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">{{loop.index}}</th>
+                            <td class="px-2 py-2 w-28 border border-slate-40">{{staff["user_first_name"]}}</td>
+                            <td class="px-2 py-2 border border-slate-40">{{staff["user_last_name"]}}</</td>
                                 <td class="px-2 py-2 border border-slate-40">{{staff["user_username"]}}</</td>
-                                <td class="px-2 py-2 border border-slate-40">{{staff["role"]}}</td>
-                                <td class="px-2 py-2 border border-slate-40">{{staff["user_email"]}}</td>
-                            </tr>
-                            {% endfor %}
-                    
-                        </tbody>
-                    </table>
-                </div>
+                                    <td class="px-2 py-2 border border-slate-40">{{staff["role"]}}</td>
+                                    <td class="px-2 py-2 border border-slate-40">{{staff["user_email"]}}</td>
+                        </tr>
+                        {% endfor %}
+
+                    </tbody>
+                </table>
             </div>
-            <div class=" mx-auto justify place-items-center staff-management add-staff hidden h-5/6">
-                <div id="add" class="tabcontent">
-                    <!-- start content of create acc -->
-                    <div class="fa-align-center place-items-center mt-20 mx-auto ">
-                     <h2 class="text-4xl font-bold text-orange ">create an account</h2>
-                     <!--to give access to hospital users-->
-    
-                     <div class="flex flex-col justify-center">
-    
-                         <div class="flex flex-col justify-center">
-                             <p>
-                                 give access to hospital users under this hospital
-                                </p>
-                                
-                                <!-- ROLES: -->
-                                <input class="block mt-3  border border-slate-500 bg-gray-100 mt-10 rounded-md px-3 w-[500px] h-[40px] text-[20px] " type="text"
-                                id="register_roles" name="roles" placeholder="roles" > 
-                                
-                                <!-- USERNAME: -->
-                                <input class="block mt-3 border  border-slate-500 bg-gray-100  px-3 rounded-md w-[500px] h-[40px] text-[20px] " type="text"
-                                id="register_username" name="username" placeholder=" username" > 
+        </div>
+        <div class=" mx-auto justify place-items-center staff-management add-staff hidden h-5/6">
+            <div id="add" class="tabcontent">
+                <!-- start content of create acc -->
+                <div class="fa-align-center place-items-center mt-20 mx-auto ">
+                    <h2 class="text-4xl font-bold text-orange ">create an account</h2>
+                    <!--to give access to hospital users-->
 
-                                <!-- FIRST NAME: -->
-                                <input class="block mt-3  border border-slate-500 bg-gray-100 px-3  rounded-md w-[500px] h-[40px] text-[20px] " type="text"
-                                id="register_first_name" name="first_name" placeholder=" first name" > 
+                    <div class="flex flex-col justify-center">
 
-                                <!-- LAST NAME: -->
-                                <input class="block mt-3  border border-slate-500 bg-gray-100 px-3  rounded-md w-[500px] h-[40px] text-[20px] " type="text"
-                                id="register_last_name" name="last_name" placeholder=" last name" > 
-                                <!-- PASSWORD: -->
-                                <input class="block mt-3  border border-slate-500 bg-gray-100 px-3  rounded-md w-[500px] h-[40px] text-[20px] " type="password"
-                                id="register_password" name="password" placeholder=" password" > <br><br>
-                                
-                                <a href="#"><button id="add_temp_acc" class="block  bg-green-col border-bg-green-600 rounded-md
+                        <div class="flex flex-col justify-center">
+                            <p>
+                                give access to hospital users under this hospital
+                            </p>
+
+                            <!-- ROLES: -->
+                            <input class="block mt-3  border border-slate-500 bg-gray-100 mt-10 rounded-md px-3 w-[500px] h-[40px] text-[20px] " type="text" id="register_roles" name="roles" placeholder="roles">
+
+                            <!-- USERNAME: -->
+                            <input class="block mt-3 border  border-slate-500 bg-gray-100  px-3 rounded-md w-[500px] h-[40px] text-[20px] " type="text" id="register_username" name="username" placeholder=" username">
+
+                            <!-- FIRST NAME: -->
+                            <input class="block mt-3  border border-slate-500 bg-gray-100 px-3  rounded-md w-[500px] h-[40px] text-[20px] " type="text" id="register_first_name" name="first_name" placeholder=" first name">
+
+                            <!-- LAST NAME: -->
+                            <input class="block mt-3  border border-slate-500 bg-gray-100 px-3  rounded-md w-[500px] h-[40px] text-[20px] " type="text" id="register_last_name" name="last_name" placeholder=" last name">
+                            <!-- PASSWORD: -->
+                            <input class="block mt-3  border border-slate-500 bg-gray-100 px-3  rounded-md w-[500px] h-[40px] text-[20px] " type="password" id="register_password" name="password" placeholder=" password"> <br><br>
+
+                            <a href="#"><button id="add_temp_acc" class="block  bg-green-col border-bg-green-600 rounded-md
                                     text-white text-[18px] w-[240px] h-[35px] text-center no-underline
                                     inline-block px-1">add temporary account</button></a>
-                                </div>
-                            </div>
-                            </div> 
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    </div>
+    </div>
 
-        
-    
-        
 
-        
-        <!--History-->
-        <div class="bg-gray w-full hidden main-content" id="history_area">
-            <div id="info_display" class="grid grid-cols-4 gap-0">
+
+
+
+
+    <!--History-->
+    <div class="bg-gray w-full hidden main-content" id="history_area">
+        <div id="info_display" class="grid grid-cols-4 gap-0">
             <div class="col-span-3">
             </div>
             <div class="m">welcome, <span class="font-bold text-orange">{{session.first_name + " " + session.last_name}}</span></div>
@@ -348,21 +342,21 @@
         </div>
 
     </div>
-    
+
     <!--Setting-->
     <div class="bg-gray w-full hidden main-content" id="settings_area">
         <!-- component -->
-    <div class="bg-gray-200 min-h-screen pt-2 font-mono my-16">
-        <div class="container">
-            <div class="inputs max-w-2xl p-6 mx-auto">
-                <h2 class="text-2xl text-gray-900">Account Setting</h2>
-                <form class="mt-6 border-t border-gray-400 pt-4">
-                    <div class='flex flex-wrap -mx-3 mb-6'>
-                        <div class='w-full md:w-full px-3 mb-6'>
-                            <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' for='grid-text-1'>email address</label>
-                            <input class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' id='modify_email' type='text' placeholder='{{ session.email }}' value="{{ session.email }}"  >
-                        </div>
-                        <!--
+        <div class="bg-gray-200 min-h-screen pt-2 font-mono my-16">
+            <div class="container">
+                <div class="inputs max-w-2xl p-6 mx-auto">
+                    <h2 class="text-2xl text-gray-900">Account Setting</h2>
+                    <form class="mt-6 border-t border-gray-400 pt-4">
+                        <div class='flex flex-wrap -mx-3 mb-6'>
+                            <div class='w-full md:w-full px-3 mb-6'>
+                                <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' for='grid-text-1'>email address</label>
+                                <input class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' id='modify_email' type='text' placeholder='{{ session.email }}' value="{{ session.email }}">
+                            </div>
+                            <!--
                             <div class='w-full md:w-full px-3 mb-6 '>
                             <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>old password</label>
                             <input class='appearance-none mb-4 block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' id='old_password' type='password' placeholder='Old password'  >
@@ -371,10 +365,10 @@
                             <button id="change_pass_button" class="appearance-none bg-gray-200 text-gray-900 px-2 py-1 shadow-sm border border-gray-400 rounded-md ">change your password</button>
                             </div>
                         -->
-                        <div class='w-full md:w-full px-3 mb-6'>
-                            <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>pick your country</label>
-                            <div class="flex-shrink w-full inline-block relative">
-                                <select id="modify_country" class="block appearance-none text-gray-600 w-full bg-white border border-gray-400 shadow-inner px-4 py-2 pr-8 rounded">
+                            <div class='w-full md:w-full px-3 mb-6'>
+                                <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>pick your country</label>
+                                <div class="flex-shrink w-full inline-block relative">
+                                    <select id="modify_country" class="block appearance-none text-gray-600 w-full bg-white border border-gray-400 shadow-inner px-4 py-2 pr-8 rounded">
                                     <option>{{ session.country }}</option>
                                     <option>choose ...</option>
                                     <option value="Afghanistan">Afghanistan</option>
@@ -622,44 +616,45 @@
                 <option value="Zambia">Zambia</option>
                 <option value="Zimbabwe">Zimbabwe</option>
                                 </select>
-                                <div class="pointer-events-none absolute top-0 mt-3  right-0 flex items-center px-2 text-gray-600">
-                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                                    <div class="pointer-events-none absolute top-0 mt-3  right-0 flex items-center px-2 text-gray-600">
+                                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="personal w-full border-t border-gray-400 pt-4">
+                                <h2 class="text-2xl text-gray-900">Personal info:</h2>
+                                <div class="flex items-center justify-between mt-4">
+                                    <div class='w-full md:w-1/2 px-3 mb-6'>
+                                        <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>First name</label>
+                                        <input id="modify_first_name" class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' type='text' placeholder="{{session.first_name}}"
+                                            value="{{ session.first_name }}">
+                                    </div>
+                                    <div class='w-full md:w-1/2 px-3 mb-6'>
+                                        <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>Last name</label>
+                                        <input id="modify_last_name" class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' type='text' placeholder="{{session.last_name}}" value="{{ session.last_name }}">
+                                    </div>
+                                </div>
+                                <div class='w-full md:w-full px-3 mb-6'>
+                                    <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>username</label>
+                                    <input id="modify_username" class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' type='text' placeholder="{{session.username}}" value="{{ session.username }}">
+                                </div>
+                                <div class='w-full md:w-full px-3 mb-6'>
+                                    <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>BIO</label>
+                                    <textarea id="modify_bio" class='bg-gray-100 rounded-md border leading-normal resize-none w-full h-20 py-2 px-3 shadow-inner border border-gray-400 font-medium placeholder-gray-700 focus:outline-none focus:bg-white' placeholder="{{session.bio}}" value="">{{ session.bio }}</textarea>
+                                </div>
+                                <div class="flex justify-end">
+                                    <button id="modify_button" class="appearance-none bg-gray-200 text-gray-900 px-2 py-1 shadow-sm border border-gray-400 rounded-md mr-3" type="submit">save changes</button>
                                 </div>
                             </div>
                         </div>
-        
-                        <div class="personal w-full border-t border-gray-400 pt-4">
-                            <h2 class="text-2xl text-gray-900">Personal info:</h2>
-                            <div class="flex items-center justify-between mt-4">
-                                <div class='w-full md:w-1/2 px-3 mb-6'>
-                                    <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' >First name</label>
-                                    <input id="modify_first_name" class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' type='text'  placeholder="{{session.first_name}}" value="{{ session.first_name }}" >
-                                </div>
-                                <div class='w-full md:w-1/2 px-3 mb-6'>
-                                    <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' >Last name</label>
-                                    <input id="modify_last_name" class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' type='text' placeholder="{{session.last_name}}" value="{{ session.last_name }}" >
-                                </div>
-                            </div>
-                            <div class='w-full md:w-full px-3 mb-6'>
-                                <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>username</label>
-                                <input id="modify_username"class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' type='text' placeholder="{{session.username}}" value="{{ session.username }}"  >
-                            </div>
-                            <div class='w-full md:w-full px-3 mb-6'>
-                                <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' >BIO</label>
-                                <textarea id="modify_bio" class='bg-gray-100 rounded-md border leading-normal resize-none w-full h-20 py-2 px-3 shadow-inner border border-gray-400 font-medium placeholder-gray-700 focus:outline-none focus:bg-white' placeholder="{{session.bio}}" value="{{ session.bio }}"  ></textarea>
-                            </div>
-                            <div class="flex justify-end">
-                                <button id="modify_button" class="appearance-none bg-gray-200 text-gray-900 px-2 py-1 shadow-sm border border-gray-400 rounded-md mr-3" type="submit">save changes</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
 
     </div>
-    
+
     <!--Profile-->
 
     <div class="p-20 bg-gray w-full hidden main-content" id="profile_area">
@@ -669,7 +664,7 @@
                 <div class="flex flex-wrap justify-center">
                     <div class="w-full flex justify-center">
                         <div class="relative mb-4">
-                          <!-- profile ppictu -->  <img src="https://icon-library.com/images/default-user-icon/default-user-icon-13.jpg" class="shadow-xl rounded-full align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-[150px]"/>
+                            <!-- profile ppictu --><img src="https://icon-library.com/images/default-user-icon/default-user-icon-13.jpg" class="shadow-xl rounded-full align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-[150px]" />
                         </div>
                     </div>
                     <!-- <div class="w-full text-center mt-20">
@@ -700,8 +695,8 @@
                     <div class="flex flex-wrap justify-center">
                         <div class="w-full px-4">
                             <p class="font-bold leading-relaxed text-orange mb-4">{{"@" + session.username}}</p>
-                            <p class="font-light leading-relaxed text-slate-600 mb-4">{{session.bio}}</p>
-                            <a href="javascript:;" class="font-normal text-slate-700 hover:text-slate-400">{{session.email}}</a>
+                            <p class="font-light leading-relaxed border rounded-lg border-grey p-6 m-6 text-slate-600 mb-4">{{session.bio}}</p>
+                            <a href="mailto: {{session.email}}" class="font-bold mt-24 text-slate-700 hover:text-slate-400">{{session.email}}</a>
                         </div>
                     </div>
                 </div>
@@ -842,13 +837,8 @@
                             last_name:last_name,
                         },
                         success: function(data) {
-                            
-                            if (data == "No-data") {
-                                
-                            } else {
-                                modal_sign_up.hide();
-                                location.reload();
-                            }
+                        
+                            location.reload();
                         },
                     });
                 
@@ -875,12 +865,12 @@
         $(".sidebar-button").on("click", function() {
             var content_area = this.id.replace("_button", "_area");
             $(".sidebar-svg").removeClass("text-orange");
-            $(".sidebar-svg").addClass("text-gray-400");
+            $(".sidebar-svg").addClass("text-navy");
             $(".sidebar-button").removeClass("text-orange");
-            $(".sidebar-button").addClass("text-gray-400");
-            $(this).removeClass("text-gray-400");
+            $(".sidebar-button").addClass("text-navy");
+            $(this).removeClass("text-navy");
             $(this).addClass("text-orange");
-            $(this).children('svg').removeClass("text-gray-400");
+            $(this).children('svg').removeClass("text-navy");
             $(this).children('svg').addClass("text-orange");
             $(".main-content").removeClass("hidden");
             $(".main-content").addClass("hidden");
@@ -960,7 +950,7 @@
                             },
                             success: function(data) {
                             
-                                    modal_sign_up.hide();
+                                 
                                     location.reload();
                                 
                             }
@@ -999,33 +989,38 @@
                     } 
         });
         $(".file-link").on("click",function(){
-            var filename = $(this).text().replace("/","");
-            
+            var fileName = $(this).text().replace("/","");
+            console.log(fileName);
             $.ajax({
                 url: "/download",
-                method: "POST",
+                method: "GET",
                 data: {
-                    filename:filename,
+                    filename:fileName,
                 },
-                success: function(data) {
-                    //Convert the Byte Data to BLOB object.
-                    var blob = new Blob([data], { type: "application/octetstream" });
- 
-                    //Check the Browser type and download the File.
-                    var isIE = false || !!document.documentMode;
-                    if (isIE) {
-                        window.navigator.msSaveBlob(blob, filename);
-                    } else {
-                        var url = window.URL || window.webkitURL;
-                        link = url.createObjectURL(blob);
-                        var a = $("<a />");
-                        a.attr("download", filename);
-                        a.attr("href", link);
-                        $("body").append(a);
-                        a[0].click();
-                        $("body").remove(a);
-                    }
-                }
+                responseType: 'arraybuffer',
+                success: function (data) {
+                    alert("downloading")
+                    // var bytes = data;
+
+                    // //Convert Byte Array to BLOB.
+                    // var blob = new Blob([bytes], { type: "application/octetstream" });
+
+                    // //Check the Browser type and download the File.
+                    // var isIE = false || !!document.documentMode;
+                    // if (isIE) {
+                    //     window.navigator.msSaveBlob(blob, fileName);
+                    // } else {
+                    //     var url = window.URL || window.webkitURL;
+                    //     link = url.createObjectURL(blob);
+                    //     var a = $("<a />");
+                    //     a.attr("download", fileName);
+                    //     a.attr("href", link);
+                    //     $("body").append(a);
+                    //     a[0].click();
+                    //     $("body").remove(a);
+                    // }
+                    
+                },
             });
         });
         $("#add_record_toggle_button").on("click",function(){
@@ -1040,4 +1035,4 @@
     </script>
 </body>
 
-</html>
+</html

@@ -9,6 +9,7 @@ from flask import (
     session,
     send_from_directory,
     jsonify,
+    send_file
 )
 from flask_mysqldb import MySQL
 from flask_bcrypt import Bcrypt
@@ -146,11 +147,11 @@ def portal_home(hospital_slug, action=None):
 
 @app.route("/download", methods=["GET", "POST"])
 def download():
-
-    filename = request.form["filename"]
-
+    filename = request.args.get('filename')
+    path = os.path.join(app.config["UPLOAD_FOLDER"], filename)
     print(filename)
-    return send_from_directory(directory=app.config["UPLOAD_FOLDER"], path=filename)
+    # return send_from_directory(directory=app.config["UPLOAD_FOLDER"], path=filename)
+    return redirect(send_file( path, as_attachment=True))
 
 
 @app.route("/<hospital_name>/login", methods=["POST"])
@@ -332,7 +333,7 @@ def login_post():
             print(rs_password)
             if (
                 bcrypt.check_password_hash(rs_password, password)
-                and account["user_authority"] == "admin"
+                and account["user_authority"]=="admin"
             ):
                 session["logged_in"] = True
                 session["username"] = username
@@ -346,7 +347,13 @@ def login_post():
                 session["email"] = account["user_email"]
                 print("ADMIN SET")
                 msg = "success yes"
-            else:
+            elif (
+                bcrypt.check_password_hash(rs_password, password)
+                and account["user_authority"]=="general_user"
+            ):  
+                print("-----------------------TEST")
+                print(bcrypt.check_password_hash(rs_password, password))
+                print(account["user_authority"]=="general_user")
                 session["logged_in"] = True
                 session["username"] = username
                 session["user_id"] = account["user_id"]
@@ -359,12 +366,14 @@ def login_post():
                 session["email"] = account["user_email"]
                 print("GENERAL USER SET")
                 msg = "Account is not an admin"
+            else:
+                print("password is not correct")
         elif total_row > 0 and session["portal_id"] == "home":
             rs_password = account["user_password_hash"]
             print(rs_password)
             if (
                 bcrypt.check_password_hash(rs_password, password)
-                and account["user_authority"] == "admin"
+                and account["user_authority"]=="admin"
             ):
                 session["logged_in"] = True
                 session["username"] = username
@@ -377,11 +386,17 @@ def login_post():
                 session["country"] = account["user_country"]
                 session["email"] = account["user_email"]
                 msg = "success yes"
-            else:
-                print("ACCOUNT STATUS")
-                print(account["user_authority"])
+            elif (
+                bcrypt.check_password_hash(rs_password, password)
+                and account["user_authority"]=="general_user"
+            ):
                 print("account is not an admin")
-                msg = "your account is not an admin. please log in to your respective portal "
+
+            else: 
+                 print("wrong password")
+            
+               
+            
         else:
             print("no-data")
             msg = "No-data"
@@ -549,6 +564,7 @@ def upload_file():
         filename = secure_filename(f.filename)
         path = os.path.join(app.config["UPLOAD_FOLDER"], filename)
         random_id = random.randint(1, 100000)
+        f.seek(0)
         f.save(path)
         cur.execute(
             f"INSERT INTO tbl_medical_records_new VALUES ({random_id}, {session.get('portal_id')}, '{patient_first_name}', '{patient_middle_name}', '{patient_last_name}', '{filename}', '{path}')"
@@ -583,6 +599,7 @@ def update_profile():
         session["first_name"] = first_name
         session["last_name"] = last_name
         session["country"] = country
+        session["email"] = email
         msg = "successfully updated profile"
     else:
         msg = "file upload failed"
