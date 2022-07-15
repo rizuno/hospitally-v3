@@ -201,7 +201,7 @@
                                 <td class="px-2 py-2 w-28 border border-slate-40">{{medical_record["mrn_first_name"]}}</td>
                                 <td class="px-2 py-2 border border-slate-40">{{medical_record["mrn_middle_name"]}}</</td>
                                     <td class="px-2 py-2 border border-slate-40">{{medical_record["mrn_last_name"]}}</</td>
-                                        <td class="px-2 py-2 border border-slate-40"><a href="#" class="file-link">{{medical_record["mrn_file_name"]}}</a>/</td>
+                                        <td class="px-2 py-2 border border-slate-40"><a href="{{url_for('download')+ '?filename=' + medical_record['mrn_file_name']}}" class="file-link">{{medical_record["mrn_file_name"]}}</a>/</td>
                             </tr>
                             {% endfor %}
 
@@ -988,41 +988,7 @@
                         });
                     } 
         });
-        $(".file-link").on("click",function(){
-            var fileName = $(this).text().replace("/","");
-            console.log(fileName);
-            $.ajax({
-                url: "/download",
-                method: "GET",
-                data: {
-                    filename:fileName,
-                },
-                responseType: 'arraybuffer',
-                success: function (data) {
-                    
-                    var bytes = data;
-                    console.log(bytes)
-                    // //Convert Byte Array to BLOB.
-                    // var blob = new Blob([bytes], { type: "application/octetstream" });
-
-                    // //Check the Browser type and download the File.
-                    // var isIE = false || !!document.documentMode;
-                    // if (isIE) {
-                    //     window.navigator.msSaveBlob(blob, fileName);
-                    // } else {
-                    //     var url = window.URL || window.webkitURL;
-                    //     link = url.createObjectURL(blob);
-                    //     var a = $("<a />");
-                    //     a.attr("download", fileName);
-                    //     a.attr("href", link);
-                    //     $("body").append(a);
-                    //     a[0].click();
-                    //     $("body").remove(a);
-                    // }
-                    
-                },
-            });
-        });
+        
         $("#add_record_toggle_button").on("click",function(){
             console.log("toggle button clicked");
             if($("#add_record_div").hasClass("hidden")){
