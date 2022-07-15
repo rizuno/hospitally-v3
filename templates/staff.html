@@ -999,9 +999,9 @@
                 },
                 responseType: 'arraybuffer',
                 success: function (data) {
-                    alert("downloading")
-                    // var bytes = data;
-
+                    
+                    var bytes = data;
+                    console.log(bytes)
                     // //Convert Byte Array to BLOB.
                     // var blob = new Blob([bytes], { type: "application/octetstream" });
 

@@ -9,7 +9,8 @@ from flask import (
     session,
     send_from_directory,
     jsonify,
-    send_file
+    send_file,
+    Response
 )
 from flask_mysqldb import MySQL
 from flask_bcrypt import Bcrypt
@@ -21,7 +22,7 @@ from datetime import date
 from slugify import slugify
 from werkzeug.utils import secure_filename
 import os
-
+import io
 app = Flask(__name__)
 
 app.config["MYSQL_HOST"] = "188.166.215.64"
@@ -149,9 +150,11 @@ def portal_home(hospital_slug, action=None):
 def download():
     filename = request.args.get('filename')
     path = os.path.join(app.config["UPLOAD_FOLDER"], filename)
-    print(filename)
-    # return send_from_directory(directory=app.config["UPLOAD_FOLDER"], path=filename)
-    return redirect(send_file( path, as_attachment=True))
+    return send_from_directory(app.config['UPLOAD_FOLDER'],filename,as_attachment=True)
+    # return Response(file)
+    # print(filename)
+    # # return send_from_directory(directory=app.config["UPLOAD_FOLDER"], path=filename)
+    # return redirect(send_file( path, as_attachment=True))
 
 
 @app.route("/<hospital_name>/login", methods=["POST"])
